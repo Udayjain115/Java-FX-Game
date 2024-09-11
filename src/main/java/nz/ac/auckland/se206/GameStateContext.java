@@ -58,15 +58,14 @@ public class GameStateContext {
       randomProfessions.add(profession);
     }
 
-    String[] randomProfessionsArray = randomProfessions.toArray(new String[3]);
+    // String[] randomProfessionsArray = randomProfessions.toArray(new String[3]);
     rectanglesToProfession = new HashMap<>();
-    rectanglesToProfession.put("rectPerson1", randomProfessionsArray[0]);
-    rectanglesToProfession.put("rectPerson2", randomProfessionsArray[1]);
-    rectanglesToProfession.put("rectPerson3", randomProfessionsArray[2]);
+    rectanglesToProfession.put("policeman", "policeman");
+    rectanglesToProfession.put("bankManager", "bankManager");
+    rectanglesToProfession.put("janitor", "janitor");
+    rectanglesToProfession.put("clue", "clue");
 
-    int randomNumber = random.nextInt(3);
-    rectIdToGuess =
-        randomNumber == 0 ? "rectPerson1" : ((randomNumber == 1) ? "rectPerson2" : "rectPerson3");
+    rectIdToGuess = "policeman";
     professionToGuess = rectanglesToProfession.get(rectIdToGuess);
   }
 
