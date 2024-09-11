@@ -16,9 +16,16 @@ import nz.ac.auckland.se206.GameStateContext;
 public class CrimeSceneController {
 
   @FXML private Button btnGuess;
+  @FXML private Rectangle cameraRectangle;
+  @FXML private Rectangle rulebookRectangle;
+  @FXML private Rectangle evidenceRectangle;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
+
+  private boolean cameraClicked = false;
+  private boolean rulebookClicked = false;
+  private boolean evidenceClicked = false;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -29,7 +36,7 @@ public class CrimeSceneController {
     if (isFirstTimeInit) {
       btnGuess.setDisable(
           true); // Disable the guess button until the user has spoken to all suspects and
-                 // interacted with all clues?
+      // interacted with all clues?
 
       // TO-DO ADD ANY INITIALISATION CODE HERE
       isFirstTimeInit = false;
@@ -44,6 +51,30 @@ public class CrimeSceneController {
   @FXML
   public void onKeyPressed(KeyEvent event) {
     System.out.println("Key " + event.getCode() + " pressed");
+  }
+
+  @FXML
+  public void checkGuess() {
+    if (cameraClicked && rulebookClicked && evidenceClicked) {
+      btnGuess.setDisable(false);
+    } else {
+      btnGuess.setDisable(true);
+    }
+  }
+
+  public void cameraClick() {
+    cameraClicked = true;
+    checkGuess();
+  }
+
+  public void rulebookClick() {
+    rulebookClicked = true;
+    checkGuess();
+  }
+
+  public void evidenceClick() {
+    evidenceClicked = true;
+    checkGuess();
   }
 
   /**

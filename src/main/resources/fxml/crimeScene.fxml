@@ -4,24 +4,37 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 
 <Pane fx:id="room" focusTraversable="true" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleased" prefHeight="599.0" prefWidth="789.0" style="-fx-background-color: #A9A9A9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CrimeSceneController">
    <children>
-      <ImageView fitHeight="599.0" fitWidth="789.0">
-         <image>
-            <Image url="@../images/Leonardo_Kino_XL_A_luxuriously_ransacked_Bank_Vault_its_once_s_1.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="btnGuess" layoutX="316.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleGuessClick" text="Make a Guess" />
-      <ImageView fitHeight="104.0" fitWidth="89.0" layoutX="200.0" layoutY="29.0">
-         <image>
-            <Image url="@../images/610-GJaV33L-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="89.0" fitWidth="128.0" layoutX="200.0" layoutY="463.0">
-         <image>
-            <Image url="@../images/Throwbookopen2-removebg-preview.png" />
-         </image>
-      </ImageView>
+      <Pane fx:id="crimeScenePane">
+         <children>
+            <ImageView fitHeight="599.0" fitWidth="789.0">
+               <image>
+                  <Image url="@../images/Leonardo_Kino_XL_A_luxuriously_ransacked_Bank_Vault_its_once_s_1.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnGuess" layoutX="316.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleGuessClick" text="Make a Guess" />
+            <ImageView fitHeight="104.0" fitWidth="89.0" layoutX="200.0" layoutY="29.0">
+               <image>
+                  <Image url="@../images/610-GJaV33L-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="89.0" fitWidth="128.0" layoutX="136.0" layoutY="449.0">
+               <image>
+                  <Image url="@../images/Throwbookopen2-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="104.0" fitWidth="150.0" layoutX="405.0" layoutY="504.0">
+               <image>
+                  <Image url="@../images/ZN177-FRONT-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Rectangle fx:id="cameraRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutX="206.0" layoutY="54.0" onMouseClicked="#cameraClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="80.0" />
+            <Rectangle fx:id="rulebookRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="144.0" layoutY="461.0" onMouseClicked="#rulebookClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
+            <Rectangle fx:id="evidenceRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutX="402.0" layoutY="529.0" onMouseClicked="#evidenceClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+         </children>
+      </Pane>
    </children>
 </Pane>
