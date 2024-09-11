@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.GameStateContext;
 
@@ -16,6 +17,8 @@ import nz.ac.auckland.se206.GameStateContext;
 public class CrimeSceneController {
 
   @FXML private Button btnGuess;
+  @FXML private Pane crimeScenePane;
+  @FXML private Pane evidencePane;
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
@@ -34,8 +37,9 @@ public class CrimeSceneController {
   @FXML
   public void initialize() {
     if (isFirstTimeInit) {
-      btnGuess.setDisable(
-          true); // Disable the guess button until the user has spoken to all suspects and
+      btnGuess.setDisable(true);
+      evidencePane.setVisible(
+          false); // Disable the guess button until the user has spoken to all suspects and
       // interacted with all clues?
 
       // TO-DO ADD ANY INITIALISATION CODE HERE
@@ -73,7 +77,10 @@ public class CrimeSceneController {
   }
 
   public void evidenceClick() {
+
     evidenceClicked = true;
+    crimeScenePane.setVisible(false);
+    evidencePane.setVisible(true);
     checkGuess();
   }
 
