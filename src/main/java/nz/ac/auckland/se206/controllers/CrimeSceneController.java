@@ -18,7 +18,6 @@ public class CrimeSceneController {
 
   @FXML private Button btnGuess;
   @FXML private Pane crimeScenePane;
-  @FXML private Pane evidencePane;
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
@@ -38,8 +37,7 @@ public class CrimeSceneController {
   public void initialize() {
     if (isFirstTimeInit) {
       btnGuess.setDisable(true);
-      evidencePane.setVisible(
-          false); // Disable the guess button until the user has spoken to all suspects and
+      // Disable the guess button until the user has spoken to all suspects and
       // interacted with all clues?
 
       // TO-DO ADD ANY INITIALISATION CODE HERE
@@ -79,8 +77,7 @@ public class CrimeSceneController {
   public void evidenceClick() {
 
     evidenceClicked = true;
-    crimeScenePane.setVisible(false);
-    evidencePane.setVisible(true);
+
     checkGuess();
   }
 
