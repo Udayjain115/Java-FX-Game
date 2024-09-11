@@ -4,12 +4,10 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.GameStateContext;
-import nz.ac.auckland.se206.speech.TextToSpeech;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -17,12 +15,6 @@ import nz.ac.auckland.se206.speech.TextToSpeech;
  */
 public class CrimeSceneController {
 
-  @FXML private Rectangle rectCashier;
-  @FXML private Rectangle rectPerson1;
-  @FXML private Rectangle rectPerson2;
-  @FXML private Rectangle rectPerson3;
-  @FXML private Rectangle rectWaitress;
-  @FXML private Label lblProfession;
   @FXML private Button btnGuess;
 
   private static boolean isFirstTimeInit = true;
@@ -35,11 +27,13 @@ public class CrimeSceneController {
   @FXML
   public void initialize() {
     if (isFirstTimeInit) {
-      TextToSpeech.speak(
-          "Chat with the three customers, and guess who is the " + context.getProfessionToGuess());
+      btnGuess.setDisable(
+          true); // Disable the guess button until the user has spoken to all suspects and
+                 // interacted with all clues?
+
+      // TO-DO ADD ANY INITIALISATION CODE HERE
       isFirstTimeInit = false;
     }
-    lblProfession.setText(context.getProfessionToGuess());
   }
 
   /**
