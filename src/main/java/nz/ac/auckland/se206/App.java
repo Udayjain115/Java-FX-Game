@@ -3,14 +3,11 @@ package nz.ac.auckland.se206;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import nz.ac.auckland.se206.controllers.ChatController;
-import nz.ac.auckland.se206.speech.FreeTextToSpeech;
+import nz.ac.auckland.se206.controllers.RoomController;
 
 /**
  * This is the entry point of the JavaFX application. This class initializes and runs the JavaFX
@@ -19,6 +16,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
+  private static FXMLLoader loader;
 
   /**
    * The main method that launches the JavaFX application.
@@ -48,7 +46,8 @@ public class App extends Application {
    * @throws IOException if the FXML file is not found
    */
   private static Parent loadFxml(final String fxml) throws IOException {
-    return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml")).load();
+    loader = new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml"));
+    return loader.load();
   }
 
   /**
@@ -59,16 +58,9 @@ public class App extends Application {
    * @throws IOException if the FXML file is not found
    */
   public static void openChat(MouseEvent event, String profession) throws IOException {
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/chat.fxml"));
-    Parent root = loader.load();
 
-    ChatController chatController = loader.getController();
-    chatController.setProfession(profession);
-
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(root);
-    stage.setScene(scene);
-    stage.show();
+    RoomController roomController = loader.getController();
+    roomController.setProfession(profession);
   }
 
   /**
@@ -79,15 +71,10 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    Parent root = loadFxml("room");
+    Parent root = loadFxml("start");
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
-    stage.setOnCloseRequest(event -> handleWindowClose(event));
     root.requestFocus();
-  }
-
-  private void handleWindowClose(WindowEvent event) {
-    FreeTextToSpeech.deallocateSynthesizer();
   }
 }

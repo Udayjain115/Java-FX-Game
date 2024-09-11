@@ -32,11 +32,7 @@ public class GameOver implements GameState {
    */
   @Override
   public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {
-    if (rectangleId.equals("rectCashier") || rectangleId.equals("rectWaitress")) {
-      return;
-    }
-    String clickedProfession = context.getProfession(rectangleId);
-    TextToSpeech.speak("Game Over, you have already guessed! This is the " + clickedProfession);
+    TextToSpeech.speak("The game is over. You're not allowed to guess!");
   }
 
   /**
@@ -47,6 +43,6 @@ public class GameOver implements GameState {
    */
   @Override
   public void handleGuessClick() throws IOException {
-    TextToSpeech.speak("You have already guessed!");
+    TextToSpeech.speak("You have already had your opportunity to guess!");
   }
 }
