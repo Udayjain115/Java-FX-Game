@@ -20,6 +20,7 @@ public class CrimeSceneController {
   @FXML private Pane crimeScenePane;
   @FXML private Pane evidencePane;
   @FXML private Pane suspectFingerprintPane;
+  @FXML private Pane vaultFingerprintPane;
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
@@ -49,6 +50,7 @@ public class CrimeSceneController {
 
     evidencePane.setVisible(false);
     suspectFingerprintPane.setVisible(false);
+    vaultFingerprintPane.setVisible(false);
   }
 
   /**
@@ -79,7 +81,14 @@ public class CrimeSceneController {
   @FXML
   public void backToEvidence() {
     evidencePane.setVisible(true);
+    vaultFingerprintPane.setVisible(false);
     suspectFingerprintPane.setVisible(false);
+  }
+
+  @FXML
+  public void vaultFingerprintClick() {
+    evidencePane.setVisible(false);
+    vaultFingerprintPane.setVisible(true);
   }
 
   @FXML
