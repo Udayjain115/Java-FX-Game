@@ -19,6 +19,7 @@ public class CrimeSceneController {
   @FXML private Button btnGuess;
   @FXML private Pane crimeScenePane;
   @FXML private Pane evidencePane;
+  @FXML private Pane suspectFingerprintPane;
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
@@ -45,7 +46,9 @@ public class CrimeSceneController {
       isFirstTimeInit = false;
     }
     crimeScenePane.setVisible(true);
+
     evidencePane.setVisible(false);
+    suspectFingerprintPane.setVisible(false);
   }
 
   /**
@@ -68,6 +71,18 @@ public class CrimeSceneController {
   }
 
   @FXML
+  public void suspectFingerprintClick() {
+    evidencePane.setVisible(false);
+    suspectFingerprintPane.setVisible(true);
+  }
+
+  @FXML
+  public void backToEvidence() {
+    evidencePane.setVisible(true);
+    suspectFingerprintPane.setVisible(false);
+  }
+
+  @FXML
   public void cameraClick() {
     cameraClicked = true;
     checkGuess();
@@ -75,7 +90,6 @@ public class CrimeSceneController {
 
   @FXML
   public void rulebookClick() {
-    System.out.println("Rulebook clicked");
     rulebookClicked = true;
     checkGuess();
   }

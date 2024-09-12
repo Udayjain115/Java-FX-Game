@@ -54,12 +54,71 @@
       </Pane>
       <Pane fx:id="evidencePane">
          <children>
-            <ImageView fitHeight="562.0" fitWidth="1008.0">
+            <ImageView fx:id="suspectFingerprints" fitHeight="562.0" fitWidth="1008.0">
                <image>
                   <Image url="@../images/istockphoto-479520746-612x612-removebg-preview.png" />
                </image>
             </ImageView>
             <Button layoutX="68.0" layoutY="492.0" mnemonicParsing="false" onMouseClicked="#shutDown" text="Shut Down" />
+            <ImageView fx:id="suspectFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="80.0" onMouseClicked="#suspectFingerprintClick">
+               <image>
+                  <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="51.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suspect Fingerprints" />
+            <ImageView fx:id="vaultFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="197.0">
+               <image>
+                  <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="57.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vault Fingerprints" />
+            <ImageView fx:id="forensicRules" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="332.0">
+               <image>
+                  <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+               </image>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text layoutX="50.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forensics Team Rules" />
+            <ImageView fx:id="investigationLog" fitHeight="77.0" fitWidth="75.0" layoutX="227.0" layoutY="80.0">
+               <image>
+                  <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="217.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Investigation Log" />
+         </children>
+      </Pane>
+      <Pane fx:id="suspectFingerprintPane">
+         <children>
+            <ImageView fitHeight="562.0" fitWidth="1008.0">
+               <image>
+                  <Image url="@../images/istockphoto-479520746-612x612-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="117.0" layoutY="161.0">
+               <image>
+                  <Image url="@../images/Fingerprint3-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="388.0" layoutY="148.0">
+               <image>
+                  <Image url="@../images/Fingerprint2-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="180.0" fitWidth="200.0" layoutX="689.0" layoutY="165.0">
+               <image>
+                  <Image url="@../images/FingerPrint4-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="77.0" layoutY="490.0" mnemonicParsing="false" onMouseClicked="#backToEvidence" prefHeight="17.0" prefWidth="68.0" text="Back" />
+            <Text layoutX="328.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suspect Fingerprints" textAlignment="CENTER" wrappingWidth="290.83673095703125">
+               <font>
+                  <Font name="Agency FB" size="40.0" />
+               </font>
+            </Text>
+            <Text layoutX="145.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Police Officer" />
+            <Text layoutX="754.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Manager" />
+            <Text layoutX="471.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Janitor" />
          </children>
       </Pane>
    </children>
