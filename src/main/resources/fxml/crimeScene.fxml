@@ -120,6 +120,36 @@
             </ImageView>
          </children>
       </Pane>
+      <Pane fx:id="investigationLogPane">
+         <children>
+            <ImageView fitHeight="562.0" fitWidth="1008.0">
+               <image>
+                  <Image url="@../images/istockphoto-479520746-612x612-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="457.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Investigation Log ">
+               <font>
+                  <Font name="Agency FB Bold" size="23.0" />
+               </font>
+            </Text>
+            <Button layoutX="70.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#backToEvidence" prefHeight="25.0" prefWidth="61.0" text="Back" />
+         </children>
+      </Pane>
+      <Pane fx:id="forensicsRulesPane">
+         <children>
+            <ImageView fitHeight="562.0" fitWidth="1008.0">
+               <image>
+                  <Image url="@../images/istockphoto-479520746-612x612-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="70.0" layoutY="488.0" mnemonicParsing="false" onMouseClicked="#backToEvidence" prefHeight="25.0" prefWidth="61.0" text="Back" />
+            <Text layoutX="393.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules For Forensics Team">
+               <font>
+                  <Font name="Agency FB Bold" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
       <Pane fx:id="evidencePane">
          <children>
             <ImageView fitHeight="562.0" fitWidth="1008.0">
@@ -140,7 +170,7 @@
                </image>
             </ImageView>
             <Text layoutX="57.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vault Fingerprints" />
-            <ImageView fx:id="forensicRules" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="332.0">
+            <ImageView fx:id="forensicRules" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="332.0" onMouseClicked="#forensicRulesClick">
                <image>
                   <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
                </image>
@@ -148,7 +178,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
             <Text layoutX="50.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forensics Team Rules" />
-            <ImageView fx:id="investigationLog" fitHeight="77.0" fitWidth="75.0" layoutX="227.0" layoutY="80.0">
+            <ImageView fx:id="investigationLog" fitHeight="77.0" fitWidth="75.0" layoutX="227.0" layoutY="80.0" onMouseClicked="#investigationLogClick">
                <image>
                   <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
                </image>
