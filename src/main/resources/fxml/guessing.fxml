@@ -16,11 +16,11 @@
             <Image url="@../images/guessingIMG.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="text" layoutX="791.0" layoutY="14.0" prefHeight="383.0" prefWidth="200.0" />
+      <TextArea fx:id="text" layoutX="791.0" layoutY="14.0" prefHeight="383.0" prefWidth="200.0" wrapText="true" />
       <TextField fx:id="textInput" layoutX="791.0" layoutY="410.0" />
-      <Button fx:id="btnSend" layoutX="942.0" layoutY="410.0" mnemonicParsing="false" onAction="#onSendMessage" text="Button" />
-      <Rectangle fx:id="police" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutY="5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="237.0" />
-      <Rectangle fx:id="manager" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutX="237.0" layoutY="6.0" stroke="TRANSPARENT" strokeType="INSIDE" width="261.0" />
+      <Button fx:id="btnSend" layoutX="942.0" layoutY="410.0" mnemonicParsing="false" text="Button" />
+      <Rectangle fx:id="police" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutY="5.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="237.0" />
+      <Rectangle fx:id="manager" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutX="237.0" layoutY="6.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="261.0" />
       <Rectangle fx:id="janitor" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutX="498.0" layoutY="6.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="277.0" />
    </children>
 </Pane>

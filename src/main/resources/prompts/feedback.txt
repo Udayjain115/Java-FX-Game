@@ -1,0 +1,5 @@
+A police officer has stolen the jewels. We know this because the camera logs show the officer in the vault before the crime was reported.
+We also know this because the police officers fingerprints were found at the scene of the crime.
+Tell me I am right if I identify both of these clues or wrong if I only identify one or none. 
+Along with telling me if I am right or wrong, give me feedback on my reasoning.
+
