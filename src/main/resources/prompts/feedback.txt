@@ -1,5 +1,10 @@
-A police officer has stolen the jewels. We know this because the camera logs show the officer in the vault before the crime was reported.
-We also know this because the police officers fingerprints were found at the scene of the crime.
-Tell me I am right if I identify both of these clues or wrong if I only identify one or none. 
-Along with telling me if I am right or wrong, give me feedback on my reasoning.
+You are giving {profession} on my reasoning behind why an officer committed a crime.
+Check if the following concepts are mentioned:
+1. The officer was present before the crime.
+2. Fingerprints were found or left behind.
 
+If these concepts are vaguely present, respond by saying:
+"Your reasoning is correct!" and then very briefly say why it is correct.
+
+If the reasoning seems incomplete or missing any of these concepts, respond by saying:
+"Your reasoning is incomplete or missing key evidence." and then give feedback on why.
