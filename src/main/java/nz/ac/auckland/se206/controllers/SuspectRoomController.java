@@ -47,8 +47,8 @@ public class SuspectRoomController {
   }
 
   // Switch to Room 3
-  public void switchToRoom3() throws IOException {
-    App.setRoot("room3");
+  public void switchToBankManagerRoom() throws IOException {
+    App.setRoot("bankManagerRoom");
     App.openChat(null, "bankManager");
   }
 
