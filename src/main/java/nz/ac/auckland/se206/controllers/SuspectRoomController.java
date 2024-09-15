@@ -40,10 +40,9 @@ public class SuspectRoomController {
     App.openChat(null, "policeman");
   }
 
-  public void switchToRoom2() throws IOException {
+  public void switchToJanitorRoom() throws IOException {
     // Now switch rooms
-    System.out.println("Switching to room 2");
-    App.setRoot("room2");
+    App.setRoot("janitorRoom");
     App.openChat(null, "janitor");
   }
 

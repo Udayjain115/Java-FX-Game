@@ -22,7 +22,7 @@
             <Font name="Berlin Sans FB" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="goToJanitor" layoutX="275.0" layoutY="433.0" mnemonicParsing="false" onAction="#switchToRoom2" text="Go to Janitor's">
+      <Button fx:id="goToJanitor" layoutX="275.0" layoutY="433.0" mnemonicParsing="false" onAction="#switchToJanitorRoom" text="Go to Janitor's">
          <font>
             <Font name="Berlin Sans FB" size="14.0" />
          </font>
