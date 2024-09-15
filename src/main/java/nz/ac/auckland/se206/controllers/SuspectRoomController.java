@@ -53,6 +53,11 @@ public class SuspectRoomController {
     App.openChat(null, "bankManager");
   }
 
+  // Switch to Room 3
+  public void switchToCrimeScene() throws IOException {
+    App.setRoot("crimeScene");
+  }
+
   /**
    * Generates the system prompt based on the profession.
    *
