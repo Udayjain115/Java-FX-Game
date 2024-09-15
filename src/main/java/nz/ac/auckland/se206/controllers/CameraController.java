@@ -48,6 +48,28 @@ public class CameraController {
       back.setDisable(true);
     }
     
+    
+  }
+
+  public void onGoForward(){
+    if(count == 4){
+      twocam.setVisible(true);
+      forward.setDisable(true);
+      count++;
+      return;
+    }else if(count == 3){
+      onecam.setVisible(true);
+      count++;
+      return;
+    }else if(count == 2){
+      twelvecam.setVisible(true);
+      count++;
+      return;
+    }else if(count == 1){
+      elevencam.setVisible(true);
+      count++;
+      back.setDisable(false);
+    }
   }
 
 

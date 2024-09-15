@@ -9,6 +9,6 @@ public class StartScreenController {
 
   @FXML
   private void start(ActionEvent event) throws IOException {
-    App.setRoot("camera");
+    App.setRoot("crimeScene");
   }
 }
