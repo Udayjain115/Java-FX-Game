@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CameraController">
+   <children>
+      <ImageView fx:id="tencam" fitHeight="338.0" fitWidth="599.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/10_camera.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="elevencam" fitHeight="338.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/11_camera.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="twelvecam" fitHeight="337.0" fitWidth="599.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/12_camera.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="onepm" fitHeight="337.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/13_camera.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="twopm" fitHeight="378.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/14_camera.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="exit" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="37.0" layoutX="22.0" layoutY="23.0" stroke="TRANSPARENT" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="back" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="65.0" layoutX="9.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="49.0" />
+      <Rectangle fx:id="forward" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="65.0" layoutX="537.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="49.0" />
+   </children>
+</Pane>
