@@ -8,6 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import nz.ac.auckland.se206.GameStateContext;
 
 /**
@@ -21,6 +22,13 @@ public class CrimeSceneController {
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
+  @FXML private Rectangle rulebookCloseButton;
+
+  // Rules book
+  @FXML private Rectangle rulesBackground;
+  @FXML private Rectangle rulesCloseBackground;
+  @FXML private Text crossText;
+  @FXML private Text rulesText;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -28,6 +36,7 @@ public class CrimeSceneController {
   private boolean cameraClicked = false;
   private boolean rulebookClicked = false;
   private boolean evidenceClicked = false;
+  private boolean isRulebookOpen = false;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -112,5 +121,32 @@ public class CrimeSceneController {
   @FXML
   private void handleGuessClick(ActionEvent event) throws IOException {
     context.handleGuessClick();
+  }
+
+  /** Handles the event when the rulebook is clicked. */
+  @FXML
+  public void openRuleBook() {
+    // Set opacity to 1.0 to show the rulebook
+    System.out.println("Opening rulebook");
+
+    rulesBackground.setOpacity(1.0);
+    rulesCloseBackground.setOpacity(1.0);
+    crossText.setOpacity(1.0);
+    rulesText.setOpacity(1.0);
+    isRulebookOpen = true;
+  }
+
+  /** Handles the event when the close button (X) is clicked. */
+  @FXML
+  public void closeRuleBook() {
+
+    // Set opacity to 0.0 to hide the rulebook
+    rulesBackground.setOpacity(0);
+    rulesCloseBackground.setOpacity(0);
+    crossText.setOpacity(0);
+    rulesText.setOpacity(0);
+
+    // Rulebook is now closed
+    isRulebookOpen = false;
   }
 }

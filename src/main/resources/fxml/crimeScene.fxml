@@ -5,6 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
 <Pane fx:id="room" focusTraversable="true" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleased" prefHeight="562.0" prefWidth="1008.0" style="-fx-background-color: #A9A9A9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CrimeSceneController">
    <children>
@@ -32,8 +33,12 @@
                </image>
             </ImageView>
             <Rectangle fx:id="cameraRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutX="251.0" layoutY="55.0" onMouseClicked="#cameraClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="75.0" />
-            <Rectangle fx:id="rulebookRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="214.0" layoutY="446.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
+            <Rectangle fx:id="rulebookRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="214.0" layoutY="446.0" onMouseClicked="#openRuleBook" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
             <Rectangle fx:id="evidenceRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="64.0" layoutX="405.0" layoutY="493.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+            <Rectangle fx:id="rulesBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="409.0" layoutX="271.0" layoutY="55.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="526.0" />
+            <Text fx:id="rulesText" layoutX="512.0" layoutY="75.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules" />
+            <Rectangle fx:id="rulesCloseBackground" arcHeight="5.0" arcWidth="5.0" fill="#a5b9cc" height="25.0" layoutX="755.0" layoutY="78.0" onMouseClicked="#closeRuleBook" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+            <Text fx:id="crossText" layoutX="765.0" layoutY="95.0" onMouseClicked="#closeRuleBook" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X" />
          </children>
       </Pane>
    </children>
