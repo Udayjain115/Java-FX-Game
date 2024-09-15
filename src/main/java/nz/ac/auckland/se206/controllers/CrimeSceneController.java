@@ -117,8 +117,8 @@ public class CrimeSceneController {
   }
 
   // Switch to Room 1
-  public void switchToRoom1() throws IOException {
-    App.setRoot("room1");
+  public void switchToCopRoom() throws IOException {
+    App.setRoot("copRoom");
     App.openChat(null, "policeman");
   }
 }
