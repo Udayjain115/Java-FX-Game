@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="nz.ac.auckland.se206.controllers.SuspectRoomController">
+   <children>
+      <Button text="Go to Room 1" onAction="#switchToRoom1" layoutX="100" layoutY="100"/>
+   </children>
+</AnchorPane>
