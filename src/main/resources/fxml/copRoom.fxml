@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.SuspectRoomController">
@@ -27,5 +28,13 @@
             <Font name="Berlin Sans FB" size="14.0" />
          </font>
       </Button>
+      <!-- Menu Button -->
+      <Button fx:id="menuButton" onAction="#toggleMenu" text="≡" />
+      <!-- Menu Items (Initially hidden in controller logic) -->
+      <VBox fx:id="menuBox" spacing="10" visible="false">
+         <Button onAction="#switchToJanitorRoom" text="Janitor Cupboard" />
+         <Button onAction="#switchToBankManagerRoom" text="Bank Manager Office" />
+         <Button onAction="#switchToCrimeScene" text="Crime Scene" />
+      </VBox>
    </children>
 </Pane>

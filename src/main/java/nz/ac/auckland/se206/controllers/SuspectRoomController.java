@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
@@ -26,13 +27,49 @@ public class SuspectRoomController {
   @FXML private TextArea text;
   @FXML private TextField textInput;
   @FXML private Button goToJanitor;
+  @FXML private VBox menuBox; // Root layout of the scene
+
   private String profession;
   private ChatCompletionRequest chatCompletionRequest;
   private String professionTalking;
-
   private String currentPersonTalking;
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
+  private VBox dropDownMenu; // The container for the drop-down items
+  private boolean isMenuVisible = false; // Tracks menu visibility
+
+  public void initialize() {
+    // Create the menu button
+    Button menuButton = new Button("≡"); // This is the "hamburger" button
+    menuButton.setStyle("-fx-font-size: 20px; -fx-background-color: transparent;");
+
+    // Create the drop-down menu container
+    dropDownMenu = new VBox(10);
+    dropDownMenu.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 10px;");
+    dropDownMenu.setVisible(false); // Initially hidden
+
+    // Add menu items to the drop-down menu
+    Button homeButton = new Button("Home");
+    Button aboutButton = new Button("About");
+    Button servicesButton = new Button("Services");
+    Button contactButton = new Button("Contact");
+
+    // Add buttons to the drop-down menu
+    dropDownMenu.getChildren().addAll(homeButton, aboutButton, servicesButton, contactButton);
+
+    // Toggle visibility of the drop-down menu on button click
+    menuButton.setOnAction(e -> toggleMenu());
+
+    // Add the menu button and the drop-down menu to the root container
+    menuBox.getChildren().addAll(menuButton, dropDownMenu);
+  }
+
+  @FXML
+  // Function to toggle the visibility of the drop-down menu
+  private void toggleMenu() {
+    isMenuVisible = !isMenuVisible;
+    dropDownMenu.setVisible(isMenuVisible);
+  }
 
   // Switch to Room 1
   public void switchToCopRoom() throws IOException {
