@@ -15,6 +15,9 @@ public class RulebookController {
   @FXML private ImageView dustImage;
   @FXML private ImageView dustImage2;
 
+  private boolean isDustOff1 = false;
+  private boolean isDustOff2 = false;
+
   private ImageCursor dustBrushCursor;
 
   @FXML
@@ -49,17 +52,24 @@ public class RulebookController {
   }
 
   public void dustClickedOn() {
-    FadeTransition ft = new FadeTransition(Duration.millis(1000), dustImage);
-    ft.setFromValue(1.0);
-    ft.setToValue(0.0);
-    ft.play();
+
+    if (!isDustOff1) {
+      FadeTransition ft = new FadeTransition(Duration.millis(1000), dustImage);
+      ft.setFromValue(1.0);
+      ft.setToValue(0.0);
+      ft.play();
+      isDustOff1 = true;
+    }
   }
 
   public void dustClickedOn2() {
-    FadeTransition ft2 = new FadeTransition(Duration.millis(1000), dustImage2);
-    ft2.setFromValue(1.0);
-    ft2.setToValue(0.0);
-    ft2.play();
+    if (!isDustOff2) {
+      FadeTransition ft2 = new FadeTransition(Duration.millis(1000), dustImage2);
+      ft2.setFromValue(1.0);
+      ft2.setToValue(0.0);
+      ft2.play();
+      isDustOff2 = true;
+    }
   }
 
   /**
