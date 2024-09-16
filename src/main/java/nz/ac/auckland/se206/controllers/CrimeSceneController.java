@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 
 /**
@@ -123,30 +124,25 @@ public class CrimeSceneController {
     context.handleGuessClick();
   }
 
-  /** Handles the event when the rulebook is clicked. */
+  /**
+   * Handles the event when the rulebook is clicked.
+   *
+   * @throws IOException
+   */
   @FXML
-  public void openRuleBook() {
+  public void openRuleBook() throws IOException {
     // Set opacity to 1.0 to show the rulebook
     System.out.println("Opening rulebook");
-
-    rulesBackground.setOpacity(1.0);
-    rulesCloseBackground.setOpacity(1.0);
-    crossText.setOpacity(1.0);
-    rulesText.setOpacity(1.0);
-    isRulebookOpen = true;
+    App.setRoot("ruleBook");
   }
 
-  /** Handles the event when the close button (X) is clicked. */
+  /**
+   * Handles the event when the close button (X) is clicked.
+   *
+   * @throws IOException
+   */
   @FXML
-  public void closeRuleBook() {
-
-    // Set opacity to 0.0 to hide the rulebook
-    rulesBackground.setOpacity(0);
-    rulesCloseBackground.setOpacity(0);
-    crossText.setOpacity(0);
-    rulesText.setOpacity(0);
-
-    // Rulebook is now closed
-    isRulebookOpen = false;
+  public void closeRuleBook() throws IOException {
+    App.setRoot("crimeScene");
   }
 }

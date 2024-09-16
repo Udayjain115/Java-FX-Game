@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="room" focusTraversable="true" prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.RulebookController">
+   <children>
+      <!-- Background image of the scene (without dust) -->
+      <ImageView fx:id="backgroundImage" fitHeight="562.0" fitWidth="1008.0">
+         <image>
+            <Image url="@../images/Leonardo_Kino_XL_A_luxuriously_ransacked_Bank_Vault_its_once_s_1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="505.0" fitWidth="879.0" layoutX="182.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/book.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="557.0" layoutY="104.0" prefHeight="319.0" prefWidth="223.0">
+         <children>
+            <ImageView fitHeight="319.0" fitWidth="223.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ruletext.png" />
+               </image>
+            </ImageView>
+            
+                        <!-- Canvas for drawing the dust and user erasing it -->
+            <Canvas fx:id="canvas" height="319.0" layoutY="44.0" width="223.0" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
