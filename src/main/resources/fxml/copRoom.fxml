@@ -23,15 +23,10 @@
             <Font name="Berlin Sans FB" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="goToJanitor" layoutX="275.0" layoutY="433.0" mnemonicParsing="false" onAction="#switchToJanitorRoom" text="Go to Janitor's">
-         <font>
-            <Font name="Berlin Sans FB" size="14.0" />
-         </font>
-      </Button>
       <!-- Menu Button -->
       <Button fx:id="menuButton" onAction="#toggleMenu" text="≡" />
       <!-- Menu Items (Initially hidden in controller logic) -->
-      <VBox fx:id="menuBox" spacing="10" visible="false">
+      <VBox fx:id="menuBox" layoutY="26.0" spacing="0" visible="false">
          <Button onAction="#switchToJanitorRoom" text="Janitor Cupboard" />
          <Button onAction="#switchToBankManagerRoom" text="Bank Manager Office" />
          <Button onAction="#switchToCrimeScene" text="Crime Scene" />

@@ -35,40 +35,14 @@ public class SuspectRoomController {
   private String currentPersonTalking;
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
-  private VBox dropDownMenu; // The container for the drop-down items
+
   private boolean isMenuVisible = false; // Tracks menu visibility
-
-  public void initialize() {
-    // Create the menu button
-    Button menuButton = new Button("≡"); // This is the "hamburger" button
-    menuButton.setStyle("-fx-font-size: 20px; -fx-background-color: transparent;");
-
-    // Create the drop-down menu container
-    dropDownMenu = new VBox(10);
-    dropDownMenu.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 10px;");
-    dropDownMenu.setVisible(false); // Initially hidden
-
-    // Add menu items to the drop-down menu
-    Button homeButton = new Button("Home");
-    Button aboutButton = new Button("About");
-    Button servicesButton = new Button("Services");
-    Button contactButton = new Button("Contact");
-
-    // Add buttons to the drop-down menu
-    dropDownMenu.getChildren().addAll(homeButton, aboutButton, servicesButton, contactButton);
-
-    // Toggle visibility of the drop-down menu on button click
-    menuButton.setOnAction(e -> toggleMenu());
-
-    // Add the menu button and the drop-down menu to the root container
-    menuBox.getChildren().addAll(menuButton, dropDownMenu);
-  }
 
   @FXML
   // Function to toggle the visibility of the drop-down menu
   private void toggleMenu() {
     isMenuVisible = !isMenuVisible;
-    dropDownMenu.setVisible(isMenuVisible);
+    menuBox.setVisible(isMenuVisible);
   }
 
   // Switch to Room 1
