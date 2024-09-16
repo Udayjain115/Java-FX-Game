@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import nz.ac.auckland.se206.controllers.RoomController;
+import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
 /**
  * This is the entry point of the JavaFX application. This class initializes and runs the JavaFX
@@ -59,8 +59,8 @@ public class App extends Application {
    */
   public static void openChat(MouseEvent event, String profession) throws IOException {
 
-    RoomController roomController = loader.getController();
-    roomController.setProfession(profession);
+    SuspectRoomController suspectRoomController = loader.getController();
+    suspectRoomController.setProfession(profession);
   }
 
   /**

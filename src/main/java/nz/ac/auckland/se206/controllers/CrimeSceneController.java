@@ -8,6 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 
 /**
@@ -17,6 +18,7 @@ import nz.ac.auckland.se206.GameStateContext;
 public class CrimeSceneController {
 
   @FXML private Button btnGuess;
+  @FXML private Button switchButton;
   @FXML private Pane crimeScenePane;
   @FXML private Pane evidencePane;
   @FXML private Pane suspectFingerprintPane;
@@ -169,5 +171,11 @@ public class CrimeSceneController {
   @FXML
   private void handleGuessClick(ActionEvent event) throws IOException {
     context.handleGuessClick();
+  }
+
+  // Switch to Room 1
+  public void switchToCopRoom() throws IOException {
+    App.setRoot("copRoom");
+    App.openChat(null, "policeman");
   }
 }

@@ -50,6 +50,7 @@
             <Rectangle fx:id="cameraRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutX="251.0" layoutY="55.0" onMouseClicked="#cameraClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="75.0" />
             <Rectangle fx:id="rulebookRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="214.0" layoutY="446.0" onMouseClicked="#rulebookClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
             <Rectangle fx:id="evidenceRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="153.0" layoutX="455.0" layoutY="394.0" onMouseClicked="#evidenceClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="185.0" />
+            <Button fx:id="switchButton" layoutX="578.0" layoutY="510.0" mnemonicParsing="false" onAction="#switchToCopRoom" text="Go to Cop"/>
          </children>
       </Pane>
       <Pane fx:id="suspectFingerprintPane">
