@@ -6,6 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -50,7 +51,6 @@
             <Rectangle fx:id="cameraRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutX="251.0" layoutY="55.0" onMouseClicked="#cameraClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="75.0" />
             <Rectangle fx:id="rulebookRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="214.0" layoutY="446.0" onMouseClicked="#rulebookClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
             <Rectangle fx:id="evidenceRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="153.0" layoutX="455.0" layoutY="394.0" onMouseClicked="#evidenceClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="185.0" />
-            <Button fx:id="switchButton" layoutX="578.0" layoutY="510.0" mnemonicParsing="false" onAction="#switchToCopRoom" text="Go to Cop"/>
          </children>
       </Pane>
       <Pane fx:id="suspectFingerprintPane">
@@ -192,5 +192,14 @@
             <Button layoutX="70.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#backToEvidence" prefHeight="25.0" prefWidth="61.0" text="Back" />
          </children>
       </Pane>
+      
+      <!-- Menu Button -->
+      <Button fx:id="menuButton" onAction="#toggleMenu" text="≡" />
+      <!-- Menu Items (Initially hidden in controller logic) -->
+      <VBox fx:id="menuBox" layoutY="26.0" spacing="0" visible="false">
+         <Button onAction="#switchToCopRoom" text="Cop in Hallway" />
+         <Button onAction="#switchToJanitorRoom" text="Janitor Cupboard" />
+         <Button onAction="#switchToBankManagerRoom" text="Bank Manager Office" />
+      </VBox>
    </children>
 </Pane>
