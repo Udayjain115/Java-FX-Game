@@ -18,6 +18,11 @@ public class CrimeSceneController {
 
   @FXML private Button btnGuess;
   @FXML private Pane crimeScenePane;
+  @FXML private Pane evidencePane;
+  @FXML private Pane suspectFingerprintPane;
+  @FXML private Pane vaultFingerprintPane;
+  @FXML private Pane forensicsRulesPane;
+  @FXML private Pane investigationLogPane;
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
@@ -43,6 +48,13 @@ public class CrimeSceneController {
       // TO-DO ADD ANY INITIALISATION CODE HERE
       isFirstTimeInit = false;
     }
+    crimeScenePane.setVisible(true);
+
+    evidencePane.setVisible(false);
+    suspectFingerprintPane.setVisible(false);
+    vaultFingerprintPane.setVisible(false);
+    forensicsRulesPane.setVisible(false);
+    investigationLogPane.setVisible(false);
   }
 
   /**
@@ -64,21 +76,66 @@ public class CrimeSceneController {
     }
   }
 
+  @FXML
+  public void suspectFingerprintClick() {
+    evidencePane.setVisible(false);
+    suspectFingerprintPane.setVisible(true);
+  }
+
+  @FXML
+  public void backToEvidence() {
+    evidencePane.setVisible(true);
+    vaultFingerprintPane.setVisible(false);
+    suspectFingerprintPane.setVisible(false);
+    forensicsRulesPane.setVisible(false);
+    investigationLogPane.setVisible(false);
+  }
+
+  @FXML
+  public void forensicRulesClick() {
+    evidencePane.setVisible(false);
+    forensicsRulesPane.setVisible(true);
+  }
+
+  @FXML
+  public void investigationLogClick() {
+    evidencePane.setVisible(false);
+    investigationLogPane.setVisible(true);
+  }
+
+  @FXML
+  public void vaultFingerprintClick() {
+    evidencePane.setVisible(false);
+    vaultFingerprintPane.setVisible(true);
+  }
+
+  @FXML
   public void cameraClick() {
     cameraClicked = true;
     checkGuess();
   }
 
+  @FXML
   public void rulebookClick() {
     rulebookClicked = true;
     checkGuess();
   }
 
+  @FXML
   public void evidenceClick() {
+
+    crimeScenePane.setVisible(false);
+    evidencePane.setVisible(true);
 
     evidenceClicked = true;
 
     checkGuess();
+  }
+
+  @FXML
+  public void shutDown() {
+    crimeScenePane.setVisible(true);
+    evidencePane.setVisible(false);
   }
 
   /**
