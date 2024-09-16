@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -18,17 +17,15 @@
             <Image url="@../images/book.png" />
          </image>
       </ImageView>
-      <Pane layoutX="557.0" layoutY="104.0" prefHeight="319.0" prefWidth="223.0">
-         <children>
-            <ImageView fitHeight="319.0" fitWidth="223.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/ruletext.png" />
-               </image>
-            </ImageView>
-            
-                        <!-- Canvas for drawing the dust and user erasing it -->
-            <Canvas fx:id="canvas" height="319.0" layoutY="44.0" width="223.0" />
-         </children>
-      </Pane>
+      <ImageView fx:id="dustImage" fitHeight="419.0" fitWidth="378.0" layoutX="204.0" onMouseClicked="#dustClickedOn" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dust.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dustImage2" fitHeight="419.0" fitWidth="378.0" layoutX="462.0" layoutY="80.0" onMouseClicked="#dustClickedOn" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dust.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
