@@ -37,7 +37,6 @@ public class CrimeSceneController {
   private boolean cameraClicked = false;
   private boolean rulebookClicked = false;
   private boolean evidenceClicked = false;
-  private boolean isRulebookOpen = false;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions

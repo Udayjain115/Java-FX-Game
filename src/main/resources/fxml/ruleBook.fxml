@@ -17,12 +17,22 @@
             <Image url="@../images/book.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="dustImage" fitHeight="419.0" fitWidth="378.0" layoutX="204.0" onMouseClicked="#dustClickedOn" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="298.0" fitWidth="220.0" layoutX="316.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rules_page_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="271.0" fitWidth="248.0" layoutX="570.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rules_page_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dustImage" fitHeight="388.0" fitWidth="405.0" layoutX="159.0" layoutY="48.0" onMouseClicked="#dustClickedOn" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dust.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="dustImage2" fitHeight="419.0" fitWidth="378.0" layoutX="462.0" layoutY="80.0" onMouseClicked="#dustClickedOn" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="dustImage2" fitHeight="408.0" fitWidth="375.0" layoutX="545.0" layoutY="29.0" onMouseClicked="#dustClickedOn2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dust.png" />
          </image>
