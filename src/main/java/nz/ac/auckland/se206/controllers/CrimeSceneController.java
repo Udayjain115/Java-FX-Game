@@ -130,18 +130,6 @@ public class CrimeSceneController {
    */
   @FXML
   public void openRuleBook() throws IOException {
-    // Set opacity to 1.0 to show the rulebook
-    System.out.println("Opening rulebook");
     App.setRoot("ruleBook");
-  }
-
-  /**
-   * Handles the event when the close button (X) is clicked.
-   *
-   * @throws IOException
-   */
-  @FXML
-  public void closeRuleBook() throws IOException {
-    App.setRoot("crimeScene");
   }
 }
