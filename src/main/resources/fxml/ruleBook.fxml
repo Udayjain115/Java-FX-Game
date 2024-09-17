@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<Pane fx:id="room" focusTraversable="true" prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.RulebookController">
+   <children>
+      <!-- Background image of the scene (without dust) -->
+      <ImageView fx:id="backgroundImage" fitHeight="562.0" fitWidth="1008.0">
+         <image>
+            <Image url="@../images/Leonardo_Kino_XL_A_luxuriously_ransacked_Bank_Vault_its_once_s_1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="505.0" fitWidth="879.0" layoutX="182.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/book.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="205.0" fitWidth="179.0" layoutX="316.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rules_page_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="219.0" fitWidth="208.0" layoutX="578.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rules_page_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dustImage" fitHeight="388.0" fitWidth="405.0" layoutX="157.0" layoutY="44.0" onMouseClicked="#dustClickedOn" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dust.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dustImage2" fitHeight="408.0" fitWidth="375.0" layoutX="545.0" layoutY="89.0" onMouseClicked="#dustClickedOn2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dust.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff301f" height="55.0" layoutX="803.0" layoutY="14.0" onMouseClicked="#closeRulebook" opacity="0.33" stroke="BLACK" strokeType="INSIDE" width="170.0" />
+      <ImageView fitHeight="41.0" fitWidth="155.0" layoutX="810.0" layoutY="20.0" onMouseClicked="#closeRulebook" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/exit.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

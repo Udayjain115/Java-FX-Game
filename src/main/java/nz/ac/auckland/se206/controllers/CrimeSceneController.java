@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 
@@ -30,6 +31,13 @@ public class CrimeSceneController {
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
   @FXML private VBox menuBox; // Root layout of the scene
+  @FXML private Rectangle rulebookCloseButton;
+
+  // Rules book
+  @FXML private Rectangle rulesBackground;
+  @FXML private Rectangle rulesCloseBackground;
+  @FXML private Text crossText;
+  @FXML private Text rulesText;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -174,6 +182,16 @@ public class CrimeSceneController {
   @FXML
   private void handleGuessClick(ActionEvent event) throws IOException {
     context.handleGuessClick();
+  }
+
+  /**
+   * Handles the event when the rulebook is clicked.
+   *
+   * @throws IOException
+   */
+  @FXML
+  public void openRuleBook() throws IOException {
+    App.setRoot("ruleBook");
   }
 
   // Switch to Room 1
