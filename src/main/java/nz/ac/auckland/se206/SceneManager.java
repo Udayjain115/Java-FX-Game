@@ -13,15 +13,19 @@ public class SceneManager {
         START,
         RULEBOOK,
         CRIME_SCENE,
+        COP,
+        JANITOR,
+        BANK_MANAGER,
     }
-    private static boolean isCrimeSceneOpened = false;
     private static HashMap<AppUi, Parent> sceneMap = new HashMap<>();
+    private static HashMap<AppUi, Object> controllerMap = new HashMap<>();
 
     public static void addUi(AppUi appUi, String fxml) throws IOException {
         if(!sceneMap.containsKey(appUi)) {
         FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/fxml/" + fxml + ".fxml"));
         Parent root = loader.load();
         sceneMap.put(appUi, root);
+        controllerMap.put(appUi, loader.getController());
 
         }
         
@@ -35,17 +39,12 @@ public class SceneManager {
         return uiRoot;
     }
 
+    public static Object getController(AppUi appUi) {
+        return controllerMap.get(appUi);
+    }
+
     public static void reInitializeCrimeScene(String fxml) {
-    //     System.out.println("hi");
-    //     if(isCrimeSceneOpened) {
-    //     if (fxml.equals("crimeScene"))  {
-    //        FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/fxml/crimeScene.fxml"));
-    //         CrimeSceneController controller = loader.getController();
-    //         System.out.println("reinitializing crime scene");
-    //         controller.checkGuess();
-    //     }
-    // }
-    // isCrimeSceneOpened = true;
+  
     }
     
 

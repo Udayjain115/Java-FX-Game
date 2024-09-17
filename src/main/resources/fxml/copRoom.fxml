@@ -18,7 +18,7 @@
       </ImageView>
       <TextArea fx:id="text" editable="false" layoutX="715.0" layoutY="27.0" prefHeight="377.0" prefWidth="266.0" wrapText="true" />
       <TextField fx:id="textInput" layoutX="715.0" layoutY="408.0" prefHeight="26.0" prefWidth="200.0" />
-      <Button fx:id="btnSend" layoutX="930.0" layoutY="408.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send">
+      <Button fx:id="btnSend" layoutX="930.0" layoutY="408.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#policemanSetTrue" text="Send">
          <font>
             <Font name="Berlin Sans FB" size="14.0" />
          </font>

@@ -1,8 +1,9 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
-import org.apache.http.impl.io.AbstractSessionInputBuffer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,10 +45,11 @@ public class CrimeSceneController {
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
+  private static Set<String> visitedRooms = new HashSet<>();
 
-  private boolean cameraClicked;
-  private boolean rulebookClicked;
-  private boolean evidenceClicked;
+  // private boolean cameraClicked;
+  // private boolean rulebookClicked;
+  // private boolean evidenceClicked;
   private boolean isMenuVisible = false;
 
   /**
@@ -60,21 +62,20 @@ public class CrimeSceneController {
 
   @FXML
   public void initialize() {
+      btnGuess.setDisable(true);
+
     if(!isFirstTimeInit){
-    System.out.println("Not first time init");
-    checkGuess();
     crimeScenePane.setVisible(true);
 
     
     }
     if (isFirstTimeInit) {
+
       
 
-      cameraClicked = false;
-      rulebookClicked = false;
-      evidenceClicked = false;
-      checkGuess();
-      System.out.println("First time init");
+      // cameraClicked = false;
+      // rulebookClicked = false;
+      // evidenceClicked = false;
       // Disable the guess button until the user has spoken to all suspects and
       // interacted with all clues?
 
@@ -84,6 +85,15 @@ public class CrimeSceneController {
 
     }
     
+  }
+  @FXML
+  public void addVisitedRoom(String room) {
+    System.out.println(visitedRooms);
+
+    visitedRooms.add(room);
+    if(visitedRooms.size() == 3){
+      btnGuess.setDisable(false);
+    }
   }
 
   /**
@@ -97,16 +107,11 @@ public class CrimeSceneController {
   }
 
   @FXML
-  public void checkGuess() {
-    if ((cameraClicked || rulebookClicked || evidenceClicked)){
-      btnGuess.setDisable(false);
-      System.out.println("Button Enabled");
-    } else {
-      btnGuess.setDisable(true);
-      System.out.println("Button Disabled");
-    }
-
+  public void allowGuess() {
+    btnGuess.setDisable(false);
   }
+
+
 
 
 
@@ -119,8 +124,6 @@ public class CrimeSceneController {
 
   @FXML
   public void cameraClick() throws IOException {
-    cameraClicked = true;
-    checkGuess();
     App.setRoot("camera");
   }
 
@@ -129,9 +132,6 @@ public class CrimeSceneController {
   @FXML
   public void evidenceClick() throws IOException {
     App.setRoot("evidence");
-    evidenceClicked = true;
-
-    checkGuess();
   }
 
 
@@ -176,7 +176,6 @@ public class CrimeSceneController {
    */
   @FXML
   public void openRuleBook(MouseEvent event) throws IOException {
-    rulebookClicked = true;
 
     Parent ruleBookRoot = SceneManager.getUiRoot(SceneManager.AppUi.RULEBOOK);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -185,26 +184,22 @@ public class CrimeSceneController {
   
 
     stage.getScene().setRoot(ruleBookRoot);
-    System.out.println(rulebookClicked);
-    checkGuess();
-    btnGuess.setDisable(false);
 
   }
 
   // Switch to Room 1
-  public void switchToCopRoom() throws IOException {
+  public void switchToCopRoom(ActionEvent event) throws IOException {
     App.setRoot("copRoom");
     App.openChat(null, "policeman");
   }
 
-  public void switchToJanitorRoom() throws IOException {
-    // Now switch rooms
+  public void switchToJanitorRoom(ActionEvent event) throws IOException {
     App.setRoot("janitorRoom");
     App.openChat(null, "janitor");
   }
 
   // Switch to Room 3
-  public void switchToBankManagerRoom() throws IOException {
+  public void switchToBankManagerRoom(ActionEvent event) throws IOException {
     App.setRoot("bankManagerRoom");
     App.openChat(null, "bankManager");
   }
