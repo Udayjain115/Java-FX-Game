@@ -5,10 +5,15 @@ import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.SceneManager;
 
 public class RulebookController {
 
@@ -78,7 +83,13 @@ public class RulebookController {
    * @throws IOException
    */
   @FXML
-  public void closeRulebook() throws IOException {
-    App.setRoot("crimeScene");
+  public void closeRulebook(MouseEvent event) throws IOException {
+    Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+  
+
+    stage.getScene().setRoot(crimeSceneRoot);
+    
   }
 }

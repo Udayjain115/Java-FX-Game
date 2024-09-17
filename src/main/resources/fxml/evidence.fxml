@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="evidencePane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EvidenceController">
+   <children>
+      <ImageView fitHeight="562.0" fitWidth="1008.0">
+         <image>
+            <Image url="@../images/istockphoto-479520746-612x612-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="68.0" layoutY="492.0" mnemonicParsing="false" onAction="#shutDown" text="Shut Down" />
+      <ImageView fx:id="suspectFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="80.0" onMouseClicked="#toSuspectFingerprints">
+         <image>
+            <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="51.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suspect Fingerprints" />
+      <ImageView fx:id="vaultFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="197.0" onMouseClicked="#toVaultFingerprints">
+         <image>
+            <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="57.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vault Fingerprints" />
+      <ImageView fx:id="forensicRules" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="332.0" onMouseClicked="#toForensicsPolicies">
+         <image>
+            <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+         </image>
+      </ImageView>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="50.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forensics Policies" />
+      <ImageView fx:id="investigationLog" fitHeight="77.0" fitWidth="75.0" layoutX="227.0" layoutY="80.0" onMouseClicked="#toInvestigationLog">
+         <image>
+            <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="217.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Investigation Log" />
+   </children>
+</Pane>

@@ -9,10 +9,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
@@ -20,9 +24,11 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public class SuspectRoomController {
+  
 
   @FXML private TextArea text;
   @FXML private TextField textInput;
@@ -64,9 +70,19 @@ public class SuspectRoomController {
   }
 
   // Switch to Room 3
-  public void switchToCrimeScene() throws IOException {
-    App.setRoot("crimeScene");
+  
+
+    @FXML
+    public void switchToCrimeScene(ActionEvent event) throws IOException {
+    Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+  
+
+    stage.getScene().setRoot(crimeSceneRoot);
+    
   }
+
 
   /**
    * Generates the system prompt based on the profession.
