@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import nz.ac.auckland.se206.App;
@@ -29,6 +30,7 @@ public class CrimeSceneController {
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
+  @FXML private VBox menuBox; // Root layout of the scene
   @FXML private Rectangle rulebookCloseButton;
 
   // Rules book
@@ -43,6 +45,7 @@ public class CrimeSceneController {
   private boolean cameraClicked = false;
   private boolean rulebookClicked = false;
   private boolean evidenceClicked = false;
+  private boolean isMenuVisible = false;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -195,5 +198,24 @@ public class CrimeSceneController {
   public void switchToCopRoom() throws IOException {
     App.setRoot("copRoom");
     App.openChat(null, "policeman");
+  }
+
+  public void switchToJanitorRoom() throws IOException {
+    // Now switch rooms
+    App.setRoot("janitorRoom");
+    App.openChat(null, "janitor");
+  }
+
+  // Switch to Room 3
+  public void switchToBankManagerRoom() throws IOException {
+    App.setRoot("bankManagerRoom");
+    App.openChat(null, "bankManager");
+  }
+
+  @FXML
+  // Function to toggle the visibility of the drop-down menu
+  private void toggleMenu() {
+    isMenuVisible = !isMenuVisible;
+    menuBox.setVisible(isMenuVisible);
   }
 }

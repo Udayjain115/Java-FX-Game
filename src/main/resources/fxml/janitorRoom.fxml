@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -22,10 +23,13 @@
             <Font name="Berlin Sans FB" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="goToJanitor" layoutX="302.0" layoutY="434.0" mnemonicParsing="false" onAction="#switchToBankManagerRoom" text="Go to Bank Manager">
-         <font>
-            <Font name="Berlin Sans FB" size="14.0" />
-         </font>
-      </Button>
+      <!-- Menu Button -->
+      <Button fx:id="menuButton" onAction="#toggleMenu" text="≡" />
+      <!-- Menu Items (Initially hidden in controller logic) -->
+      <VBox fx:id="menuBox" layoutY="26.0" spacing="0" visible="false">
+         <Button onAction="#switchToCopRoom" text="Cop in Hallway" />
+         <Button onAction="#switchToBankManagerRoom" text="Bank Manager Office" />
+         <Button onAction="#switchToCrimeScene" text="Crime Scene" />
+      </VBox>
    </children>
 </Pane>
