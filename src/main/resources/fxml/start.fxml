@@ -29,7 +29,8 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff42" height="91.0" layoutX="404.0" layoutY="229.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <ImageView fitHeight="97.0" fitWidth="200.0" layoutX="404.0" layoutY="229.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true">
+      <Rectangle fx:id="fadeOutRectangle" arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="1.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1008.0" />
+      <ImageView fx:id="startButton" fitHeight="97.0" fitWidth="200.0" layoutX="404.0" layoutY="229.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/start_button.png" />
          </image>
