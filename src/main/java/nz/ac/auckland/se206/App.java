@@ -82,7 +82,9 @@ public class App extends Application {
     SceneManager.addUi(SceneManager.AppUi.CRIME_SCENE, "crimeScene");
     SceneManager.addUi(SceneManager.AppUi.RULEBOOK, ("ruleBook"));
     SceneManager.addUi(SceneManager.AppUi.START, ("start"));
-
+SceneManager.addUi(SceneManager.AppUi.COP, ("copRoom"));
+SceneManager.addUi(SceneManager.AppUi.JANITOR, ("janitorRoom"));
+SceneManager.addUi(SceneManager.AppUi.BANK_MANAGER, ("bankManagerRoom"));
 
   
     Parent root = SceneManager.getUiRoot(SceneManager.AppUi.START);

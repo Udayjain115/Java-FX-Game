@@ -44,6 +44,25 @@ public class SuspectRoomController {
 
   private boolean isMenuVisible = false; // Tracks menu visibility
 
+   Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
+  CrimeSceneController crimeSceneController = (CrimeSceneController) SceneManager.getController(SceneManager.AppUi.CRIME_SCENE);
+  
+  @FXML
+  private void managerSetTrue() {
+    crimeSceneController.addVisitedRoom("bankManager");
+  }
+
+  @FXML
+  private void janitorSetTrue() {
+    crimeSceneController.addVisitedRoom("janitor");
+
+ }
+
+  @FXML
+  private void policemanSetTrue() {
+    crimeSceneController.addVisitedRoom("policeman");
+  }
+
   @FXML
   // Function to toggle the visibility of the drop-down menu
   private void toggleMenu() {
