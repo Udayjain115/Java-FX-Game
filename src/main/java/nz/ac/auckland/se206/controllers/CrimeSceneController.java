@@ -1,8 +1,13 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+
+import org.apache.http.impl.io.AbstractSessionInputBuffer;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -10,8 +15,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
+import nz.ac.auckland.se206.SceneManager;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -20,13 +27,9 @@ import nz.ac.auckland.se206.GameStateContext;
 public class CrimeSceneController {
 
   @FXML private Button btnGuess;
+  @FXML private Button menuButton;
   @FXML private Button switchButton;
   @FXML private Pane crimeScenePane;
-  @FXML private Pane evidencePane;
-  @FXML private Pane suspectFingerprintPane;
-  @FXML private Pane vaultFingerprintPane;
-  @FXML private Pane forensicsRulesPane;
-  @FXML private Pane investigationLogPane;
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
@@ -42,32 +45,45 @@ public class CrimeSceneController {
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
 
-  private boolean cameraClicked = false;
-  private boolean rulebookClicked = false;
-  private boolean evidenceClicked = false;
+  private boolean cameraClicked;
+  private boolean rulebookClicked;
+  private boolean evidenceClicked;
   private boolean isMenuVisible = false;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
    * via text-to-speech.
    */
+
+
+
+
   @FXML
   public void initialize() {
+    if(!isFirstTimeInit){
+    System.out.println("Not first time init");
+    checkGuess();
+    crimeScenePane.setVisible(true);
+
+    
+    }
     if (isFirstTimeInit) {
-      btnGuess.setDisable(true);
+      
+
+      cameraClicked = false;
+      rulebookClicked = false;
+      evidenceClicked = false;
+      checkGuess();
+      System.out.println("First time init");
       // Disable the guess button until the user has spoken to all suspects and
       // interacted with all clues?
 
       // TO-DO ADD ANY INITIALISATION CODE HERE
       isFirstTimeInit = false;
-    }
-    crimeScenePane.setVisible(true);
+   
 
-    evidencePane.setVisible(false);
-    suspectFingerprintPane.setVisible(false);
-    vaultFingerprintPane.setVisible(false);
-    forensicsRulesPane.setVisible(false);
-    investigationLogPane.setVisible(false);
+    }
+    
   }
 
   /**
@@ -82,74 +98,43 @@ public class CrimeSceneController {
 
   @FXML
   public void checkGuess() {
-    if (cameraClicked && rulebookClicked && evidenceClicked) {
+    if ((cameraClicked || rulebookClicked || evidenceClicked)){
       btnGuess.setDisable(false);
+      System.out.println("Button Enabled");
     } else {
       btnGuess.setDisable(true);
+      System.out.println("Button Disabled");
     }
+
   }
 
-  @FXML
-  public void suspectFingerprintClick() {
-    evidencePane.setVisible(false);
-    suspectFingerprintPane.setVisible(true);
-  }
+
+
+
+
+ 
+
+ 
+ 
 
   @FXML
-  public void backToEvidence() {
-    evidencePane.setVisible(true);
-    vaultFingerprintPane.setVisible(false);
-    suspectFingerprintPane.setVisible(false);
-    forensicsRulesPane.setVisible(false);
-    investigationLogPane.setVisible(false);
-  }
-
-  @FXML
-  public void forensicRulesClick() {
-    evidencePane.setVisible(false);
-    forensicsRulesPane.setVisible(true);
-  }
-
-  @FXML
-  public void investigationLogClick() {
-    evidencePane.setVisible(false);
-    investigationLogPane.setVisible(true);
-  }
-
-  @FXML
-  public void vaultFingerprintClick() {
-    evidencePane.setVisible(false);
-    vaultFingerprintPane.setVisible(true);
-  }
-
-  @FXML
-  public void cameraClick() {
+  public void cameraClick() throws IOException {
     cameraClicked = true;
     checkGuess();
+    App.setRoot("camera");
   }
 
-  @FXML
-  public void rulebookClick() {
-    rulebookClicked = true;
-    checkGuess();
-  }
+
 
   @FXML
-  public void evidenceClick() {
-
-    crimeScenePane.setVisible(false);
-    evidencePane.setVisible(true);
-
+  public void evidenceClick() throws IOException {
+    App.setRoot("evidence");
     evidenceClicked = true;
 
     checkGuess();
   }
 
-  @FXML
-  public void shutDown() {
-    crimeScenePane.setVisible(true);
-    evidencePane.setVisible(false);
-  }
+
 
   /**
    * Handles the key released event.
@@ -190,8 +175,20 @@ public class CrimeSceneController {
    * @throws IOException
    */
   @FXML
-  public void openRuleBook() throws IOException {
-    App.setRoot("ruleBook");
+  public void openRuleBook(MouseEvent event) throws IOException {
+    rulebookClicked = true;
+
+    Parent ruleBookRoot = SceneManager.getUiRoot(SceneManager.AppUi.RULEBOOK);
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    
+
+  
+
+    stage.getScene().setRoot(ruleBookRoot);
+    System.out.println(rulebookClicked);
+    checkGuess();
+    btnGuess.setDisable(false);
+
   }
 
   // Switch to Room 1
