@@ -7,32 +7,25 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Rectangle?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.SuspectRoomController">
    <children>
-      <ImageView fitHeight="399.0" fitWidth="698.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="567.0" fitWidth="1016.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/janitorRoom.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="text" editable="false" layoutX="715.0" layoutY="27.0" prefHeight="377.0" prefWidth="266.0" wrapText="true" />
-      <TextField fx:id="textInput" layoutX="715.0" layoutY="408.0" prefHeight="26.0" prefWidth="200.0" />
-      <Button fx:id="btnSend" layoutX="930.0" layoutY="408.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#janitorSetTrue" text="Send">
-         <font>
-            <Font name="Berlin Sans FB" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="menuButton" layoutX="-38.0" layoutY="-32.0" onAction="#toggleMenu" prefHeight="140.0" prefWidth="176.0"
-        style="-fx-background-color: transparent; -fx-font-size: 61px; -fx-font-weight: bold; -fx-text-fill: white;" text="≡" />
+      <Rectangle fill="WHITE" height="66.0" layoutX="12.0" layoutY="14.0" stroke="WHITE" strokeType="INSIDE" width="66.0" />
+      <Button fx:id="menuButton" layoutX="-43.0" layoutY="-28.0" onAction="#toggleMenu" prefHeight="140.0" prefWidth="176.0" style="-fx-background-color: transparent; -fx-font-size: 61px; -fx-font-weight: bold; -fx-text-fill: black;" text="≡" />
       <!-- Menu Items (Initially hidden in controller logic) -->
-      <VBox fx:id="menuBox" layoutX="36.0" layoutY="69.0" prefHeight="177.0" prefWidth="175.0" spacing="0" visible="false">
-        <Button onAction="#switchToCopRoom" prefHeight="50.0" prefWidth="175.0" text="Hallway"
-                style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" />
-        <Button onAction="#switchToBankManagerRoom" prefHeight="50.0" prefWidth="175.0" text="Bank Office"
-                style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" />
-        <Button onAction="#switchToCrimeScene" prefHeight="50.0" prefWidth="175.0" text="Crime Scene"
-                style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" />
+      <VBox fx:id="menuBox" layoutX="12.0" layoutY="80.0" prefHeight="177.0" prefWidth="175.0" spacing="0" visible="false">
+        <Button onAction="#switchToCopRoom" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Hallway" />
+        <Button onAction="#switchToBankManagerRoom" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Bank Office" />
+        <Button onAction="#switchToCrimeScene" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Crime Scene" />
       </VBox>
+      <TextArea fx:id="text" layoutX="217.0" layoutY="329.0" prefHeight="76.0" prefWidth="492.0" />
+      <TextField fx:id="textInput" layoutX="217.0" layoutY="417.0" prefHeight="26.0" prefWidth="438.0" />
+      <Button fx:id="btnSend" layoutX="661.0" layoutY="417.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
    </children>
 </Pane>
