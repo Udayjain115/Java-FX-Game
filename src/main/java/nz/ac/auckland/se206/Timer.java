@@ -18,15 +18,16 @@ public class Timer {
   private Timeline timeline;
   private IntegerProperty time;
   private Boolean reachedZero;
+  private Boolean hasReset = false;
 
   private Timer(){
     reachedZero = false;
-    time = new SimpleIntegerProperty(10);
+    time = new SimpleIntegerProperty(300);
     timeline = new Timeline(new KeyFrame(Duration.seconds(1), e ->{
       if(time.get() > 0){
         time.set(time.get() - 1);
       } else {
-        if(!reachedZero){
+        if(!reachedZero && hasReset){
           timeline.stop();
           reachedZero = true;
           try {
@@ -58,6 +59,11 @@ public class Timer {
     if(timeline != null){
       timeline.stop();
     }
+  }
+
+  public void reset(){
+    hasReset = true;
+    time.set(300);
   }
 
   public IntegerProperty getTimeLeft(){
