@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<Pane fx:id="room" focusTraversable="true" prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.RulebookController">
+   <children>
+      <!-- Background image of the scene (without dust) -->
+      <ImageView fx:id="backgroundImage" fitHeight="562.0" fitWidth="1008.0">
+         <image>
+            <Image url="@../images/Leonardo_Kino_XL_A_luxuriously_ransacked_Bank_Vault_its_once_s_1.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff301f" height="32.0" layoutX="915.0" layoutY="89.0" onMouseClicked="#closeRulebook" opacity="0.67" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+      <ImageView fitHeight="20.0" fitWidth="49.0" layoutX="921.0" layoutY="95.0" onMouseClicked="#closeRulebook" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/exit.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="section3" fitHeight="224.0" fitWidth="301.0" layoutX="283.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Section%203.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="section2" fitHeight="209.0" fitWidth="301.0" layoutX="584.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Section%202.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="section1" fitHeight="194.0" fitWidth="312.0" layoutX="699.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Section%201.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="section4" fitHeight="216.0" fitWidth="334.0" layoutX="160.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Section%204.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="95.0" fitWidth="879.0" layoutX="58.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rulebooktext.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
