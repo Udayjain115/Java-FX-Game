@@ -17,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
@@ -32,12 +31,12 @@ import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public class SuspectRoomController {
-  
 
   @FXML private TextArea text;
   @FXML private TextField textInput;
   @FXML private Button goToJanitor;
   @FXML private VBox menuBox; // Root layout of the scene
+  @FXML private Button btnSend;
   @FXML private Label timerLbl;
 
   private String profession;
@@ -49,23 +48,27 @@ public class SuspectRoomController {
 
   private boolean isMenuVisible = false; // Tracks menu visibility
 
-   Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
-  CrimeSceneController crimeSceneController = (CrimeSceneController) SceneManager.getController(SceneManager.AppUi.CRIME_SCENE);
+  Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
+  CrimeSceneController crimeSceneController =
+      (CrimeSceneController) SceneManager.getController(SceneManager.AppUi.CRIME_SCENE);
 
   @FXML
-  private void initialize(){
+  private void initialize() {
     Timer timer = Timer.getTimer();
-      StringBinding timeLayout = Bindings.createStringBinding(() -> {
-        int time = timer.getTimeLeft().get();
-        int mins = time/60;
-        int secs = time % 60;
-        return String.format("%s: %1d:%02d","Time Left", mins, secs);
-      },timer.getTimeLeft());
+    StringBinding timeLayout =
+        Bindings.createStringBinding(
+            () -> {
+              int time = timer.getTimeLeft().get();
+              int mins = time / 60;
+              int secs = time % 60;
+              return String.format("%s: %1d:%02d", "Time Left", mins, secs);
+            },
+            timer.getTimeLeft());
 
-      timerLbl.textProperty().bind(timeLayout);
-      timer.start();
+    timerLbl.textProperty().bind(timeLayout);
+    timer.start();
   }
-  
+
   @FXML
   private void managerSetTrue() {
     crimeSceneController.addVisitedRoom("bankManager");
@@ -74,8 +77,7 @@ public class SuspectRoomController {
   @FXML
   private void janitorSetTrue() {
     crimeSceneController.addVisitedRoom("janitor");
-
- }
+  }
 
   @FXML
   private void policemanSetTrue() {
@@ -108,19 +110,14 @@ public class SuspectRoomController {
   }
 
   // Switch to Room 3
-  
 
-    @FXML
-    public void switchToCrimeScene(ActionEvent event) throws IOException {
+  @FXML
+  public void switchToCrimeScene(ActionEvent event) throws IOException {
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-  
-
     stage.getScene().setRoot(crimeSceneRoot);
-    
   }
-
 
   /**
    * Generates the system prompt based on the profession.
