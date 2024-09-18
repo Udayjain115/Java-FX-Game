@@ -25,9 +25,9 @@
                   <Image url="@../images/610-GJaV33L-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="89.0" fitWidth="128.0" layoutX="207.0" layoutY="439.0">
+            <ImageView fitHeight="89.0" fitWidth="128.0" layoutX="63.0" layoutY="471.0">
                <image>
-                  <Image url="@../images/Throwbookopen2-removebg-preview.png" />
+                  <Image url="@../images/paper.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="448.0" layoutY="362.0">
@@ -49,7 +49,7 @@
                </font>
             </Text>
             <Rectangle fx:id="cameraRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" layoutX="251.0" layoutY="55.0" onMouseClicked="#cameraClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="75.0" />
-            <Rectangle fx:id="rulebookRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="214.0" layoutY="446.0" onMouseClicked="#openRuleBook" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
+            <Rectangle fx:id="rulebookRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="54.0" layoutY="477.0" onMouseClicked="#openRuleBook" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
             <Rectangle fx:id="evidenceRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="153.0" layoutX="455.0" layoutY="394.0" onMouseClicked="#evidenceClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="185.0" />
          </children>
       </Pane>
