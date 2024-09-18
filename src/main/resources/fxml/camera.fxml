@@ -8,27 +8,27 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CameraController">
    <children>
-      <ImageView fx:id="tencam" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="tencam" fitHeight="568.0" fitWidth="1025.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/10_camera.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="elevencam" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="elevencam" fitHeight="568.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/11_camera.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="twelvecam" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="twelvecam" fitHeight="568.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/12_camera.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="onecam" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="onecam" fitHeight="568.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/13_camera.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="twocam" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="twocam" fitHeight="577.0" fitWidth="1016.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/14_camera.png" />
          </image>
