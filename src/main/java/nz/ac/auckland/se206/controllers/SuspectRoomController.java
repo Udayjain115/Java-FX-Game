@@ -7,11 +7,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -25,6 +28,7 @@ import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public class SuspectRoomController {
@@ -34,6 +38,7 @@ public class SuspectRoomController {
   @FXML private TextField textInput;
   @FXML private Button goToJanitor;
   @FXML private VBox menuBox; // Root layout of the scene
+  @FXML private Label timerLbl;
 
   private String profession;
   private ChatCompletionRequest chatCompletionRequest;
@@ -46,6 +51,20 @@ public class SuspectRoomController {
 
    Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
   CrimeSceneController crimeSceneController = (CrimeSceneController) SceneManager.getController(SceneManager.AppUi.CRIME_SCENE);
+
+  @FXML
+  private void initialize(){
+    Timer timer = Timer.getTimer();
+      StringBinding timeLayout = Bindings.createStringBinding(() -> {
+        int time = timer.getTimeLeft().get();
+        int mins = time/60;
+        int secs = time % 60;
+        return String.format("%1d:%02d", mins, secs);
+      },timer.getTimeLeft());
+
+      timerLbl.textProperty().bind(timeLayout);
+      timer.start();
+  }
   
   @FXML
   private void managerSetTrue() {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -44,5 +45,6 @@
             <Image url="@../images/exit.png" />
          </image>
       </ImageView>
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="900.0" layoutY="517.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
    </children>
 </Pane>

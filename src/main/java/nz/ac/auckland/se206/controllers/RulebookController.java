@@ -2,11 +2,14 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import javafx.animation.FadeTransition;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,11 +17,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.Timer;
 
 public class RulebookController {
 
   @FXML private ImageView dustImage;
   @FXML private ImageView dustImage2;
+  @FXML private Label timerLbl;
 
   private boolean isDustOff1 = false;
   private boolean isDustOff2 = false;
@@ -54,6 +59,17 @@ public class RulebookController {
         event -> {
           dustImage2.setCursor(Cursor.DEFAULT);
         });
+
+        Timer timer = Timer.getTimer();
+      StringBinding timeLayout = Bindings.createStringBinding(() -> {
+        int time = timer.getTimeLeft().get();
+        int mins = time/60;
+        int secs = time % 60;
+        return String.format("%1d:%02d", mins, secs);
+      },timer.getTimeLeft());
+
+      timerLbl.textProperty().bind(timeLayout);
+      timer.start();
   }
 
   public void dustClickedOn() {
