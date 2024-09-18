@@ -30,6 +30,7 @@ public class CameraController {
   public void initialize() {
     forward.setDisable(true);
 
+    //getting timer instance to put on label
     Timer timer = Timer.getTimer();
     StringBinding timeLayout =
         Bindings.createStringBinding(
@@ -47,6 +48,7 @@ public class CameraController {
 
   public void onExit(MouseEvent event) throws IOException {
 
+    //loading crime scene when player goes to exit
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -54,6 +56,7 @@ public class CameraController {
   }
 
   public void onGoBack() {
+    //changing the viewable scene when going back
     if (count == 5) {
       twocam.setVisible(false);
       forward.setDisable(false);
@@ -75,6 +78,7 @@ public class CameraController {
   }
 
   public void onGoForward() {
+    //changing viewable scene when going forward
     if (count == 4) {
       twocam.setVisible(true);
       forward.setDisable(true);
