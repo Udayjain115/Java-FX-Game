@@ -17,14 +17,25 @@ public class Timer {
   private static Timer timer;
   private Timeline timeline;
   private IntegerProperty time;
+  private Boolean reachedZero;
 
   private Timer(){
-    time = new SimpleIntegerProperty(300);
+    reachedZero = false;
+    time = new SimpleIntegerProperty(10);
     timeline = new Timeline(new KeyFrame(Duration.seconds(1), e ->{
       if(time.get() > 0){
         time.set(time.get() - 1);
       } else {
-        timeline.stop();
+        if(!reachedZero){
+          timeline.stop();
+          reachedZero = true;
+          try {
+            App.setRoot("start");
+          } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+          }
+        }
       }
     }));
     timeline.setCycleCount(Timeline.INDEFINITE);
