@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -20,6 +22,7 @@ import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.Timer;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -36,16 +39,18 @@ public class CrimeSceneController {
   @FXML private Rectangle evidenceRectangle;
   @FXML private VBox menuBox; // Root layout of the scene
   @FXML private Rectangle rulebookCloseButton;
+  @FXML private Label timerLbl;
 
   // Rules book
   @FXML private Rectangle rulesBackground;
   @FXML private Rectangle rulesCloseBackground;
   @FXML private Text crossText;
   @FXML private Text rulesText;
+  
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
-  private static Set<String> visitedRooms = new HashSet<>();
+  public static Set<String> visitedRooms = new HashSet<>();
 
   // private boolean cameraClicked;
   // private boolean rulebookClicked;
@@ -64,8 +69,20 @@ public class CrimeSceneController {
   public void initialize() {
       btnGuess.setDisable(true);
 
+      Timer timer = Timer.getTimer();
+      StringBinding timeLayout = Bindings.createStringBinding(() -> {
+        int time = timer.getTimeLeft().get();
+        int mins = time/60;
+        int secs = time % 60;
+        return String.format("%s: %1d:%02d","Time Left", mins, secs);
+      },timer.getTimeLeft());
+
+      timerLbl.textProperty().bind(timeLayout);
+      timer.start();
+
     if(!isFirstTimeInit){
     crimeScenePane.setVisible(true);
+
 
     
     }

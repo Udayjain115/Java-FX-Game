@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.Timer;
 
 public class StartScreenController {
 
@@ -32,6 +33,9 @@ public class StartScreenController {
     fadeToBlack.setOnFinished(
         event -> {
           try {
+            Timer timer = Timer.getTimer();
+            timer.reset(300);
+            timer.start();
             App.setRoot("crimeScene");
           } catch (IOException e) {
             e.printStackTrace();

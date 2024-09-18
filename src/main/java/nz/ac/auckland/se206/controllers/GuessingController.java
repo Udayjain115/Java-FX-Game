@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-
 import javafx.application.Platform;
-import javafx.concurrent.Task;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -23,10 +23,9 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
+import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
-import nz.ac.auckland.se206.speech.TextToSpeech;
 
 public class GuessingController {
   @FXML private TextArea text;
@@ -35,26 +34,71 @@ public class GuessingController {
   @FXML private Rectangle manager;
   @FXML private Rectangle janitor;
   @FXML private Button btnSend;
+  @FXML private Label timerLbl;
 
   private String profession;
   private GameStateContext context;
+  private Boolean timeLeft = true;
+  private Timer timer;
 
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
-  
+
   private ChatCompletionRequest chatCompletionRequest;
-  
+
+  public void initialize() {
+    if (CrimeSceneController.visitedRooms.size() < 3) {
+      System.out.println("**********************");
+      return;
+    }
+    timer = Timer.getTimer();
+    timer.reset(60);
+
+    StringBinding timeLayout =
+        Bindings.createStringBinding(
+            () -> {
+              int time = timer.getTimeLeft().get();
+              int mins = time / 60;
+              int secs = time % 60;
+              return String.format("%s: %1d:%02d", "Time Left", mins, secs);
+            },
+            timer.getTimeLeft());
+
+    timer
+        .getTimeLeft()
+        .addListener(
+            (observable, oldValue, newValue) -> {
+              if (newValue.intValue() == 0) {
+                timeLeft = false;
+                try {
+                  onSendMessage(new ActionEvent());
+                } catch (ApiProxyException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                } catch (IOException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
+              }
+            });
+
+    timerLbl.textProperty().bind(timeLayout);
+    timer.start();
+  }
 
   @FXML
-  private void handleRectangleClicked(MouseEvent event) throws IOException{
+  private void handleRectangleClicked(MouseEvent event) throws IOException {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
-    if(clickedRectangle == manager || clickedRectangle == janitor){
-      text.appendText("You did not guess correctly. You lost! The police officer was the thief! \n\n");
+    if (clickedRectangle == manager || clickedRectangle == janitor) {
+      text.appendText(
+          "You did not guess correctly. You lost! The police officer was the thief! \n\n");
       btnSend.setDisable(true);
       context.setState(context.getGameOverState());
       return;
-    }else{
-      text.appendText("You were correct and the officer has been arrested. Please give the detectives your reasoning.\n\n");
+    } else {
+      text.appendText(
+          "You were correct and the officer has been arrested. Please give the detectives your"
+              + " reasoning.\n\n");
       return;
     }
   }
@@ -87,12 +131,12 @@ public class GuessingController {
         new Thread(
             () -> {
               try {
-                
+
                 chatCompletionRequest.addMessage(msg);
                 ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
                 Choice result = chatCompletionResult.getChoices().iterator().next();
                 chatCompletionRequest.addMessage(result.getChatMessage());
-                
+
                 appendChatMessage(result.getChatMessage());
                 // this way the people will not speak out loud
                 // TextToSpeech.speak(result.getChatMessage().getContent());
@@ -115,10 +159,12 @@ public class GuessingController {
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
     String message = textInput.getText().trim();
-    if (message.isEmpty()) {
+    if (message.isEmpty() && timeLeft) {
       return;
     }
-    text.appendText("You: "+message + "\n\n");
+    timer.stop();
+    timerLbl.setVisible(false);
+    text.appendText("You: " + message + "\n\n");
     textInput.clear();
     setProfession("feedback");
   }
@@ -133,16 +179,8 @@ public class GuessingController {
       chatMessages.add(msg.getContent());
       Platform.runLater(
           () -> {
-          
             text.appendText("Game: " + msg.getContent() + "\n\n");
-              
           });
     }
   }
-
-
-} 
-  
-  
-
-
+}

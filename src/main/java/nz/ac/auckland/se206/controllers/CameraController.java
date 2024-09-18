@@ -2,16 +2,20 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager;
+import nz.ac.auckland.se206.Timer;
 
 public class CameraController {
   @FXML Rectangle forward;
@@ -22,12 +26,24 @@ public class CameraController {
   @FXML ImageView twelvecam;
   @FXML ImageView elevencam;
   @FXML ImageView tencam;
+  @FXML Label timerLbl;
 
   private int count = 5;
 
   
   public void initialize(){
     forward.setDisable(true);
+
+    Timer timer = Timer.getTimer();
+      StringBinding timeLayout = Bindings.createStringBinding(() -> {
+        int time = timer.getTimeLeft().get();
+        int mins = time/60;
+        int secs = time % 60;
+        return String.format("%s: %1d:%02d","Time Left", mins, secs);
+      },timer.getTimeLeft());
+
+      timerLbl.textProperty().bind(timeLayout);
+      timer.start();
   }
 
   public void onExit(MouseEvent event) throws IOException{
