@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -32,5 +33,6 @@
         <Button onAction="#switchToBankManagerRoom" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Bank Office" />
         <Button onAction="#switchToCrimeScene" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Crime Scene" />
       </VBox>
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="884.0" layoutY="498.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
    </children>
 </Pane>

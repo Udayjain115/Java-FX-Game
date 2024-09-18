@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -13,35 +14,36 @@
             <Image url="@../images/Leonardo_Kino_XL_A_luxuriously_ransacked_Bank_Vault_its_once_s_1.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="505.0" fitWidth="879.0" layoutX="182.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/book.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="205.0" fitWidth="179.0" layoutX="316.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/rules_page_1.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="219.0" fitWidth="208.0" layoutX="578.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/rules_page_2.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="dustImage" fitHeight="388.0" fitWidth="405.0" layoutX="157.0" layoutY="44.0" onMouseClicked="#dustClickedOn" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/dust.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="dustImage2" fitHeight="408.0" fitWidth="375.0" layoutX="545.0" layoutY="89.0" onMouseClicked="#dustClickedOn2" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/dust.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff301f" height="55.0" layoutX="803.0" layoutY="14.0" onMouseClicked="#closeRulebook" opacity="0.33" stroke="BLACK" strokeType="INSIDE" width="170.0" />
-      <ImageView fitHeight="41.0" fitWidth="155.0" layoutX="810.0" layoutY="20.0" onMouseClicked="#closeRulebook" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff301f" height="32.0" layoutX="915.0" layoutY="89.0" onMouseClicked="#closeRulebook" opacity="0.67" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+      <ImageView fitHeight="20.0" fitWidth="49.0" layoutX="921.0" layoutY="95.0" onMouseClicked="#closeRulebook" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/exit.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="900.0" layoutY="517.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
+      <ImageView fx:id="section3" fitHeight="224.0" fitWidth="301.0" layoutX="283.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Section%203.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="section2" fitHeight="209.0" fitWidth="301.0" layoutX="584.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Section%202.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="section1" fitHeight="194.0" fitWidth="312.0" layoutX="699.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Section%201.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="section4" fitHeight="216.0" fitWidth="334.0" layoutX="160.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Section%204.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="95.0" fitWidth="879.0" layoutX="58.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rulebooktext.png" />
          </image>
       </ImageView>
    </children>
