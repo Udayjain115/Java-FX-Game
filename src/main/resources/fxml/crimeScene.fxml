@@ -6,6 +6,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Rectangle?>
 
 <Pane fx:id="room" focusTraversable="true" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleased" prefHeight="562.0" prefWidth="1008.0" style="-fx-background-color: #A9A9A9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CrimeSceneController">
@@ -35,6 +37,9 @@
               <Button onAction="#switchToBankManagerRoom" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Bank Office" />
             </VBox>
             <Label fx:id="timerLbl" alignment="CENTER" layoutX="900.0" layoutY="517.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
+            <Circle fx:id="cameraHoverGlow" fill="YELLOW" layoutX="765.0" layoutY="64.0" opacity="0.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Rectangle fx:id="laptopHoverGlow" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="104.0" layoutX="434.0" layoutY="408.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="143.0" />
+            <Ellipse fx:id="paperHoverGlow" fill="YELLOW" layoutX="172.0" layoutY="517.0" opacity="0.0" radiusX="79.0" radiusY="39.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          </children>
       </Pane>
    </children>

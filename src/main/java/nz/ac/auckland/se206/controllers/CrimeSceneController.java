@@ -3,7 +3,6 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 import javafx.event.ActionEvent;
@@ -12,11 +11,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
@@ -41,12 +45,15 @@ public class CrimeSceneController {
   @FXML private Rectangle rulebookCloseButton;
   @FXML private Label timerLbl;
 
+  @FXML private Circle cameraHoverGlow;
+  @FXML private Ellipse paperHoverGlow;
+  @FXML private Rectangle laptopHoverGlow;
+
   // Rules book
   @FXML private Rectangle rulesBackground;
   @FXML private Rectangle rulesCloseBackground;
   @FXML private Text crossText;
   @FXML private Text rulesText;
-  
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -61,34 +68,28 @@ public class CrimeSceneController {
    * Initializes the room view. If it's the first time initialization, it will provide instructions
    * via text-to-speech.
    */
-
-
-
-
   @FXML
   public void initialize() {
-      btnGuess.setDisable(true);
+    btnGuess.setDisable(true);
 
-      Timer timer = Timer.getTimer();
-      StringBinding timeLayout = Bindings.createStringBinding(() -> {
-        int time = timer.getTimeLeft().get();
-        int mins = time/60;
-        int secs = time % 60;
-        return String.format("%s: %1d:%02d","Time Left", mins, secs);
-      },timer.getTimeLeft());
+    Timer timer = Timer.getTimer();
+    StringBinding timeLayout =
+        Bindings.createStringBinding(
+            () -> {
+              int time = timer.getTimeLeft().get();
+              int mins = time / 60;
+              int secs = time % 60;
+              return String.format("%s: %1d:%02d", "Time Left", mins, secs);
+            },
+            timer.getTimeLeft());
 
-      timerLbl.textProperty().bind(timeLayout);
-      timer.start();
+    timerLbl.textProperty().bind(timeLayout);
+    timer.start();
 
-    if(!isFirstTimeInit){
-    crimeScenePane.setVisible(true);
-
-
-    
+    if (!isFirstTimeInit) {
+      crimeScenePane.setVisible(true);
     }
     if (isFirstTimeInit) {
-
-      
 
       // cameraClicked = false;
       // rulebookClicked = false;
@@ -98,17 +99,40 @@ public class CrimeSceneController {
 
       // TO-DO ADD ANY INITIALISATION CODE HERE
       isFirstTimeInit = false;
-   
-
     }
-    
+
+    // Add hover event handlers for rectangles
+    setupHoverEffect(cameraHoverGlow);
+    setupHoverEffect(paperHoverGlow);
+    setupHoverEffect(laptopHoverGlow);
   }
+
+  @FXML
+  private void setupHoverEffect(Shape hoveringOver) {
+    DropShadow hoverEffect = new DropShadow();
+    hoverEffect.setColor(Color.YELLOW); // Set the color of the glow
+    hoverEffect.setRadius(10); // Set the radius of the shadow
+    hoverEffect.setSpread(0.8); // Increase the spread to intensify the glow
+    hoverEffect.setOffsetX(0); // No offset, centered glow
+    hoverEffect.setOffsetY(0); // No offset, centered glow
+    hoveringOver.setOnMouseEntered(
+        event -> {
+          hoveringOver.setOpacity(.15);
+          hoveringOver.setEffect(hoverEffect);
+        });
+    hoveringOver.setOnMouseExited(
+        event -> {
+          hoveringOver.setOpacity(0);
+          hoveringOver.setEffect(null);
+        });
+  }
+
   @FXML
   public void addVisitedRoom(String room) {
     System.out.println(visitedRooms);
 
     visitedRooms.add(room);
-    if(visitedRooms.size() == 3){
+    if (visitedRooms.size() == 3) {
       btnGuess.setDisable(false);
     }
   }
@@ -128,30 +152,15 @@ public class CrimeSceneController {
     btnGuess.setDisable(false);
   }
 
-
-
-
-
-
-
- 
-
- 
- 
-
   @FXML
   public void cameraClick() throws IOException {
     App.setRoot("camera");
   }
 
-
-
   @FXML
   public void evidenceClick() throws IOException {
     App.setRoot("evidence");
   }
-
-
 
   /**
    * Handles the key released event.
@@ -196,12 +205,8 @@ public class CrimeSceneController {
 
     Parent ruleBookRoot = SceneManager.getUiRoot(SceneManager.AppUi.RULEBOOK);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    
-
-  
 
     stage.getScene().setRoot(ruleBookRoot);
-
   }
 
   // Switch to Room 1
