@@ -34,7 +34,7 @@ public class StartScreenController {
         event -> {
           try {
             Timer timer = Timer.getTimer();
-            timer.reset();
+            timer.reset(300);
             timer.start();
             App.setRoot("crimeScene");
           } catch (IOException e) {

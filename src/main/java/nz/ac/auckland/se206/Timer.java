@@ -19,10 +19,11 @@ public class Timer {
   private IntegerProperty time;
   private Boolean reachedZero;
   private Boolean hasReset = false;
+  private int number = 300;
 
   private Timer(){
     reachedZero = false;
-    time = new SimpleIntegerProperty(300);
+    time = new SimpleIntegerProperty(10000);
     timeline = new Timeline(new KeyFrame(Duration.seconds(1), e ->{
       if(time.get() > 0){
         time.set(time.get() - 1);
@@ -31,7 +32,9 @@ public class Timer {
           timeline.stop();
           reachedZero = true;
           try {
-            App.setRoot("start");
+            if(number == 300){
+              App.setRoot("guessing");
+            }
           } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -61,9 +64,12 @@ public class Timer {
     }
   }
 
-  public void reset(){
+  public void reset(int number){
+    this.number = number;
     hasReset = true;
-    time.set(300);
+    reachedZero = false;
+    time.set(number);
+    this.number = number;
   }
 
   public IntegerProperty getTimeLeft(){

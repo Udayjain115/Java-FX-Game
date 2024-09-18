@@ -50,7 +50,7 @@ public class CrimeSceneController {
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
-  private static Set<String> visitedRooms = new HashSet<>();
+  public static Set<String> visitedRooms = new HashSet<>();
 
   // private boolean cameraClicked;
   // private boolean rulebookClicked;
