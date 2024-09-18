@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="evidencePane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EvidenceController">
+<Pane fx:id="evidencePane" prefHeight="564.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EvidenceController">
    <children>
       <ImageView fitHeight="562.0" fitWidth="1008.0">
          <image>
@@ -41,6 +41,6 @@
          </image>
       </ImageView>
       <Text layoutX="217.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Investigation Log" />
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="910.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="900.0" layoutY="517.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
    </children>
 </Pane>

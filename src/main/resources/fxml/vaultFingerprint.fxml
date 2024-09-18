@@ -41,6 +41,6 @@
             <Image url="@../images/magnifying-glass-vector-21167298-removebg-preview.png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="913.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="913.0" layoutY="518.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
    </children>
 </Pane>

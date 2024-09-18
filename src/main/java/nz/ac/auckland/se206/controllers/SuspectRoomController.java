@@ -59,7 +59,7 @@ public class SuspectRoomController {
         int time = timer.getTimeLeft().get();
         int mins = time/60;
         int secs = time % 60;
-        return String.format("%1d:%02d", mins, secs);
+        return String.format("%s: %1d:%02d","Time Left", mins, secs);
       },timer.getTimeLeft());
 
       timerLbl.textProperty().bind(timeLayout);
