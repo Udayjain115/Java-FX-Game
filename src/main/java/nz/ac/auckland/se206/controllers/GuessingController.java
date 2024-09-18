@@ -39,6 +39,7 @@ public class GuessingController {
   private String profession;
   private GameStateContext context;
   private Boolean timeLeft = true;
+  private Timer timer;
 
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
@@ -50,7 +51,7 @@ public class GuessingController {
       System.out.println("**********************");
       return;
     }
-    Timer timer = Timer.getTimer();
+    timer = Timer.getTimer();
     timer.reset(60);
 
     StringBinding timeLayout =
@@ -161,6 +162,8 @@ public class GuessingController {
     if (message.isEmpty() && timeLeft) {
       return;
     }
+    timer.stop();
+    timerLbl.setVisible(false);
     text.appendText("You: " + message + "\n\n");
     textInput.clear();
     setProfession("feedback");
