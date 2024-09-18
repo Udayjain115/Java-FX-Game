@@ -166,7 +166,7 @@ public class CrimeSceneController {
    */
   @FXML
   private void handleGuessClick(ActionEvent event) throws IOException {
-    context.handleGuessClick();
+    App.setRoot("guessing");
   }
 
   /**
