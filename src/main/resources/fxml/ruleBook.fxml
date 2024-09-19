@@ -11,7 +11,7 @@
       <!-- Background image of the scene (without dust) -->
       <ImageView fx:id="backgroundImage" fitHeight="562.0" fitWidth="1008.0">
          <image>
-            <Image url="@../images/Leonardo_Kino_XL_A_luxuriously_ransacked_Bank_Vault_its_once_s_1.jpg" />
+            <Image url="@../images/new_background.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff301f" height="32.0" layoutX="915.0" layoutY="89.0" onMouseClicked="#closeRulebook" opacity="0.67" stroke="BLACK" strokeType="INSIDE" width="44.0" />
