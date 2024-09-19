@@ -1,14 +1,12 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-import javafx.animation.FadeTransition;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -34,15 +32,18 @@ public class RulebookController {
     makeDraggable(section3);
     makeDraggable(section4);
     Timer timer = Timer.getTimer();
-      StringBinding timeLayout = Bindings.createStringBinding(() -> {
-        int time = timer.getTimeLeft().get();
-        int mins = time/60;
-        int secs = time % 60;
-        return String.format("%s: %1d:%02d","Time Left", mins, secs);
-      },timer.getTimeLeft());
+    StringBinding timeLayout =
+        Bindings.createStringBinding(
+            () -> {
+              int time = timer.getTimeLeft().get();
+              int mins = time / 60;
+              int secs = time % 60;
+              return String.format("%s: %1d:%02d", "Time Left", mins, secs);
+            },
+            timer.getTimeLeft());
 
-      timerLbl.textProperty().bind(timeLayout);
-      timer.start();
+    timerLbl.textProperty().bind(timeLayout);
+    timer.start();
   }
 
   /**

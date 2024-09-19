@@ -48,8 +48,8 @@ public class SuspectRoomController {
 
   private boolean isMenuVisible = false; // Tracks menu visibility
 
-  Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
-  CrimeSceneController crimeSceneController =
+  private Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
+  private CrimeSceneController crimeSceneController =
       (CrimeSceneController) SceneManager.getController(SceneManager.AppUi.CRIME_SCENE);
 
   @FXML
