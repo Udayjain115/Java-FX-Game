@@ -8,12 +8,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.util.Duration;
 
 public class Timer {
-  private static Timer timer;
   private Timeline timeline;
   private IntegerProperty time;
   private Boolean reachedZero;
   private Boolean hasReset = false;
   private int number = 300;
+  private static Timer timer;
 
   private Timer() {
     reachedZero = false;
