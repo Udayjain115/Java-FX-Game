@@ -61,7 +61,7 @@ public class EvidenceController {
   }
 
   @FXML
-  public void shutDown(ActionEvent event) throws IOException {
+  private void shutDown(ActionEvent event) throws IOException {
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

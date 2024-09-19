@@ -8,12 +8,20 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.util.Duration;
 
 public class Timer {
+  private static Timer timer;
+
+  public static Timer getTimer() {
+    if (timer == null) {
+      timer = new Timer();
+    }
+    return timer;
+  }
+
   private Timeline timeline;
   private IntegerProperty time;
   private Boolean reachedZero;
   private Boolean hasReset = false;
   private int number = 300;
-  private static Timer timer;
 
   private Timer() {
     reachedZero = false;
@@ -41,13 +49,6 @@ public class Timer {
                   }
                 }));
     timeline.setCycleCount(Timeline.INDEFINITE);
-  }
-
-  public static Timer getTimer() {
-    if (timer == null) {
-      timer = new Timer();
-    }
-    return timer;
   }
 
   public void start() {

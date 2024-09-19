@@ -105,13 +105,13 @@ public class SuspectRoomController {
 
   @FXML
   // Function to toggle the visibility of the drop-down menu
-  private void toggleMenu() {
+  private void switchMenuVisibility() {
     isMenuVisible = !isMenuVisible;
     menuBox.setVisible(isMenuVisible);
   }
 
   @FXML
-  public void switchToCopRoom() throws IOException {
+  private void switchToCopRoom() throws IOException {
     // Now switch rooms
     App.setRoot("copRoom");
     // Open the chat with the policeman
@@ -119,7 +119,7 @@ public class SuspectRoomController {
   }
 
   @FXML
-  public void switchToJanitorRoom() throws IOException {
+  private void switchToJanitorRoom() throws IOException {
     // Now switch rooms
     App.setRoot("janitorRoom");
     // Open the chat with the janitor
@@ -127,7 +127,7 @@ public class SuspectRoomController {
   }
 
   @FXML
-  public void switchToBankManagerRoom() throws IOException {
+  private void switchToBankManagerRoom() throws IOException {
     // Now switch rooms
     App.setRoot("bankManagerRoom");
     // Open the chat with the bank manager
@@ -137,7 +137,7 @@ public class SuspectRoomController {
   // Switch to Room 3
 
   @FXML
-  public void switchToCrimeScene(ActionEvent event) throws IOException {
+  private void switchToCrimeScene(ActionEvent event) throws IOException {
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
