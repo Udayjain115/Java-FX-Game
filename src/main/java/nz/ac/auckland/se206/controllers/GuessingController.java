@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+import javax.swing.Action;
+
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
@@ -24,6 +28,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
@@ -40,9 +45,9 @@ public class GuessingController {
   @FXML private ImageView wrongReason;
   @FXML private ImageView won;
   @FXML private ImageView timeOut;
+  @FXML private Button resetButton;
 
   private String profession;
-  private GameStateContext context;
   private Boolean timeLeft = true;
   private Timer timer;
   private Boolean appendedMsg = false;
@@ -57,9 +62,13 @@ public class GuessingController {
     wrongReason.setVisible(false);
     won.setVisible(false);
     timeOut.setVisible(false);
+    resetButton.setDisable(true);
+    resetButton.setVisible(false);
 
     if (CrimeSceneController.visitedRooms.size() < 3) {
       timeOut.setVisible(true);
+      resetButton.setDisable(false);
+      resetButton.setVisible(true);
       return;
     }
 
@@ -106,6 +115,8 @@ public class GuessingController {
           "You did not guess correctly. You lost! The police officer was the thief! \n\n");
       btnSend.setDisable(true);
       wrongPerson.setVisible(true);
+      resetButton.setDisable(false);
+      resetButton.setVisible(true);
       return;
     } else {
       text.appendText(
@@ -199,9 +210,16 @@ public class GuessingController {
                 wrongReason.setVisible(true);
               }
               btnSend.setDisable(true);
+              resetButton.setDisable(false);
+              resetButton.setVisible(true);
             });
         appendedMsg = true;
       }
     }
+  }
+
+  @FXML
+  private void resetGame(ActionEvent event){
+    
   }
 }
