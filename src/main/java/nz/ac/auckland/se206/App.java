@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import nz.ac.auckland.se206.controllers.CrimeSceneController;
 import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
 /**
@@ -35,14 +34,9 @@ public class App extends Application {
    * @throws IOException if the FXML file is not found
    */
   public static void setRoot(String fxml) throws IOException {
-  
 
-  
-
-  
     scene.setRoot(loadFxml(fxml));
     SceneManager.reInitializeCrimeScene(fxml);
-
   }
 
   /**
@@ -82,11 +76,10 @@ public class App extends Application {
     SceneManager.addUi(SceneManager.AppUi.CRIME_SCENE, "crimeScene");
     SceneManager.addUi(SceneManager.AppUi.RULEBOOK, ("ruleBook"));
     SceneManager.addUi(SceneManager.AppUi.START, ("start"));
-SceneManager.addUi(SceneManager.AppUi.COP, ("copRoom"));
-SceneManager.addUi(SceneManager.AppUi.JANITOR, ("janitorRoom"));
-SceneManager.addUi(SceneManager.AppUi.BANK_MANAGER, ("bankManagerRoom"));
+    SceneManager.addUi(SceneManager.AppUi.COP, ("copRoom"));
+    SceneManager.addUi(SceneManager.AppUi.JANITOR, ("janitorRoom"));
+    SceneManager.addUi(SceneManager.AppUi.BANK_MANAGER, ("bankManagerRoom"));
 
-  
     Parent root = SceneManager.getUiRoot(SceneManager.AppUi.START);
     scene = new Scene(root);
     stage.setScene(scene);

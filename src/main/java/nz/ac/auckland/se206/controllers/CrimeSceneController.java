@@ -34,6 +34,10 @@ import nz.ac.auckland.se206.Timer;
  */
 public class CrimeSceneController {
 
+  private static boolean isFirstTimeInit = true;
+  private static GameStateContext context = new GameStateContext();
+  public static Set<String> visitedRooms = new HashSet<>();
+
   @FXML private Button btnGuess;
   @FXML private Button menuButton;
   @FXML private Button switchButton;
@@ -55,13 +59,6 @@ public class CrimeSceneController {
   @FXML private Text crossText;
   @FXML private Text rulesText;
 
-  private static boolean isFirstTimeInit = true;
-  private static GameStateContext context = new GameStateContext();
-  public static Set<String> visitedRooms = new HashSet<>();
-
-  // private boolean cameraClicked;
-  // private boolean rulebookClicked;
-  // private boolean evidenceClicked;
   private boolean isMenuVisible = false;
 
   /**
