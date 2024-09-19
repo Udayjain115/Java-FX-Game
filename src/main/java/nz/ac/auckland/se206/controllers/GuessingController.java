@@ -167,6 +167,7 @@ public class GuessingController {
     text.appendText("You: " + message + "\n\n");
     textInput.clear();
     setProfession("feedback");
+    runGpt(new ChatMessage("user", message));
   }
 
   /**
