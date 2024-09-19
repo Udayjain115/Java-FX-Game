@@ -4,5 +4,5 @@ Check if the following concepts are mentioned:
 2. His fingerprints were found left behind at the crime scene.
 If both these concepts are  present, respond by saying:
 "Your reasoning is correct!" and then very briefly say why it is correct.
-If the message seems incomplete or missing any of these concepts, respond by saying:
+If the message seems incomplete, confusing or missing any of these concepts, respond by saying:
 "Your reasoning is missing key evidence." and then tell them that the reason it was the cop was because of the two points listed.

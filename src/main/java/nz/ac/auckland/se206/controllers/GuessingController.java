@@ -40,6 +40,7 @@ public class GuessingController {
   private GameStateContext context;
   private Boolean timeLeft = true;
   private Timer timer;
+  private Boolean appendedMsg = false;
 
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
@@ -177,11 +178,14 @@ public class GuessingController {
    */
   private void appendChatMessage(ChatMessage msg) {
     synchronized (chatMessages) {
-      chatMessages.add(msg.getContent());
-      Platform.runLater(
-          () -> {
-            text.appendText("Game: " + msg.getContent() + "\n\n");
-          });
+      if(!appendedMsg){
+        chatMessages.add(msg.getContent());
+        Platform.runLater(
+            () -> {
+              text.appendText("Game: " + msg.getContent() + "\n\n");
+            });
+        appendedMsg = true;
+      }
     }
   }
 }
