@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
@@ -35,6 +36,10 @@ public class GuessingController {
   @FXML private Rectangle janitor;
   @FXML private Button btnSend;
   @FXML private Label timerLbl;
+  @FXML private ImageView wrongPerson;
+  @FXML private ImageView wrongReason;
+  @FXML private ImageView won;
+  @FXML private ImageView timeOut;
 
   private String profession;
   private GameStateContext context;
@@ -48,10 +53,16 @@ public class GuessingController {
   private ChatCompletionRequest chatCompletionRequest;
 
   public void initialize() {
+    wrongPerson.setVisible(false);
+    wrongReason.setVisible(false);
+    won.setVisible(false);
+    timeOut.setVisible(false);
+
     if (CrimeSceneController.visitedRooms.size() < 3) {
-      System.out.println("**********************");
+      timeOut.setVisible(true);
       return;
     }
+
     timer = Timer.getTimer();
     timer.reset(60);
 
@@ -94,12 +105,11 @@ public class GuessingController {
       text.appendText(
           "You did not guess correctly. You lost! The police officer was the thief! \n\n");
       btnSend.setDisable(true);
-      context.setState(context.getGameOverState());
+      wrongPerson.setVisible(true);
       return;
     } else {
       text.appendText(
-          "You were correct and the officer has been arrested. Please give the detectives your"
-              + " reasoning.\n\n");
+          "The officer has been arrested. Please give the detectives your reasoning.\n\n");
       return;
     }
   }
@@ -178,11 +188,17 @@ public class GuessingController {
    */
   private void appendChatMessage(ChatMessage msg) {
     synchronized (chatMessages) {
-      if(!appendedMsg){
+      if (!appendedMsg) {
         chatMessages.add(msg.getContent());
         Platform.runLater(
             () -> {
               text.appendText("Game: " + msg.getContent() + "\n\n");
+              if (msg.getContent().contains("correct")) {
+                won.setVisible(true);
+              } else if (msg.getContent().contains("missing")) {
+                wrongReason.setVisible(true);
+              }
+              btnSend.setDisable(true);
             });
         appendedMsg = true;
       }

@@ -23,5 +23,25 @@
       <Rectangle fx:id="janitor" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutX="522.0" layoutY="6.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="253.0" />
       <TextArea fx:id="text" editable="false" layoutX="791.0" layoutY="14.0" prefHeight="382.0" prefWidth="201.0" wrapText="true" />
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="884.0" layoutY="495.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
+      <ImageView fx:id="wrongPerson" fitHeight="435.0" fitWidth="774.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/WrongPerson.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wrongReason" fitHeight="435.0" fitWidth="774.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/WrongReason.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="won" fitHeight="442.0" fitWidth="835.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Won.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="timeOut" fitHeight="442.0" fitWidth="852.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TimeOut.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
