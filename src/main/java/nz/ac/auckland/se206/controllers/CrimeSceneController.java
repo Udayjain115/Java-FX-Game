@@ -212,26 +212,26 @@ public class CrimeSceneController {
 
   // Switch to Room 1
   @FXML
-  public void switchToCopRoom(ActionEvent event) throws IOException {
+  private void switchToCopRoom(ActionEvent event) throws IOException {
     App.setRoot("copRoom");
     App.openChat(null, "policeman");
   }
 
   @FXML
-  public void switchToJanitorRoom(ActionEvent event) throws IOException {
+  private void switchToJanitorRoom(ActionEvent event) throws IOException {
     App.setRoot("janitorRoom");
     App.openChat(null, "janitor");
   }
 
   @FXML
-  public void switchToBankManagerRoom(ActionEvent event) throws IOException {
+  private void switchToBankManagerRoom(ActionEvent event) throws IOException {
     App.setRoot("bankManagerRoom");
     App.openChat(null, "bankManager");
   }
 
   @FXML
   // Function to toggle the visibility of the drop-down menu
-  private void toggleMenu() {
+  private void switchMenuVisibility() {
     isMenuVisible = !isMenuVisible;
     menuBox.setVisible(isMenuVisible);
   }
