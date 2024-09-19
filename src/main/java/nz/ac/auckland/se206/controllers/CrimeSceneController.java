@@ -132,7 +132,7 @@ public class CrimeSceneController {
     System.out.println(visitedRooms);
 
     visitedRooms.add(room);
-    if (visitedRooms.size() == 3) {
+    if (visitedRooms.size() == 4) {
       btnGuess.setDisable(false);
     }
   }
@@ -154,11 +154,14 @@ public class CrimeSceneController {
 
   @FXML
   public void cameraClick() throws IOException {
+    addVisitedRoom("clue");
     App.setRoot("camera");
   }
 
   @FXML
   public void evidenceClick() throws IOException {
+    addVisitedRoom("clue");
+
     App.setRoot("evidence");
   }
 
@@ -202,6 +205,7 @@ public class CrimeSceneController {
    */
   @FXML
   public void openRuleBook(MouseEvent event) throws IOException {
+    addVisitedRoom("clue");
 
     Parent ruleBookRoot = SceneManager.getUiRoot(SceneManager.AppUi.RULEBOOK);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

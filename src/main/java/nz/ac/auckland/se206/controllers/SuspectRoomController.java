@@ -71,17 +71,31 @@ public class SuspectRoomController {
 
   @FXML
   private void managerSetTrue() {
-    crimeSceneController.addVisitedRoom("bankManager");
+    String message = textInput.getText().trim();
+    if (message != null && !message.isEmpty()) {
+      crimeSceneController.addVisitedRoom("bankManager");
+    }
+    textInput.clear();
   }
 
   @FXML
   private void janitorSetTrue() {
-    crimeSceneController.addVisitedRoom("janitor");
+    String message = textInput.getText().trim();
+    if (message != null && !message.isEmpty()) {
+      crimeSceneController.addVisitedRoom("janitor");
+    }
+
+    textInput.clear();
   }
 
   @FXML
   private void policemanSetTrue() {
-    crimeSceneController.addVisitedRoom("policeman");
+    String message = textInput.getText().trim();
+    if (message != null && !message.isEmpty()) {
+      crimeSceneController.addVisitedRoom("policeman");
+    }
+
+    textInput.clear();
   }
 
   @FXML
@@ -240,7 +254,7 @@ public class SuspectRoomController {
     if (message.isEmpty()) {
       return;
     }
-    textInput.clear();
+    // textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
     appendChatMessage(msg);
     runGpt(msg);
