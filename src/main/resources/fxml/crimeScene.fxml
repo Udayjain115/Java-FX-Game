@@ -26,7 +26,7 @@
                </image>
             </ImageView>
             <Rectangle fill="WHITE" height="66.0" layoutX="14.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="66.0" />
-            <Button fx:id="menuButton" layoutX="-15.0" layoutY="-23.0" onAction="#toggleMenu" prefHeight="89.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-font-size: 61px; -fx-font-weight: bold; -fx-text-fill: black" text="≡" />
+            <Button fx:id="menuButton" layoutX="-15.0" layoutY="-23.0" onAction="#switchMenuVisibility" prefHeight="89.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-font-size: 61px; -fx-font-weight: bold; -fx-text-fill: black" text="≡" />
             <!-- Menu Items (Initially hidden in controller logic) -->
             <VBox fx:id="menuBox" layoutX="14.0" layoutY="78.0" prefHeight="177.0" prefWidth="175.0" spacing="0" visible="false">
               <Button onAction="#switchToCopRoom" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Hallway" />

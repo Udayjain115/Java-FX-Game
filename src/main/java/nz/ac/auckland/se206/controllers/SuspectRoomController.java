@@ -48,13 +48,17 @@ public class SuspectRoomController {
 
   private boolean isMenuVisible = false; // Tracks menu visibility
 
-  Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
-  CrimeSceneController crimeSceneController =
+  private Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
+  private CrimeSceneController crimeSceneController =
       (CrimeSceneController) SceneManager.getController(SceneManager.AppUi.CRIME_SCENE);
 
   @FXML
   private void initialize() {
+
+    // Get the timer instance
     Timer timer = Timer.getTimer();
+
+    // Create a string binding that updates the time left every second
     StringBinding timeLayout =
         Bindings.createStringBinding(
             () -> {
@@ -65,54 +69,75 @@ public class SuspectRoomController {
             },
             timer.getTimeLeft());
 
+    // Bind the timer label to the time layout
     timerLbl.textProperty().bind(timeLayout);
     timer.start();
   }
 
   @FXML
   private void managerSetTrue() {
-    crimeSceneController.addVisitedRoom("bankManager");
+    String message = textInput.getText().trim();
+    if (message != null && !message.isEmpty()) {
+      crimeSceneController.addVisitedRoom("bankManager");
+    }
+    textInput.clear();
   }
 
   @FXML
   private void janitorSetTrue() {
-    crimeSceneController.addVisitedRoom("janitor");
+    String message = textInput.getText().trim();
+    if (message != null && !message.isEmpty()) {
+      crimeSceneController.addVisitedRoom("janitor");
+    }
+
+    textInput.clear();
   }
 
   @FXML
   private void policemanSetTrue() {
-    crimeSceneController.addVisitedRoom("policeman");
+    String message = textInput.getText().trim();
+    if (message != null && !message.isEmpty()) {
+      crimeSceneController.addVisitedRoom("policeman");
+    }
+
+    textInput.clear();
   }
 
   @FXML
   // Function to toggle the visibility of the drop-down menu
-  private void toggleMenu() {
+  private void switchMenuVisibility() {
     isMenuVisible = !isMenuVisible;
     menuBox.setVisible(isMenuVisible);
   }
 
-  // Switch to Room 1
-  public void switchToCopRoom() throws IOException {
+  @FXML
+  private void switchToCopRoom() throws IOException {
+    // Now switch rooms
     App.setRoot("copRoom");
+    // Open the chat with the policeman
     App.openChat(null, "policeman");
   }
 
-  public void switchToJanitorRoom() throws IOException {
+  @FXML
+  private void switchToJanitorRoom() throws IOException {
     // Now switch rooms
     App.setRoot("janitorRoom");
+    // Open the chat with the janitor
     App.openChat(null, "janitor");
   }
 
-  // Switch to Room 3
-  public void switchToBankManagerRoom() throws IOException {
+  @FXML
+  private void switchToBankManagerRoom() throws IOException {
+    // Now switch rooms
     App.setRoot("bankManagerRoom");
+    // Open the chat with the bank manager
     App.openChat(null, "bankManager");
   }
 
   // Switch to Room 3
 
   @FXML
-  public void switchToCrimeScene(ActionEvent event) throws IOException {
+  private void switchToCrimeScene(ActionEvent event) throws IOException {
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -138,14 +163,17 @@ public class SuspectRoomController {
    */
   public void setProfession(String profession) {
     this.profession = profession;
+    // Initialize the ChatCompletionRequest
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
+      // Set the parameters for the ChatCompletionRequest
       chatCompletionRequest =
           new ChatCompletionRequest(config)
               .setN(1)
               .setTemperature(0.2)
               .setTopP(0.5)
               .setMaxTokens(100);
+      // Send the initial system prompt
       runGpt(new ChatMessage("system", getSystemPrompt()));
     } catch (ApiProxyException e) {
       e.printStackTrace();
@@ -240,7 +268,7 @@ public class SuspectRoomController {
     if (message.isEmpty()) {
       return;
     }
-    textInput.clear();
+    // textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
     appendChatMessage(msg);
     runGpt(msg);

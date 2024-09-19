@@ -15,22 +15,22 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.Timer;
 
 public class CameraController {
-  @FXML Rectangle forward;
-  @FXML Rectangle back;
-  @FXML Rectangle exit;
-  @FXML ImageView twocam;
-  @FXML ImageView onecam;
-  @FXML ImageView twelvecam;
-  @FXML ImageView elevencam;
-  @FXML ImageView tencam;
-  @FXML Label timerLbl;
+  @FXML private Rectangle forward;
+  @FXML private Rectangle back;
+  @FXML private Rectangle exit;
+  @FXML private ImageView twocam;
+  @FXML private ImageView onecam;
+  @FXML private ImageView twelvecam;
+  @FXML private ImageView elevencam;
+  @FXML private ImageView tencam;
+  @FXML private Label timerLbl;
 
   private int count = 5;
 
   public void initialize() {
     forward.setDisable(true);
 
-    //getting timer instance to put on label
+    // getting timer instance to put on label
     Timer timer = Timer.getTimer();
     StringBinding timeLayout =
         Bindings.createStringBinding(
@@ -48,7 +48,7 @@ public class CameraController {
 
   public void onExit(MouseEvent event) throws IOException {
 
-    //loading crime scene when player goes to exit
+    // loading crime scene when player goes to exit
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -56,7 +56,7 @@ public class CameraController {
   }
 
   public void onGoBack() {
-    //changing the viewable scene when going back
+    // changing the viewable scene when going back
     if (count == 5) {
       twocam.setVisible(false);
       forward.setDisable(false);
@@ -78,7 +78,7 @@ public class CameraController {
   }
 
   public void onGoForward() {
-    //changing viewable scene when going forward
+    // changing viewable scene when going forward
     if (count == 4) {
       twocam.setVisible(true);
       forward.setDisable(true);

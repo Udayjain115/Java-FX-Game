@@ -34,6 +34,10 @@ import nz.ac.auckland.se206.Timer;
  */
 public class CrimeSceneController {
 
+  private static boolean isFirstTimeInit = true;
+  private static GameStateContext context = new GameStateContext();
+  public static Set<String> visitedRooms = new HashSet<>();
+
   @FXML private Button btnGuess;
   @FXML private Button menuButton;
   @FXML private Button switchButton;
@@ -55,13 +59,6 @@ public class CrimeSceneController {
   @FXML private Text crossText;
   @FXML private Text rulesText;
 
-  private static boolean isFirstTimeInit = true;
-  private static GameStateContext context = new GameStateContext();
-  public static Set<String> visitedRooms = new HashSet<>();
-
-  // private boolean cameraClicked;
-  // private boolean rulebookClicked;
-  // private boolean evidenceClicked;
   private boolean isMenuVisible = false;
 
   /**
@@ -132,7 +129,7 @@ public class CrimeSceneController {
     System.out.println(visitedRooms);
 
     visitedRooms.add(room);
-    if (visitedRooms.size() == 3) {
+    if (visitedRooms.size() == 4) {
       btnGuess.setDisable(false);
     }
   }
@@ -154,11 +151,14 @@ public class CrimeSceneController {
 
   @FXML
   public void cameraClick() throws IOException {
+    addVisitedRoom("clue");
     App.setRoot("camera");
   }
 
   @FXML
   public void evidenceClick() throws IOException {
+    addVisitedRoom("clue");
+
     App.setRoot("evidence");
   }
 
@@ -202,6 +202,7 @@ public class CrimeSceneController {
    */
   @FXML
   public void openRuleBook(MouseEvent event) throws IOException {
+    addVisitedRoom("clue");
 
     Parent ruleBookRoot = SceneManager.getUiRoot(SceneManager.AppUi.RULEBOOK);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -210,25 +211,27 @@ public class CrimeSceneController {
   }
 
   // Switch to Room 1
-  public void switchToCopRoom(ActionEvent event) throws IOException {
+  @FXML
+  private void switchToCopRoom(ActionEvent event) throws IOException {
     App.setRoot("copRoom");
     App.openChat(null, "policeman");
   }
 
-  public void switchToJanitorRoom(ActionEvent event) throws IOException {
+  @FXML
+  private void switchToJanitorRoom(ActionEvent event) throws IOException {
     App.setRoot("janitorRoom");
     App.openChat(null, "janitor");
   }
 
-  // Switch to Room 3
-  public void switchToBankManagerRoom(ActionEvent event) throws IOException {
+  @FXML
+  private void switchToBankManagerRoom(ActionEvent event) throws IOException {
     App.setRoot("bankManagerRoom");
     App.openChat(null, "bankManager");
   }
 
   @FXML
   // Function to toggle the visibility of the drop-down menu
-  private void toggleMenu() {
+  private void switchMenuVisibility() {
     isMenuVisible = !isMenuVisible;
     menuBox.setVisible(isMenuVisible);
   }

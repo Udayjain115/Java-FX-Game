@@ -9,6 +9,14 @@ import javafx.util.Duration;
 
 public class Timer {
   private static Timer timer;
+
+  public static Timer getTimer() {
+    if (timer == null) {
+      timer = new Timer();
+    }
+    return timer;
+  }
+
   private Timeline timeline;
   private IntegerProperty time;
   private Boolean reachedZero;
@@ -41,13 +49,6 @@ public class Timer {
                   }
                 }));
     timeline.setCycleCount(Timeline.INDEFINITE);
-  }
-
-  public static Timer getTimer() {
-    if (timer == null) {
-      timer = new Timer();
-    }
-    return timer;
   }
 
   public void start() {
