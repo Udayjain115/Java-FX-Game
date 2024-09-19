@@ -18,13 +18,22 @@
             <Image url="@../images/bankManagerRoom.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="text" editable="false" layoutX="219.0" layoutY="375.0" prefHeight="50.0" prefWidth="539.0" wrapText="true" />
-      <TextField fx:id="textInput" layoutX="219.0" layoutY="433.0" prefHeight="26.0" prefWidth="481.0" />
-      <Button fx:id="btnSend" layoutX="710.0" layoutY="433.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#managerSetTrue" text="Send">
+      
+      
+      <!-- Modern Chat Display with Glass Effect -->
+      <TextArea fx:id="text" editable="false" layoutX="232.0" layoutY="312.0" prefHeight="115.0" prefWidth="519.0" style="-fx-font-size: 13px; -fx-background-color: rgba(255, 255, 255, 0.15); -fx-text-fill: #000000; -fx-border-color: rgba(255, 255, 255, 0.3); -fx-border-radius: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 2, 2);" wrapText="true" />
+
+      <!-- Sleek Input Field with Subtle Glow -->
+      <TextField fx:id="textInput" layoutX="234.0" layoutY="437.0" prefHeight="45.0" prefWidth="438.0" style="-fx-font-size: 13px; -fx-background-color: rgba(0, 0, 0, 0.8); -fx-border-color: #e8edeb; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #FFFFFF; -fx-prompt-text-fill: #888888; -fx-padding: 10px 20px;" />
+
+      <!-- Futuristic Glassy Send Button -->
+      <Button fx:id="btnSend" layoutX="677.0" layoutY="437.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#managerSetTrue" style="-fx-background-color: #d2d4d4; -fx-text-fill: #000000; -fx-background-radius: 20; -fx-font-size: 13px; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2);" text="Send">
          <font>
-            <Font name="Berlin Sans FB" size="14.0" />
+            <Font name="System" size="12.0" />
          </font>
       </Button>
+
+
       <Rectangle fill="WHITE" height="66.0" layoutX="14.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="66.0" />  
       <Button fx:id="menuButton" layoutX="-43.0" layoutY="-28.0" onAction="#toggleMenu" prefHeight="140.0" prefWidth="176.0" style="-fx-background-color: transparent; -fx-font-size: 61px; -fx-font-weight: bold; -fx-text-fill: black;" text="≡" />
       <!-- Menu Items (Initially hidden in controller logic) -->
