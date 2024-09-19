@@ -51,6 +51,7 @@ public class GuessingController {
   private Boolean timeLeft = true;
   private Timer timer;
   private Boolean appendedMsg = false;
+  private Boolean hasClicked = false;
 
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
@@ -92,7 +93,13 @@ public class GuessingController {
               if (newValue.intValue() == 0) {
                 timeLeft = false;
                 try {
-                  onSendMessage(new ActionEvent());
+                  if(hasClicked){
+                    onSendMessage(new ActionEvent());
+                  }else{
+                    timeOut.setVisible(true);
+                  }
+                  timerLbl.setVisible(false);
+                  btnSend.setDisable(true);
                 } catch (ApiProxyException e) {
                   // TODO Auto-generated catch block
                   e.printStackTrace();
@@ -111,6 +118,7 @@ public class GuessingController {
   // Handles the event when the rectangle is clicked for guessing the thief
   private void handleRectangleClicked(MouseEvent event) throws IOException {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
+    hasClicked = true;
 
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
