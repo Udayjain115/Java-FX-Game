@@ -54,7 +54,11 @@ public class SuspectRoomController {
 
   @FXML
   private void initialize() {
+
+    // Get the timer instance
     Timer timer = Timer.getTimer();
+
+    // Create a string binding that updates the time left every second
     StringBinding timeLayout =
         Bindings.createStringBinding(
             () -> {
@@ -65,6 +69,7 @@ public class SuspectRoomController {
             },
             timer.getTimeLeft());
 
+    // Bind the timer label to the time layout
     timerLbl.textProperty().bind(timeLayout);
     timer.start();
   }
@@ -105,21 +110,27 @@ public class SuspectRoomController {
     menuBox.setVisible(isMenuVisible);
   }
 
-  // Switch to Room 1
+  @FXML
   public void switchToCopRoom() throws IOException {
+    // Now switch rooms
     App.setRoot("copRoom");
+    // Open the chat with the policeman
     App.openChat(null, "policeman");
   }
 
+  @FXML
   public void switchToJanitorRoom() throws IOException {
     // Now switch rooms
     App.setRoot("janitorRoom");
+    // Open the chat with the janitor
     App.openChat(null, "janitor");
   }
 
-  // Switch to Room 3
+  @FXML
   public void switchToBankManagerRoom() throws IOException {
+    // Now switch rooms
     App.setRoot("bankManagerRoom");
+    // Open the chat with the bank manager
     App.openChat(null, "bankManager");
   }
 
@@ -152,14 +163,17 @@ public class SuspectRoomController {
    */
   public void setProfession(String profession) {
     this.profession = profession;
+    // Initialize the ChatCompletionRequest
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
+      // Set the parameters for the ChatCompletionRequest
       chatCompletionRequest =
           new ChatCompletionRequest(config)
               .setN(1)
               .setTemperature(0.2)
               .setTopP(0.5)
               .setMaxTokens(100);
+      // Send the initial system prompt
       runGpt(new ChatMessage("system", getSystemPrompt()));
     } catch (ApiProxyException e) {
       e.printStackTrace();

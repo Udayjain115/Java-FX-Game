@@ -87,14 +87,18 @@ public class GuessingController {
   }
 
   @FXML
+  // Handles the event when the rectangle is clicked for guessing the thief
   private void handleRectangleClicked(MouseEvent event) throws IOException {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
+
+    // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
       text.appendText(
           "You did not guess correctly. You lost! The police officer was the thief! \n\n");
       btnSend.setDisable(true);
       context.setState(context.getGameOverState());
       return;
+      // If the rectangle clicked is the police officer
     } else {
       text.appendText(
           "You were correct and the officer has been arrested. Please give the detectives your"
@@ -103,16 +107,25 @@ public class GuessingController {
     }
   }
 
+  /**
+   * Sets the profession of the player.
+   *
+   * @param profession the profession of the player
+   */
   public void setProfession(String profession) {
+    // Set the profession
     this.profession = profession;
+    // Initialize the chat
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
+      // Create a new chat completion request
       chatCompletionRequest =
           new ChatCompletionRequest(config)
               .setN(1)
               .setTemperature(0.2)
               .setTopP(0.5)
               .setMaxTokens(100);
+      // Send the initial system prompt
       runGpt(new ChatMessage("system", getSystemPrompt()));
     } catch (ApiProxyException e) {
       e.printStackTrace();
@@ -158,7 +171,9 @@ public class GuessingController {
    */
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
+    // Get the message from the text input
     String message = textInput.getText().trim();
+    // If the message is empty and there is still time left, return
     if (message.isEmpty() && timeLeft) {
       return;
     }

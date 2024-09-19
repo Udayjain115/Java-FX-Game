@@ -211,17 +211,19 @@ public class CrimeSceneController {
   }
 
   // Switch to Room 1
+  @FXML
   public void switchToCopRoom(ActionEvent event) throws IOException {
     App.setRoot("copRoom");
     App.openChat(null, "policeman");
   }
 
+  @FXML
   public void switchToJanitorRoom(ActionEvent event) throws IOException {
     App.setRoot("janitorRoom");
     App.openChat(null, "janitor");
   }
 
-  // Switch to Room 3
+  @FXML
   public void switchToBankManagerRoom(ActionEvent event) throws IOException {
     App.setRoot("bankManagerRoom");
     App.openChat(null, "bankManager");

@@ -17,9 +17,13 @@ public class EvidenceController {
 
   @FXML private Label timerLbl;
 
+  // Initializes the timer
   public void initialize() {
+    // Get the timer instance
     Timer timer = Timer.getTimer();
     StringBinding timeLayout =
+
+        // Create a string binding that updates the time left every second
         Bindings.createStringBinding(
             () -> {
               int time = timer.getTimeLeft().get();
@@ -29,7 +33,10 @@ public class EvidenceController {
             },
             timer.getTimeLeft());
 
+    // Bind the timer label to the time layout
     timerLbl.textProperty().bind(timeLayout);
+
+    // Start the timer
     timer.start();
   }
 
