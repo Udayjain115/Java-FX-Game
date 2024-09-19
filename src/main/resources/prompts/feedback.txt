@@ -1,8 +1,8 @@
 You are giving {profession} on my reasoning behind why an officer committed a crime.
-Check if the following concepts are vaguely mentioned:
+Check if the following concepts are mentioned:
 1. The officer was present before the crime.
-2. Fingerprints were found or left behind.
-If these concepts are vaguely present, respond by saying:
+2. His fingerprints were found left behind at the crime scene.
+If both these concepts are  present, respond by saying:
 "Your reasoning is correct!" and then very briefly say why it is correct.
-If the reasoning seems incomplete or missing any of these concepts, respond by saying:
-"Your reasoning is incomplete or missing key evidence." and then tell them the real reasoning.
+If the message seems incomplete, confusing or missing any of these concepts, respond by saying:
+"Your reasoning is missing key evidence." and then tell them that the reason it was the cop was because of the two points listed.

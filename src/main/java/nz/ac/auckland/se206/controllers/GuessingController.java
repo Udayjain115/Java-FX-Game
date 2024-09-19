@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+import javax.swing.Action;
+
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
@@ -15,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
@@ -23,6 +28,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
@@ -35,11 +41,17 @@ public class GuessingController {
   @FXML private Rectangle janitor;
   @FXML private Button btnSend;
   @FXML private Label timerLbl;
+  @FXML private ImageView wrongPerson;
+  @FXML private ImageView wrongReason;
+  @FXML private ImageView won;
+  @FXML private ImageView timeOut;
+  @FXML private Button resetButton;
 
   private String profession;
-  private GameStateContext context;
   private Boolean timeLeft = true;
   private Timer timer;
+  private Boolean appendedMsg = false;
+  private Boolean hasClicked = false;
 
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
@@ -47,10 +59,20 @@ public class GuessingController {
   private ChatCompletionRequest chatCompletionRequest;
 
   public void initialize() {
+    wrongPerson.setVisible(false);
+    wrongReason.setVisible(false);
+    won.setVisible(false);
+    timeOut.setVisible(false);
+    resetButton.setDisable(true);
+    resetButton.setVisible(false);
+
     if (CrimeSceneController.visitedRooms.size() < 3) {
-      System.out.println("**********************");
+      timeOut.setVisible(true);
+      resetButton.setDisable(false);
+      resetButton.setVisible(true);
       return;
     }
+
     timer = Timer.getTimer();
     timer.reset(60);
 
@@ -71,7 +93,13 @@ public class GuessingController {
               if (newValue.intValue() == 0) {
                 timeLeft = false;
                 try {
-                  onSendMessage(new ActionEvent());
+                  if(hasClicked){
+                    onSendMessage(new ActionEvent());
+                  }else{
+                    timeOut.setVisible(true);
+                  }
+                  timerLbl.setVisible(false);
+                  btnSend.setDisable(true);
                 } catch (ApiProxyException e) {
                   // TODO Auto-generated catch block
                   e.printStackTrace();
@@ -90,19 +118,21 @@ public class GuessingController {
   // Handles the event when the rectangle is clicked for guessing the thief
   private void handleRectangleClicked(MouseEvent event) throws IOException {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
+    hasClicked = true;
 
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
       text.appendText(
           "You did not guess correctly. You lost! The police officer was the thief! \n\n");
       btnSend.setDisable(true);
-      context.setState(context.getGameOverState());
+      wrongPerson.setVisible(true);
+      resetButton.setDisable(false);
+      resetButton.setVisible(true);
       return;
       // If the rectangle clicked is the police officer
     } else {
       text.appendText(
-          "You were correct and the officer has been arrested. Please give the detectives your"
-              + " reasoning.\n\n");
+          "The officer has been arrested. Please give the detectives your reasoning.\n\n");
       return;
     }
   }
@@ -182,6 +212,7 @@ public class GuessingController {
     text.appendText("You: " + message + "\n\n");
     textInput.clear();
     setProfession("feedback");
+    runGpt(new ChatMessage("user", message));
   }
 
   /**
@@ -191,11 +222,27 @@ public class GuessingController {
    */
   private void appendChatMessage(ChatMessage msg) {
     synchronized (chatMessages) {
-      chatMessages.add(msg.getContent());
-      Platform.runLater(
-          () -> {
-            text.appendText("Game: " + msg.getContent() + "\n\n");
-          });
+      if (!appendedMsg) {
+        chatMessages.add(msg.getContent());
+        Platform.runLater(
+            () -> {
+              text.appendText("Game: " + msg.getContent() + "\n\n");
+              if (msg.getContent().contains("correct")) {
+                won.setVisible(true);
+              } else if (msg.getContent().contains("missing")) {
+                wrongReason.setVisible(true);
+              }
+              btnSend.setDisable(true);
+              resetButton.setDisable(false);
+              resetButton.setVisible(true);
+            });
+        appendedMsg = true;
+      }
     }
+  }
+
+  @FXML
+  private void resetGame(ActionEvent event){
+    
   }
 }
