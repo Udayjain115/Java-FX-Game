@@ -21,6 +21,51 @@
          </font>
       </Text>
       <Button layoutX="70.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#backToEvidence" prefHeight="25.0" prefWidth="61.0" text="Back" />
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />   
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />
+      <Text layoutX="377.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20/9/2024: Approved cleaning services">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19/9/2024: Approved manager audit of vault">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17/9/2024: Approved cleaning services">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18/9/2024: Approved client visitation">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17/9/2024: Approved manager audit of vault">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16/9/2024: Approved cleaning services">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15/9/2024: Approved cleaning services">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="14/9/2024: Approved cleaning services">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13/9/2024: Approved manager audit of vault">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Text>   
    </children>
 </Pane>
