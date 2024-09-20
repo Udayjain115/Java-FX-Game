@@ -90,6 +90,22 @@ public class GuessingController {
     resetButton.setDisable(true);
     resetButton.setVisible(false);
 
+    textInput.setOnKeyPressed(
+        event -> {
+          switch (event.getCode()) {
+            case ENTER:
+              try {
+                onSendMessage(null); // Trigger the send message method when Enter is pressed
+                textInput.clear();
+              } catch (ApiProxyException | IOException e) {
+                e.printStackTrace();
+              }
+              break;
+            default:
+              break;
+          }
+        });
+
     if (CrimeSceneController.visitedRooms.size() < 4) {
       timeOut.setVisible(true);
       resetButton.setDisable(false);

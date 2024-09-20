@@ -80,6 +80,22 @@ public class SuspectRoomController {
 
     parallelTransition = new ParallelTransition(animation, rotateAnimation);
 
+    textInput.setOnKeyPressed(
+        event -> {
+          switch (event.getCode()) {
+            case ENTER:
+              try {
+                onSendMessage(null); // Trigger the send message method when Enter is pressed
+                textInput.clear();
+              } catch (ApiProxyException | IOException e) {
+                e.printStackTrace();
+              }
+              break;
+            default:
+              break;
+          }
+        });
+
     // Get the timer instance
     Timer timer = Timer.getTimer();
 
