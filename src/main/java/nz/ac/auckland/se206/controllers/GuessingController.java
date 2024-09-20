@@ -65,6 +65,8 @@ public class GuessingController {
 
   public void initialize() {
     // Initialize the pen-writing animation
+    btnSend.setDisable(true);
+    textInput.setDisable(true);
     InputStream animationImageStream = getClass().getResourceAsStream("/images/pen.png");
     animationImage.setImage(new Image(animationImageStream));
     animation = new TranslateTransition(Duration.seconds(2), animationImage);
@@ -193,6 +195,8 @@ public class GuessingController {
     } else {
       text.appendText(
           "Game: The officer has been arrested. Please give the detectives your reasoning.\n\n");
+      btnSend.setDisable(false);
+      textInput.setDisable(false);
       return;
     }
   }
