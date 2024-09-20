@@ -35,9 +35,9 @@
       <Button fx:id="menuButton" layoutX="-18.0" layoutY="-21.0" onAction="#switchMenuVisibility" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent; -fx-font-size: 61px; -fx-font-weight: bold; -fx-text-fill: black;" text="≡" />
       <!-- Menu Items (Initially hidden in controller logic) -->
       <VBox fx:id="menuBox" layoutX="13.0" layoutY="80.0" prefHeight="177.0" prefWidth="175.0" spacing="0" visible="false">
-        <Button onAction="#switchToJanitorRoom" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Janitor Cupboard" />
-        <Button onAction="#switchToBankManagerRoom" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Bank Office" />
-        <Button onAction="#switchToCrimeScene" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Crime Scene" />
+        <Button onAction="#onClickJanitorMenu" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Janitor Cupboard" />
+        <Button onAction="#onClickBankManagerMenu" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Bank Office" />
+        <Button onAction="#onClickCrimeSceneMenu" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Crime Scene" />
       </VBox>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="884.0" layoutY="498.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
    </children>
