@@ -8,41 +8,51 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <Pane prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessingController">
    <children>
-      <ImageView fitHeight="446.0" fitWidth="774.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="568.0" fitWidth="1014.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/guessingIMG.png" />
          </image>
       </ImageView>
-      <TextField fx:id="textInput" layoutX="791.0" layoutY="410.0" prefHeight="25.0" prefWidth="158.0" />
-      <Button fx:id="btnSend" layoutX="951.0" layoutY="410.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
-      <Rectangle fx:id="police" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutY="5.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="237.0" />
-      <Rectangle fx:id="manager" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutX="237.0" layoutY="6.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="285.0" />
-      <Rectangle fx:id="janitor" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="435.0" layoutX="522.0" layoutY="6.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="253.0" />
-      <TextArea fx:id="text" editable="false" layoutX="791.0" layoutY="14.0" prefHeight="382.0" prefWidth="201.0" wrapText="true" />
+      <Rectangle fx:id="police" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="576.0" layoutY="-2.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="335.0" />
+      <Rectangle fx:id="manager" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="568.0" layoutX="676.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="341.0" />
+      <Rectangle fx:id="janitor" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="568.0" layoutX="335.0" layoutY="-1.0" onMouseClicked="#handleRectangleClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="341.0" />
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />
-      <ImageView fx:id="wrongPerson" fitHeight="435.0" fitWidth="774.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wrongPerson" fitHeight="568.0" fitWidth="1008.0" layoutX="3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/WrongPerson.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wrongReason" fitHeight="435.0" fitWidth="774.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/WrongReason.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="won" fitHeight="442.0" fitWidth="835.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Won.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="timeOut" fitHeight="442.0" fitWidth="852.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="timeOut" fitHeight="567.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/TimeOut.png" />
          </image>
       </ImageView>
-      <Button fx:id="resetButton" layoutX="350.0" layoutY="236.0" mnemonicParsing="false" onAction="#onResetGame" text="Replay Game" />
+      <ImageView fx:id="won" fitHeight="567.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Won.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wrongReason" fitHeight="568.0" fitWidth="1010.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/WrongReason.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="text" editable="false" layoutX="299.0" layoutY="356.0" prefHeight="133.0" prefWidth="436.0" wrapText="true" />
+      <Button fx:id="resetButton" layoutX="474.0" layoutY="314.0" mnemonicParsing="false" onAction="#onResetGame" text="Replay Game" />
+      <TextField fx:id="textInput" layoutX="299.0" layoutY="499.0" prefHeight="41.0" prefWidth="365.0" style="-fx-font-size: 13px; -fx-background-color: rgba(0, 0, 0, 0.8); -fx-border-color: #e8edeb; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #FFFFFF; -fx-prompt-text-fill: #888888; -fx-padding: 10px 20px;" />
+      <Button fx:id="btnSend" layoutX="664.0" layoutY="498.0" mnemonicParsing="false" onAction="#onSendMessage" style="-fx-background-color: #d2d4d4; -fx-text-fill: #000000; -fx-background-radius: 20; -fx-font-size: 13px; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2);" text="Send">
+         <font>
+            <Font name="System" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="311.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pen.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
