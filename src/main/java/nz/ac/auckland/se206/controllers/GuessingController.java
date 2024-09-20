@@ -53,6 +53,7 @@ public class GuessingController {
   private ChatCompletionRequest chatCompletionRequest;
 
   public void initialize() {
+    text.appendText("Game: Click on who you think the thief is... \n\n");
     wrongPerson.setVisible(false);
     wrongReason.setVisible(false);
     won.setVisible(false);
@@ -91,6 +92,8 @@ public class GuessingController {
                     onSendMessage(new ActionEvent());
                   } else {
                     timeOut.setVisible(true);
+                    resetButton.setVisible(true);
+                    resetButton.setDisable(false);
                   }
                   timerLbl.setVisible(false);
                   btnSend.setDisable(true);
@@ -117,7 +120,7 @@ public class GuessingController {
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
       text.appendText(
-          "You did not guess correctly. You lost! The police officer was the thief! \n\n");
+          "Game: You did not guess correctly. You lost! The police officer was the thief! \n\n");
       btnSend.setDisable(true);
       wrongPerson.setVisible(true);
       resetButton.setDisable(false);
@@ -126,7 +129,7 @@ public class GuessingController {
       // If the rectangle clicked is the police officer
     } else {
       text.appendText(
-          "The officer has been arrested. Please give the detectives your reasoning.\n\n");
+          "Game: The officer has been arrested. Please give the detectives your reasoning.\n\n");
       return;
     }
   }
