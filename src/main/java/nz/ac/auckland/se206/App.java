@@ -1,12 +1,18 @@
 package nz.ac.auckland.se206;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import nz.ac.auckland.se206.controllers.CrimeSceneController;
 import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
 /**
@@ -14,6 +20,8 @@ import nz.ac.auckland.se206.controllers.SuspectRoomController;
  * application.
  */
 public class App extends Application {
+
+
 
   private static Scene scene;
   private static FXMLLoader loader;
@@ -73,6 +81,9 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
+    Platform.setImplicitExit(false);
+
+    
     SceneManager.addUi(SceneManager.AppUi.CRIME_SCENE, "crimeScene");
     SceneManager.addUi(SceneManager.AppUi.RULEBOOK, ("ruleBook"));
     SceneManager.addUi(SceneManager.AppUi.START, ("start"));
@@ -85,5 +96,27 @@ public class App extends Application {
     stage.setScene(scene);
     stage.show();
     root.requestFocus();
+
+
+    stage.setOnCloseRequest(event -> Platform.exit());
   }
+
+  public static void restartApp() throws IOException {
+    CrimeSceneController.visitedRooms.clear();
+    SceneManager.delete();
+    SceneManager.addUi(SceneManager.AppUi.CRIME_SCENE, "crimeScene");
+    SceneManager.addUi(SceneManager.AppUi.RULEBOOK, ("ruleBook"));
+    SceneManager.addUi(SceneManager.AppUi.COP, ("copRoom"));
+    SceneManager.addUi(SceneManager.AppUi.JANITOR, ("janitorRoom"));
+    SceneManager.addUi(SceneManager.AppUi.BANK_MANAGER, ("bankManagerRoom"));
+
+    
+
+    
+    setRoot("start");
+  
 }
+}
+
+ 
+
