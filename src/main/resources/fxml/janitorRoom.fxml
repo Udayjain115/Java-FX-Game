@@ -41,5 +41,10 @@
          </font>
       </Button>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />   
+      <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="240.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pen.png" />
+         </image>
+      </ImageView> 
    </children>
 </Pane>

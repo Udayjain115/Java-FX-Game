@@ -40,5 +40,10 @@
         <Button onAction="#switchToCrimeScene" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Crime Scene" />
       </VBox>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />   
+      <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="240.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../images/pen.png" />
+        </image>
+      </ImageView> 
    </children>
 </Pane>
