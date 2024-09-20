@@ -47,8 +47,6 @@ public class SuspectRoomController {
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
 
   private boolean isMenuVisible = false; // Tracks menu visibility
-
-  private Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
   private CrimeSceneController crimeSceneController =
       (CrimeSceneController) SceneManager.getController(SceneManager.AppUi.CRIME_SCENE);
 
@@ -111,7 +109,7 @@ public class SuspectRoomController {
   }
 
   @FXML
-  private void switchToCopRoom() throws IOException {
+  private void onClickCopMenu() throws IOException {
     // Now switch rooms
     App.setRoot("copRoom");
     // Open the chat with the policeman
@@ -119,7 +117,7 @@ public class SuspectRoomController {
   }
 
   @FXML
-  private void switchToJanitorRoom() throws IOException {
+  private void onClickJanitorMenu() throws IOException {
     // Now switch rooms
     App.setRoot("janitorRoom");
     // Open the chat with the janitor
@@ -127,7 +125,7 @@ public class SuspectRoomController {
   }
 
   @FXML
-  private void switchToBankManagerRoom() throws IOException {
+  private void onClickBankManagerMenu() throws IOException {
     // Now switch rooms
     App.setRoot("bankManagerRoom");
     // Open the chat with the bank manager
@@ -137,7 +135,7 @@ public class SuspectRoomController {
   // Switch to Room 3
 
   @FXML
-  private void switchToCrimeScene(ActionEvent event) throws IOException {
+  private void onClickCrimeSceneMenu(ActionEvent event) throws IOException {
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -187,24 +185,32 @@ public class SuspectRoomController {
    */
   private void appendChatMessage(ChatMessage msg) {
     synchronized (chatMessages) {
+      // Add the message to the chatMessages list
       chatMessages.add(msg.getContent());
       Platform.runLater(
           () -> {
+            // Clear the text area if the role changes
             if (!msg.getRole().equals(currentPersonTalking)) {
               text.clear();
             }
 
+            // Append the message to the text area
             if (msg.getRole().equals("assistant")) {
               if (profession.equals("policeman")) {
+                // If the person talking is the policeman
                 text.appendText("Policeman: " + msg.getContent() + "\n\n");
               } else if (profession.equals("bankManager")) {
+                // If the person talking is the bank manager
                 text.appendText("Bank Manager: " + msg.getContent() + "\n\n");
               } else if (profession.equals("janitor")) {
+                // If the person talking is the janitor
                 text.appendText("Janitor: " + msg.getContent() + "\n\n");
               }
+              // Paste the users message in the chat
             } else if (msg.getRole().equals("user")) {
               text.appendText("You: " + msg.getContent() + "\n\n");
             }
+            // Update the currentPersonTalking
             currentPersonTalking = profession;
           });
     }
@@ -212,13 +218,18 @@ public class SuspectRoomController {
 
   /** Updates the UI to show "User is thinking..." while waiting for the GPT response. */
   private void showThinkingMessage() {
+    // Set the professionTalking based on the profession
     if (profession.equals("policeman")) {
+      // Set the professionTalking to "Policeman"
       professionTalking = "Policeman";
     } else if (profession.equals("janitor")) {
+      // Set the professionTalking to "Janitor"
       professionTalking = "Janitor";
     } else if (profession.equals("bankManager")) {
+      // Set the professionTalking to "Bank Manager"
       professionTalking = "Bank Manager";
     }
+    // Append the "User is thinking..." message to the text area
     Platform.runLater(() -> text.appendText(professionTalking + " is thinking...\n\n"));
   }
 
