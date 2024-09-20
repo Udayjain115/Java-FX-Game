@@ -21,7 +21,7 @@
                   <Image url="@../images/new_background.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnGuess" layoutX="459.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleGuessClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 2, 2);" text="Make a Guess" />
+            <Button fx:id="btnGuess" layoutX="459.0" layoutY="58.0" mnemonicParsing="false" onAction="#onGuessClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 2, 2);" text="Make a Guess" />
             <ImageView fitHeight="89.0" fitWidth="128.0" layoutX="125.0" layoutY="473.0">
                <image>
                   <Image url="@../images/paper.png" />
@@ -33,7 +33,7 @@
                   <Image url="@../images/dropdown.png" />
                </image>
             </ImageView>
-            <Button fx:id="menuButton" layoutX="12.0" layoutY="26.0" onAction="#switchMenuVisibility" prefHeight="43.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-font-size: 15pt; -fx-font-weight: bold; -fx-text-fill: black;" text="Crime Scene" />
+            <Button fx:id="menuButton" layoutX="12.0" layoutY="26.0" onAction="#onClickToggleMenu" prefHeight="43.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-font-size: 15pt; -fx-font-weight: bold; -fx-text-fill: black;" text="Crime Scene" />
             <!-- Menu Items (Initially hidden in controller logic) -->
             <VBox fx:id="menuBox" layoutX="14.0" layoutY="69.0" prefHeight="177.0" prefWidth="211.0" spacing="0" visible="false">
               <Button onAction="#onClickCopMenu" prefHeight="50.0" prefWidth="211.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Hallway">

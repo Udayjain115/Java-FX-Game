@@ -21,8 +21,8 @@ public class RulebookController {
   @FXML private Label timerLbl;
 
   // Variables to store the initial mouse click position
-  private double xOffset = 0;
-  private double yOffset = 0;
+  private double horizontalOffset = 0;
+  private double verticalOffset = 0;
 
   @FXML
   public void initialize() {
@@ -55,15 +55,15 @@ public class RulebookController {
     // On mouse press, record the initial position of the mouse relative to the image
     imageView.setOnMousePressed(
         (MouseEvent event) -> {
-          xOffset = event.getSceneX() - imageView.getLayoutX();
-          yOffset = event.getSceneY() - imageView.getLayoutY();
+          horizontalOffset = event.getSceneX() - imageView.getLayoutX();
+          verticalOffset = event.getSceneY() - imageView.getLayoutY();
         });
 
     // On mouse drag, update the layout position of the image based on the new mouse position
     imageView.setOnMouseDragged(
         (MouseEvent event) -> {
-          imageView.setLayoutX(event.getSceneX() - xOffset);
-          imageView.setLayoutY(event.getSceneY() - yOffset);
+          imageView.setLayoutX(event.getSceneX() - horizontalOffset);
+          imageView.setLayoutY(event.getSceneY() - verticalOffset);
         });
   }
 
