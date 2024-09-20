@@ -146,7 +146,7 @@ public class SuspectRoomController {
 
   @FXML
   // Function to toggle the visibility of the drop-down menu
-  private void switchMenuVisibility() {
+  private void onClickToggleMenu() {
     isMenuVisible = !isMenuVisible;
     menuBox.setVisible(isMenuVisible);
   }
@@ -226,7 +226,7 @@ public class SuspectRoomController {
    *
    * @param msg the chat message to append
    */
-  private void appendChatMessage(ChatMessage msg) {
+  private void onAppendChatMessage(ChatMessage msg) {
     synchronized (chatMessages) {
       // Add the message to the chatMessages list
       chatMessages.add(msg.getContent());
@@ -289,7 +289,7 @@ public class SuspectRoomController {
                 Choice result = chatCompletionResult.getChoices().iterator().next();
                 chatCompletionRequest.addMessage(result.getChatMessage());
                 clearThinkingMessage();
-                appendChatMessage(result.getChatMessage());
+                onAppendChatMessage(result.getChatMessage());
                 // this way the people will not speak out loud
                 // TextToSpeech.speak(result.getChatMessage().getContent());
               } catch (ApiProxyException e) {
@@ -316,7 +316,7 @@ public class SuspectRoomController {
     }
     // textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
-    appendChatMessage(msg);
+    onAppendChatMessage(msg);
     runGpt(msg);
   }
 }

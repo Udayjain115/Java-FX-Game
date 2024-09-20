@@ -85,6 +85,8 @@ public class GuessingController {
     parallelTransition = new ParallelTransition(animation, rotateAnimation);
 
     text.appendText("Game: Click on who you think the thief is... \n\n");
+
+    // Set the visibility of the images to false
     wrongPerson.setVisible(false);
     wrongReason.setVisible(false);
     won.setVisible(false);
@@ -115,9 +117,11 @@ public class GuessingController {
       return;
     }
 
+    // Initialize the timer
     timer = Timer.getTimer();
     timer.reset(60);
 
+    // Bind the timer label to the time left
     StringBinding timeLayout =
         Bindings.createStringBinding(
             () -> {
@@ -128,10 +132,12 @@ public class GuessingController {
             },
             timer.getTimeLeft());
 
+    // Add a listener to the time left property
     timer
         .getTimeLeft()
         .addListener(
             (observable, oldValue, newValue) -> {
+              // If the time left is 0, set the time left to false
               if (newValue.intValue() == 0) {
                 timeLeft = false;
                 try {
@@ -142,6 +148,8 @@ public class GuessingController {
                     resetButton.setVisible(true);
                     resetButton.setDisable(false);
                   }
+
+                  // Stop the timer and set the visibility of the timer label to false
                   timerLbl.setVisible(false);
                   btnSend.setDisable(true);
                 } catch (ApiProxyException e) {
@@ -154,6 +162,7 @@ public class GuessingController {
               }
             });
 
+    // Start the timer
     timerLbl.textProperty().bind(timeLayout);
     timer.start();
   }
@@ -244,7 +253,8 @@ public class GuessingController {
                 Choice result = chatCompletionResult.getChoices().iterator().next();
                 chatCompletionRequest.addMessage(result.getChatMessage());
                 clearThinkingMessage();
-                appendChatMessage(result.getChatMessage());
+
+                onAppendChatMessage(result.getChatMessage());
                 // this way the people will not speak out loud
                 // TextToSpeech.speak(result.getChatMessage().getContent());
               } catch (ApiProxyException e) {
@@ -284,18 +294,24 @@ public class GuessingController {
    *
    * @param msg the chat message to append
    */
-  private void appendChatMessage(ChatMessage msg) {
+  private void onAppendChatMessage(ChatMessage msg) {
     synchronized (chatMessages) {
+      // If the message has not been appended yet
       if (!appendedMsg) {
+        // Add the message to the chat messages list
         chatMessages.add(msg.getContent());
         Platform.runLater(
             () -> {
+              // Append the message to the chat text area
               text.appendText("Game: " + msg.getContent() + "\n\n");
+              // If the message contains the word "correct", show the won image
               if (msg.getContent().contains("correct")) {
                 won.setVisible(true);
+                // If the message contains the word "missing", show the wrong person image
               } else if (msg.getContent().contains("missing")) {
                 wrongReason.setVisible(true);
               }
+              // Disable the send button and enable the reset button
               btnSend.setDisable(true);
               textInput.setDisable(true);
               resetButton.setDisable(false);

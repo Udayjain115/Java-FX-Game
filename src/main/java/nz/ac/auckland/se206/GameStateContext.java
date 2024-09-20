@@ -149,7 +149,7 @@ public class GameStateContext {
    *
    * @throws IOException if there is an I/O error
    */
-  public void handleGuessClick() throws IOException {
-    gameState.handleGuessClick();
+  public void onGuessClick() throws IOException {
+    gameState.onGuessClick();
   }
 }
