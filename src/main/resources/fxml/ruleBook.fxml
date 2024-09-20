@@ -14,19 +14,19 @@
             <Image url="@../images/new_background.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff301f" height="32.0" layoutX="915.0" layoutY="89.0" onMouseClicked="#closeRulebook" opacity="0.67" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-      <ImageView fitHeight="20.0" fitWidth="49.0" layoutX="921.0" layoutY="95.0" onMouseClicked="#closeRulebook" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff301f" height="32.0" layoutX="915.0" layoutY="123.0" onMouseClicked="#closeRulebook" opacity="0.67" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+      <ImageView fitHeight="20.0" fitWidth="49.0" layoutX="922.0" layoutY="129.0" onMouseClicked="#closeRulebook" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/exit.png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="900.0" layoutY="517.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />      
       <ImageView fx:id="section3" fitHeight="224.0" fitWidth="301.0" layoutX="283.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Section%203.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="section2" fitHeight="209.0" fitWidth="301.0" layoutX="584.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="section2" fitHeight="209.0" fitWidth="301.0" layoutX="574.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Section%202.png" />
          </image>
@@ -41,7 +41,7 @@
             <Image url="@../images/Section%204.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="95.0" fitWidth="879.0" layoutX="58.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="95.0" fitWidth="879.0" layoutX="58.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/rulebooktext.png" />
          </image>
