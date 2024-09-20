@@ -25,8 +25,6 @@ public class App extends Application {
 
   private static Scene scene;
   private static FXMLLoader loader;
-  private static App instance;
-  private static Stage primaryStage;
 
   /**
    * The main method that launches the JavaFX application.
@@ -85,8 +83,7 @@ public class App extends Application {
   public void start(final Stage stage) throws IOException {
     Platform.setImplicitExit(false);
 
-    instance = this;
-    primaryStage = stage;
+    
     SceneManager.addUi(SceneManager.AppUi.CRIME_SCENE, "crimeScene");
     SceneManager.addUi(SceneManager.AppUi.RULEBOOK, ("ruleBook"));
     SceneManager.addUi(SceneManager.AppUi.START, ("start"));
@@ -99,6 +96,9 @@ public class App extends Application {
     stage.setScene(scene);
     stage.show();
     root.requestFocus();
+
+
+    stage.setOnCloseRequest(event -> Platform.exit());
   }
 
   public static void restartApp() throws IOException {
