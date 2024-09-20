@@ -24,6 +24,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
@@ -252,5 +253,7 @@ public class GuessingController {
   }
 
   @FXML
-  private void resetGame(ActionEvent event) {}
+  private void onResetGame(ActionEvent event) throws IOException {
+    App.restartApp();
+  }
 }

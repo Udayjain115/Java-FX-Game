@@ -39,5 +39,10 @@ public class SceneManager {
     return controllerMap.get(appUi);
   }
 
+  public static void delete() {
+    sceneMap.clear();
+    controllerMap.clear();
+  }
+
   public static void reInitializeCrimeScene(String fxml) {}
 }

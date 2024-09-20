@@ -43,6 +43,6 @@
             <Image url="@../images/TimeOut.png" />
          </image>
       </ImageView>
-      <Button fx:id="resetButton" layoutX="350.0" layoutY="236.0" mnemonicParsing="false" onAction="#resetGame" text="Replay Game" />
+      <Button fx:id="resetButton" layoutX="350.0" layoutY="236.0" mnemonicParsing="false" onAction="#onResetGame" text="Replay Game" />
    </children>
 </Pane>
