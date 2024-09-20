@@ -31,15 +31,30 @@
             <Font name="System" size="12.0" />
          </font>
       </Button>
-      <Rectangle fill="WHITE" height="66.0" layoutX="12.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="66.0" />
-      <Button fx:id="menuButton" layoutX="-18.0" layoutY="-21.0" onAction="#switchMenuVisibility" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent; -fx-font-size: 61px; -fx-font-weight: bold; -fx-text-fill: black;" text="≡" />
-      <!-- Menu Items (Initially hidden in controller logic) -->
-      <VBox fx:id="menuBox" layoutX="13.0" layoutY="80.0" prefHeight="177.0" prefWidth="175.0" spacing="0" visible="false">
-        <Button onAction="#onClickJanitorMenu" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Janitor Cupboard" />
-        <Button onAction="#onClickBankManagerMenu" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Bank Office" />
-        <Button onAction="#onClickCrimeSceneMenu" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 16px; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" text="Crime Scene" />
-      </VBox>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />   
+      
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="43.0" layoutX="14.0" layoutY="26.0" opacity="0.55" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="211.0" />
+            <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="192.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/dropdown.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="menuButton" layoutX="12.0" layoutY="26.0" onAction="#switchMenuVisibility" prefHeight="43.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-font-size: 15pt; -fx-font-weight: bold; -fx-text-fill: black;" text="Hallway" />
+            <!-- Menu Items (Initially hidden in controller logic) -->
+            <VBox fx:id="menuBox" layoutX="14.0" layoutY="69.0" prefHeight="177.0" prefWidth="211.0" spacing="0" visible="false">
+              <Button onAction="#onClickJanitorMenu" prefHeight="50.0" prefWidth="211.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Janitor Cupboard">
+                  <font>
+                     <Font name="System Bold" size="15.0" />
+                  </font></Button>
+              <Button onAction="#onClickBankManagerMenu" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Bank Office">
+                  <font>
+                     <Font name="System Bold" size="15.0" />
+                  </font></Button>
+              <Button onAction="#onClickCrimeSceneMenu" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Crime Scene">
+                  <font>
+                     <Font name="System Bold" size="15.0" />
+                  </font></Button>    
+            </VBox>
+            <Label fx:id="timerLbl" alignment="CENTER" layoutX="238.0" layoutY="24.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />   
       <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="240.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../images/pen.png" />
