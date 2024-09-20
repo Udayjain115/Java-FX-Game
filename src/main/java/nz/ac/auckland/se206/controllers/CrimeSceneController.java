@@ -191,7 +191,7 @@ public class CrimeSceneController {
    * @throws IOException if there is an I/O error
    */
   @FXML
-  private void handleGuessClick(ActionEvent event) throws IOException {
+  private void onGuessClick(ActionEvent event) throws IOException {
     App.setRoot("guessing");
   }
 
@@ -231,7 +231,7 @@ public class CrimeSceneController {
 
   @FXML
   // Function to toggle the visibility of the drop-down menu
-  private void switchMenuVisibility() {
+  private void onClickToggleMenu() {
     isMenuVisible = !isMenuVisible;
     menuBox.setVisible(isMenuVisible);
   }

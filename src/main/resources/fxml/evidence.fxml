@@ -14,7 +14,7 @@
             <Image url="@../images/istockphoto-479520746-612x612-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button layoutX="68.0" layoutY="492.0" mnemonicParsing="false" onAction="#shutDown" text="Shut Down" />
+      <Button layoutX="68.0" layoutY="492.0" mnemonicParsing="false" onAction="#onClickShutDown" text="Shut Down" />
       <ImageView fx:id="suspectFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="80.0" onMouseClicked="#toSuspectFingerprints">
          <image>
             <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
