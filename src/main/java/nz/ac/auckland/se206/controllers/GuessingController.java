@@ -6,10 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import javax.swing.Action;
-
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
@@ -28,8 +24,6 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
-import nz.ac.auckland.se206.App;
-import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
@@ -82,7 +76,7 @@ public class GuessingController {
               int time = timer.getTimeLeft().get();
               int mins = time / 60;
               int secs = time % 60;
-              return String.format("%s: %1d:%02d", "Time Left", mins, secs);
+              return String.format("%1d:%02d", mins, secs);
             },
             timer.getTimeLeft());
 
@@ -93,9 +87,9 @@ public class GuessingController {
               if (newValue.intValue() == 0) {
                 timeLeft = false;
                 try {
-                  if(hasClicked){
+                  if (hasClicked) {
                     onSendMessage(new ActionEvent());
-                  }else{
+                  } else {
                     timeOut.setVisible(true);
                   }
                   timerLbl.setVisible(false);
@@ -242,7 +236,5 @@ public class GuessingController {
   }
 
   @FXML
-  private void resetGame(ActionEvent event){
-    
-  }
+  private void resetGame(ActionEvent event) {}
 }

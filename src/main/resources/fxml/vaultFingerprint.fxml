@@ -16,31 +16,31 @@
          </image>
       </ImageView>
       <Button layoutX="61.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#backToEvidence" prefHeight="25.0" prefWidth="61.0" text="Back" />
-      <Text fontSmoothingType="LCD" layoutX="267.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fingerprints found on the vault " textAlignment="CENTER" wrappingWidth="326.146484375">
+      <Text fontSmoothingType="LCD" layoutX="277.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fingerprints found on the vault " textAlignment="CENTER" wrappingWidth="454.146484375">
          <font>
             <Font name="Agency FB Bold" size="33.0" />
          </font>
       </Text>
-      <ImageView fitHeight="180.0" fitWidth="200.0" layoutX="580.0" layoutY="109.0">
+      <ImageView fitHeight="180.0" fitWidth="200.0" layoutX="555.0" layoutY="154.0">
          <image>
             <Image url="@../images/FingerPrint4-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="475.0" fitWidth="447.0" layoutX="44.0" layoutY="59.0">
+      <ImageView fitHeight="370.0" fitWidth="320.0" layoutX="163.0" layoutY="136.0">
          <image>
             <Image url="@../images/magnifying-glass-vector-21167298-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="116.0" layoutY="109.0">
+      <ImageView layoutX="204.0" layoutY="154.0">
          <image>
             <Image url="@../images/Fingerprint3-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="475.0" fitWidth="447.0" layoutX="520.0" layoutY="59.0">
+      <ImageView fitHeight="370.0" fitWidth="320.0" layoutX="546.0" layoutY="136.0">
          <image>
             <Image url="@../images/magnifying-glass-vector-21167298-removebg-preview.png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="913.0" layoutY="518.0" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: gray;" text="Label" />
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />   
    </children>
 </Pane>

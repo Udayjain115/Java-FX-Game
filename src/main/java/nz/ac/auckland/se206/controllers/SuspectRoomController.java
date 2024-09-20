@@ -1,11 +1,15 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
+import javafx.animation.ParallelTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
@@ -17,8 +21,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
@@ -38,10 +44,14 @@ public class SuspectRoomController {
   @FXML private VBox menuBox; // Root layout of the scene
   @FXML private Button btnSend;
   @FXML private Label timerLbl;
+  @FXML private javafx.scene.image.ImageView animationImage;
+
+  // Declare the ImageView for the pen-writing animation
+  private TranslateTransition animation;
+  private ParallelTransition parallelTransition;
 
   private String profession;
   private ChatCompletionRequest chatCompletionRequest;
-  private String professionTalking;
   private String currentPersonTalking;
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
@@ -52,6 +62,23 @@ public class SuspectRoomController {
 
   @FXML
   private void initialize() {
+    // Initialize the pen-writing animation
+    InputStream animationImageStream = getClass().getResourceAsStream("/images/pen.png");
+    animationImage.setImage(new Image(animationImageStream));
+    animation = new TranslateTransition(Duration.seconds(2), animationImage);
+    animation.setFromX(50);
+    animation.setToX(200);
+    animation.setCycleCount(TranslateTransition.INDEFINITE);
+    animation.setAutoReverse(true);
+    animationImage.setVisible(false); // Initially hide the animation image
+
+    RotateTransition rotateAnimation = new RotateTransition(Duration.seconds(0.5), animationImage);
+    rotateAnimation.setFromAngle(0);
+    rotateAnimation.setToAngle(15);
+    rotateAnimation.setCycleCount(TranslateTransition.INDEFINITE);
+    rotateAnimation.setAutoReverse(true);
+
+    parallelTransition = new ParallelTransition(animation, rotateAnimation);
 
     // Get the timer instance
     Timer timer = Timer.getTimer();
@@ -63,7 +90,7 @@ public class SuspectRoomController {
               int time = timer.getTimeLeft().get();
               int mins = time / 60;
               int secs = time % 60;
-              return String.format("%s: %1d:%02d", "Time Left", mins, secs);
+              return String.format("%1d:%02d", mins, secs);
             },
             timer.getTimeLeft());
 
@@ -216,29 +243,21 @@ public class SuspectRoomController {
     }
   }
 
-  /** Updates the UI to show "User is thinking..." while waiting for the GPT response. */
+  // Show the pen-writing animation when GPT is "thinking"
   private void showThinkingMessage() {
-    // Set the professionTalking based on the profession
-    if (profession.equals("policeman")) {
-      // Set the professionTalking to "Policeman"
-      professionTalking = "Policeman";
-    } else if (profession.equals("janitor")) {
-      // Set the professionTalking to "Janitor"
-      professionTalking = "Janitor";
-    } else if (profession.equals("bankManager")) {
-      // Set the professionTalking to "Bank Manager"
-      professionTalking = "Bank Manager";
-    }
-    // Append the "User is thinking..." message to the text area
-    Platform.runLater(() -> text.appendText(professionTalking + " is thinking...\n\n"));
+    Platform.runLater(
+        () -> {
+          animationImage.setVisible(true); // Show the pen-writing animation
+          parallelTransition.play(); // Start the animation
+        });
   }
 
-  /** Clears the "User is thinking..." message. */
+  // Stop the pen-writing animation once GPT responds
   private void clearThinkingMessage() {
     Platform.runLater(
         () -> {
-          String currentText = text.getText();
-          text.setText(currentText.replace(professionTalking + " is thinking...\n\n", ""));
+          parallelTransition.stop(); // Stop the animation
+          animationImage.setVisible(false); // Hide the pen-writing animation
         });
   }
 
