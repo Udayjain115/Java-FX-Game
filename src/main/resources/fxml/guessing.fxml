@@ -31,7 +31,7 @@
             <Image url="@../images/TimeOut.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="won" fitHeight="442.0" fitWidth="859.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="won" fitHeight="567.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Won.png" />
          </image>
@@ -49,5 +49,10 @@
             <Font name="System" size="12.0" />
          </font>
       </Button>
+      <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="311.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pen.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
