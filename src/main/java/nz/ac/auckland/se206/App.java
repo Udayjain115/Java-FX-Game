@@ -1,9 +1,6 @@
 package nz.ac.auckland.se206;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -101,9 +98,14 @@ public class App extends Application {
     stage.setOnCloseRequest(event -> Platform.exit());
   }
 
+
+  // This method is invoked when the application is stopped.
+
+
   public static void restartApp() throws IOException {
     CrimeSceneController.visitedRooms.clear();
     SceneManager.delete();
+    // Adds all the UIs to the scene manager again, so that they can be accessed again freshly
     SceneManager.addUi(SceneManager.AppUi.CRIME_SCENE, "crimeScene");
     SceneManager.addUi(SceneManager.AppUi.RULEBOOK, ("ruleBook"));
     SceneManager.addUi(SceneManager.AppUi.COP, ("copRoom"));
