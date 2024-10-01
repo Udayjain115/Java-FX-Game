@@ -240,12 +240,15 @@ public class SuspectRoomController {
             // Append the message to the text area
             if (msg.getRole().equals("assistant")) {
               if (profession.equals("policeman")) {
+                crimeSceneController.addVisitedRoom("policeman");
                 // If the person talking is the policeman
                 text.appendText("Policeman: " + msg.getContent() + "\n\n");
               } else if (profession.equals("bankManager")) {
+                crimeSceneController.addVisitedRoom("bankManager");
                 // If the person talking is the bank manager
                 text.appendText("Bank Manager: " + msg.getContent() + "\n\n");
               } else if (profession.equals("janitor")) {
+                crimeSceneController.addVisitedRoom("janitor");
                 // If the person talking is the janitor
                 text.appendText("Janitor: " + msg.getContent() + "\n\n");
               }
