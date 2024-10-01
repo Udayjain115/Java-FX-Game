@@ -47,11 +47,11 @@ public class GuessingController {
   @FXML private ImageView won;
   @FXML private ImageView timeOut;
   @FXML private Button resetButton;
-  @FXML private javafx.scene.image.ImageView animationImage;
+  @FXML private javafx.scene.image.ImageView penImage;
 
   // Declare the ImageView for the pen-writing animation
-  private TranslateTransition animation;
-  private ParallelTransition parallelTransition;
+  private TranslateTransition movingPen;
+  private ParallelTransition parallelPen;
 
   private String profession;
   private Boolean timeLeft = true;
@@ -62,28 +62,28 @@ public class GuessingController {
   private final List<String> chatMessages =
       Collections.synchronizedList(new CopyOnWriteArrayList<>());
 
-  private ChatCompletionRequest chatCompletionRequest;
+  private ChatCompletionRequest gptCompleteRequest;
 
   public void initialize() {
     // Initialize the pen-writing animation
     btnSend.setDisable(true);
     textInput.setDisable(true);
-    InputStream animationImageStream = getClass().getResourceAsStream("/images/pen.png");
-    animationImage.setImage(new Image(animationImageStream));
-    animation = new TranslateTransition(Duration.seconds(2), animationImage);
-    animation.setFromX(50);
-    animation.setToX(200);
-    animation.setCycleCount(TranslateTransition.INDEFINITE);
-    animation.setAutoReverse(true);
-    animationImage.setVisible(false); // Initially hide the animation image
+    InputStream penImageStream = getClass().getResourceAsStream("/images/pen.png");
+    penImage.setImage(new Image(penImageStream));
+    movingPen = new TranslateTransition(Duration.seconds(2), penImage);
+    movingPen.setFromX(50);
+    movingPen.setToX(200);
+    movingPen.setCycleCount(TranslateTransition.INDEFINITE);
+    movingPen.setAutoReverse(true);
+    penImage.setVisible(false); // Initially hide the animation image
 
-    RotateTransition rotateAnimation = new RotateTransition(Duration.seconds(0.5), animationImage);
-    rotateAnimation.setFromAngle(0);
-    rotateAnimation.setToAngle(15);
-    rotateAnimation.setCycleCount(TranslateTransition.INDEFINITE);
-    rotateAnimation.setAutoReverse(true);
+    RotateTransition penRotate = new RotateTransition(Duration.seconds(0.5), penImage);
+    penRotate.setFromAngle(0);
+    penRotate.setToAngle(15);
+    penRotate.setCycleCount(TranslateTransition.INDEFINITE);
+    penRotate.setAutoReverse(true);
 
-    parallelTransition = new ParallelTransition(animation, rotateAnimation);
+    parallelPen = new ParallelTransition(movingPen, penRotate);
 
     text.appendText("Game: Click on who you think the thief is... \n\n");
 
@@ -168,20 +168,20 @@ public class GuessingController {
     timer.start();
   }
 
-  private void showThinkingMessage() {
+  private void showPenAnimation() {
     Platform.runLater(
         () -> {
-          animationImage.setVisible(true); // Show the pen-writing animation
-          parallelTransition.play(); // Start the animation
+          penImage.setVisible(true); // Show the pen-writing animation
+          parallelPen.play(); // Start the animation
         });
   }
 
   // Stop the pen-writing animation once GPT responds
-  private void clearThinkingMessage() {
+  private void hidePenAnimation() {
     Platform.runLater(
         () -> {
-          parallelTransition.stop(); // Stop the animation
-          animationImage.setVisible(false); // Hide the pen-writing animation
+          parallelPen.stop(); // Stop the animation
+          penImage.setVisible(false); // Hide the pen-writing animation
         });
   }
 
@@ -223,7 +223,7 @@ public class GuessingController {
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
       // Create a new chat completion request
-      chatCompletionRequest =
+      gptCompleteRequest =
           new ChatCompletionRequest(config)
               .setN(1)
               .setTemperature(0.2)
@@ -243,19 +243,19 @@ public class GuessingController {
     return PromptEngineering.getPrompt(fileName, map);
   }
 
-  private void runGpt(ChatMessage msg) {
-    Thread thread =
+  private void runGpt(ChatMessage gptMessageToSend) {
+    Thread gptThread =
         new Thread(
             () -> {
               try {
-                showThinkingMessage();
-                chatCompletionRequest.addMessage(msg);
-                ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
-                Choice result = chatCompletionResult.getChoices().iterator().next();
-                chatCompletionRequest.addMessage(result.getChatMessage());
-                clearThinkingMessage();
+                showPenAnimation();
+                gptCompleteRequest.addMessage(gptMessageToSend);
+                ChatCompletionResult gptCompleteResult = gptCompleteRequest.execute();
+                Choice gptResult = gptCompleteResult.getChoices().iterator().next();
+                gptCompleteRequest.addMessage(gptResult.getChatMessage());
+                hidePenAnimation();
 
-                onAppendChatMessage(result.getChatMessage());
+                onAppendChatMessage(gptResult.getChatMessage());
                 // this way the people will not speak out loud
                 // TextToSpeech.speak(result.getChatMessage().getContent());
               } catch (ApiProxyException e) {
@@ -263,8 +263,8 @@ public class GuessingController {
               }
             });
 
-    thread.setDaemon(true);
-    thread.start();
+    gptThread.setDaemon(true);
+    gptThread.start();
   }
 
   /**
