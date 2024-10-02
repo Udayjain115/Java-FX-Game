@@ -23,6 +23,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
@@ -62,6 +63,11 @@ public class SuspectRoomController {
 
   @FXML
   private void initialize() {
+
+    // font
+    Font font = Font.loadFont(getClass().getResourceAsStream("/fonts/IBMPlexMono-Regular.ttf"), 14);
+    System.out.println(font.getFamily());
+
     // Initialize the pen-writing animation
     InputStream animationImageStream = getClass().getResourceAsStream("/images/pen.png");
     animationImage.setImage(new Image(animationImageStream));
@@ -239,16 +245,7 @@ public class SuspectRoomController {
 
             // Append the message to the text area
             if (msg.getRole().equals("assistant")) {
-              if (profession.equals("policeman")) {
-                // If the person talking is the policeman
-                text.appendText("Policeman: " + msg.getContent() + "\n\n");
-              } else if (profession.equals("bankManager")) {
-                // If the person talking is the bank manager
-                text.appendText("Bank Manager: " + msg.getContent() + "\n\n");
-              } else if (profession.equals("janitor")) {
-                // If the person talking is the janitor
-                text.appendText("Janitor: " + msg.getContent() + "\n\n");
-              }
+              text.appendText(msg.getContent() + "\n\n");
               // Paste the users message in the chat
             } else if (msg.getRole().equals("user")) {
               text.appendText("You: " + msg.getContent() + "\n\n");
