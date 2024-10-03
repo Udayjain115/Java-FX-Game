@@ -47,7 +47,7 @@ public class GuessingController {
   @FXML private ImageView won;
   @FXML private ImageView timeOut;
   @FXML private Button resetButton;
-  @FXML private javafx.scene.image.ImageView penImage;
+  @FXML private javafx.scene.image.ImageView animationImage;
 
   // Declare the ImageView for the pen-writing animation
   private TranslateTransition movingPen;
@@ -69,15 +69,15 @@ public class GuessingController {
     btnSend.setDisable(true);
     textInput.setDisable(true);
     InputStream penImageStream = getClass().getResourceAsStream("/images/pen.png");
-    penImage.setImage(new Image(penImageStream));
-    movingPen = new TranslateTransition(Duration.seconds(2), penImage);
+    animationImage.setImage(new Image(penImageStream));
+    movingPen = new TranslateTransition(Duration.seconds(2), animationImage);
     movingPen.setFromX(50);
     movingPen.setToX(200);
     movingPen.setCycleCount(TranslateTransition.INDEFINITE);
     movingPen.setAutoReverse(true);
-    penImage.setVisible(false); // Initially hide the animation image
+    animationImage.setVisible(false); // Initially hide the animation image
 
-    RotateTransition penRotate = new RotateTransition(Duration.seconds(0.5), penImage);
+    RotateTransition penRotate = new RotateTransition(Duration.seconds(0.5), animationImage);
     penRotate.setFromAngle(0);
     penRotate.setToAngle(15);
     penRotate.setCycleCount(TranslateTransition.INDEFINITE);
@@ -171,7 +171,7 @@ public class GuessingController {
   private void showPenAnimation() {
     Platform.runLater(
         () -> {
-          penImage.setVisible(true); // Show the pen-writing animation
+          animationImage.setVisible(true); // Show the pen-writing animation
           parallelPen.play(); // Start the animation
         });
   }
@@ -181,7 +181,7 @@ public class GuessingController {
     Platform.runLater(
         () -> {
           parallelPen.stop(); // Stop the animation
-          penImage.setVisible(false); // Hide the pen-writing animation
+          animationImage.setVisible(false); // Hide the pen-writing animation
         });
   }
 
@@ -193,8 +193,9 @@ public class GuessingController {
 
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
+      text.clear();
       text.appendText(
-          "Game: You did not guess correctly. You lost! The police officer was the thief! \n\n");
+          "Game: You did not guess correctly. You lost! The thief got away \n\n");
       btnSend.setDisable(true);
       textInput.setDisable(true);
       wrongPerson.setVisible(true);
@@ -203,6 +204,7 @@ public class GuessingController {
       return;
       // If the rectangle clicked is the police officer
     } else {
+      text.clear();
       text.appendText(
           "Game: The officer has been arrested. Please give the detectives your reasoning.\n\n");
       btnSend.setDisable(false);
@@ -303,6 +305,7 @@ public class GuessingController {
         chatMessages.add(msg.getContent());
         Platform.runLater(
             () -> {
+              text.clear();
               // Append the message to the chat text area
               text.appendText("Game: " + msg.getContent() + "\n\n");
               // If the message contains the word "correct", show the won image
