@@ -193,6 +193,7 @@ public class GuessingController {
 
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
+      text.clear();
       text.appendText(
           "Game: You did not guess correctly. You lost! The thief got away \n\n");
       btnSend.setDisable(true);
@@ -203,6 +204,7 @@ public class GuessingController {
       return;
       // If the rectangle clicked is the police officer
     } else {
+      text.clear();
       text.appendText(
           "Game: The officer has been arrested. Please give the detectives your reasoning.\n\n");
       btnSend.setDisable(false);
@@ -303,6 +305,7 @@ public class GuessingController {
         chatMessages.add(msg.getContent());
         Platform.runLater(
             () -> {
+              text.clear();
               // Append the message to the chat text area
               text.appendText("Game: " + msg.getContent() + "\n\n");
               // If the message contains the word "correct", show the won image
