@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="562.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="false">
          <image>
-            <Image url="@../images/bankManagerRoom.png" />
+            <Image url="@../images/anime_manager.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="43.0" layoutX="14.0" layoutY="26.0" opacity="0.55" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="211.0" />
