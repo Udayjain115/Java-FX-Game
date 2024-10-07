@@ -15,50 +15,37 @@
    <children>
       <ImageView fitHeight="562.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="false">
          <image>
-            <Image url="@../images/bankManagerRoom.png" />
+            <Image url="@../images/anime_manager.png" />
          </image>
       </ImageView>
-      
-      
-      <!-- Modern Chat Display with Glass Effect -->
-      <TextArea fx:id="text" editable="false" layoutX="232.0" layoutY="312.0" prefHeight="115.0" prefWidth="519.0" style="-fx-font-size: 13px; -fx-background-color: rgba(255, 255, 255, 0.15); -fx-text-fill: #000000; -fx-border-color: rgba(255, 255, 255, 0.3); -fx-border-radius: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 2, 2);" wrapText="true" />
-
-      <!-- Sleek Input Field with Subtle Glow -->
-      <TextField fx:id="textInput" layoutX="234.0" layoutY="437.0" prefHeight="45.0" prefWidth="438.0" style="-fx-font-size: 13px; -fx-background-color: rgba(0, 0, 0, 0.8); -fx-border-color: #e8edeb; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #FFFFFF; -fx-prompt-text-fill: #888888; -fx-padding: 10px 20px;" />
-
-      <!-- Futuristic Glassy Send Button -->
-      <Button fx:id="btnSend" layoutX="677.0" layoutY="437.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#managerSetTrue" style="-fx-background-color: #d2d4d4; -fx-text-fill: #000000; -fx-background-radius: 20; -fx-font-size: 13px; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2);" text="Send">
-         <font>
-            <Font name="System" size="12.0" />
-         </font>
-      </Button>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="43.0" layoutX="14.0" layoutY="26.0" opacity="0.55" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="211.0" />
-      <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="192.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="menuButton" layoutX="12.0" layoutY="17.0" onAction="#onClickToggleMenu" prefHeight="45.0" prefWidth="258.0" styleClass="menu_button" stylesheets="@../css/navigation.css" text="Bank Office" />
+      <ImageView fitHeight="30.0" fitWidth="53.0" layoutX="217.0" layoutY="29.0" onMouseClicked="#onClickToggleMenu" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../images/dropdown.png" />
+            <Image url="@../images/triangle.png" />
           </image>
       </ImageView>
-      <Button fx:id="menuButton" layoutX="12.0" layoutY="26.0" onAction="#onClickToggleMenu" prefHeight="43.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-font-size: 15pt; -fx-font-weight: bold; -fx-text-fill: black;" text="Bank Office" />
       <!-- Menu Items (Initially hidden in controller logic) -->
-      <VBox fx:id="menuBox" layoutX="14.0" layoutY="69.0" prefHeight="177.0" prefWidth="211.0" spacing="0" visible="false">
-        <Button onAction="#onClickCopMenu" prefHeight="50.0" prefWidth="211.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Hallway">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font></Button>
-        <Button onAction="#onClickJanitorMenu" prefHeight="50.0" prefWidth="214.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Janitor Cupboard">
-            <font>
-                <Font size="15.0" />
-            </font></Button>
-        <Button onAction="#onClickCrimeSceneMenu" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Crime Scene">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font></Button>
+      <VBox fx:id="menuBox" layoutX="12.0" layoutY="63.25" prefHeight="76.0" prefWidth="258.0" visible="false">
+        <Button fx:id="dropdownButton1" onAction="#onClickCopMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Hallway">
+        </Button>
+        <Button fx:id="dropdownButton2" onAction="#onClickJanitorMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Janitor">
+        </Button>
+        <Button fx:id="dropdownButton3" onAction="#onClickCrimeSceneMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Crime Scene">
+        </Button>
       </VBox>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="238.0" layoutY="24.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />       
-      <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="240.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@../images/pen.png" />
-        </image>
-      </ImageView> 
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
+      <Pane layoutX="136.0" layoutY="361.0" prefHeight="177.0" prefWidth="736.0" styleClass="text-background" stylesheets="@../css/text-background.css">
+         <children>
+            <TextField fx:id="textInput" layoutX="19.0" layoutY="112.0" prefHeight="45.0" prefWidth="612.0" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-border-color: #e8edeb; -fx-border-radius: 20; -fx-background-radius: 20; -fx-padding: 10px 20px;" styleClass="text-field" stylesheets="@../css/text-field.css" text="" />
+            <Button fx:id="btnSend" layoutX="638.0" layoutY="110.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#managerSetTrue" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-background-radius: 20; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2); -fx-border-color: #e8edeb; -fx-border-radius: 20;" styleClass="text-field" stylesheets="@../css/text-field.css" text="Send" />
+            <TextArea fx:id="text" editable="false" layoutX="16.0" layoutY="14.0" prefHeight="77.0" prefWidth="706.0" styleClass="text-area" stylesheets="@../css/text-area.css" wrapText="true" />
+            <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="18.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pen.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField layoutX="136.0" layoutY="317.0" prefWidth="157.0" styleClass="text-profession-label" stylesheets="@../css/text-background.css" text="Bank Manager" /> 
    </children>
 </Pane>

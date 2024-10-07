@@ -1,0 +1,6 @@
+.text-field {
+  -fx-font-size: 15px;
+  -fx-font-family: 'IBM Plex Mono Regular';
+  -fx-text-fill: #FFFFFF;
+  -fx-padding: 10px 20px;
+}

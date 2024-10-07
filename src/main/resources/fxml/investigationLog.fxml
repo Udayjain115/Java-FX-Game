@@ -21,7 +21,7 @@
          </font>
       </Text>
       <Button layoutX="70.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#backToEvidence" prefHeight="25.0" prefWidth="61.0" text="Back" />
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="207.0" layoutY="22.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
       <Text layoutX="377.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20/9/2024: Approved cleaning services">
          <font>
             <Font name="Agency FB" size="20.0" />

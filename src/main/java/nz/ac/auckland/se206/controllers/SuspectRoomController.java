@@ -43,6 +43,9 @@ public class SuspectRoomController {
   @FXML private Button goToJanitor;
   @FXML private VBox menuBox; // Root layout of the scene
   @FXML private Button btnSend;
+  @FXML private Button dropdownButton1;
+  @FXML private Button dropdownButton2;
+  @FXML private Button dropdownButton3;
   @FXML private Label timerLbl;
   @FXML private javafx.scene.image.ImageView animationImage;
 
@@ -62,6 +65,11 @@ public class SuspectRoomController {
 
   @FXML
   private void initialize() {
+
+    toggleMenuDropdown(dropdownButton1);
+    toggleMenuDropdown(dropdownButton2);
+    toggleMenuDropdown(dropdownButton3);
+
     // Initialize the pen-writing animation
     InputStream animationImageStream = getClass().getResourceAsStream("/images/pen.png");
     animationImage.setImage(new Image(animationImageStream));
@@ -113,6 +121,18 @@ public class SuspectRoomController {
     // Bind the timer label to the time layout
     timerLbl.textProperty().bind(timeLayout);
     timer.start();
+  }
+
+  @FXML
+  private void toggleMenuDropdown(Button button) {
+    button.setOnMouseEntered(
+        event -> {
+          button.setStyle("-fx-background-color: rgba(0, 0, 0, 0.7)");
+        });
+    button.setOnMouseExited(
+        event -> {
+          button.setStyle("-fx-background-color: rgba(151, 151, 151, 0.7)");
+        });
   }
 
   @FXML
@@ -239,19 +259,7 @@ public class SuspectRoomController {
 
             // Append the message to the text area
             if (msg.getRole().equals("assistant")) {
-              if (profession.equals("policeman")) {
-                crimeSceneController.addVisitedRoom("policeman");
-                // If the person talking is the policeman
-                text.appendText("Policeman: " + msg.getContent() + "\n\n");
-              } else if (profession.equals("bankManager")) {
-                crimeSceneController.addVisitedRoom("bankManager");
-                // If the person talking is the bank manager
-                text.appendText("Bank Manager: " + msg.getContent() + "\n\n");
-              } else if (profession.equals("janitor")) {
-                crimeSceneController.addVisitedRoom("janitor");
-                // If the person talking is the janitor
-                text.appendText("Janitor: " + msg.getContent() + "\n\n");
-              }
+              text.appendText(msg.getContent() + "\n\n");
               // Paste the users message in the chat
             } else if (msg.getRole().equals("user")) {
               text.appendText("You: " + msg.getContent() + "\n\n");
