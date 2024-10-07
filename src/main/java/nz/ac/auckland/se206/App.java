@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -17,8 +16,6 @@ import nz.ac.auckland.se206.controllers.SuspectRoomController;
  * application.
  */
 public class App extends Application {
-
-
 
   private static Scene scene;
   private static FXMLLoader loader;
@@ -80,7 +77,6 @@ public class App extends Application {
   public void start(final Stage stage) throws IOException {
     Platform.setImplicitExit(false);
 
-    
     SceneManager.addUi(SceneManager.AppUi.CRIME_SCENE, "crimeScene");
     SceneManager.addUi(SceneManager.AppUi.RULEBOOK, ("ruleBook"));
     SceneManager.addUi(SceneManager.AppUi.START, ("start"));
@@ -94,13 +90,10 @@ public class App extends Application {
     stage.show();
     root.requestFocus();
 
-
     stage.setOnCloseRequest(event -> Platform.exit());
   }
 
-
   // This method is invoked when the application is stopped.
-
 
   public static void restartApp() throws IOException {
     CrimeSceneController.visitedRooms.clear();
@@ -112,13 +105,6 @@ public class App extends Application {
     SceneManager.addUi(SceneManager.AppUi.JANITOR, ("janitorRoom"));
     SceneManager.addUi(SceneManager.AppUi.BANK_MANAGER, ("bankManagerRoom"));
 
-    
-
-    
     setRoot("start");
-  
+  }
 }
-}
-
- 
-
