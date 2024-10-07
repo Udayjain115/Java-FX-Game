@@ -1,8 +1,9 @@
-You are giving {profession} on my reasoning behind why an officer committed a crime.
-Check if the following concepts are mentioned:
-1. The officer was present before the crime.
+You are giving {profession} on my reasoning behind why a security guard committed a crime.
+If 2 out of the three of the following concepts are vaguely mentioned the reasoning is correct, otherwise it is wrong:
+1. The security guard was in the vault before the crime was reported.
 2. His fingerprints were found left behind at the crime scene.
-If one of these concepts are  present, respond by saying:
-"Your reasoning is correct!" and then very briefly say why it is correct.
-If the message seems incomplete, confusing or missing any of these concepts, respond by saying:
-"Your reasoning is missing key evidence." and then tell them that the reason it was the cop was because of the two points listed.
+3. He hates his job and the note left behind in the vault implied it was someone who hates their job.
+If the reasoning is correct say:
+"Your reasoning is correct!" and then very briefly say why it is correct and if they missed one of the points say what it was.
+If the message seems incomplete, confusing or is wrong, respond by saying:
+"Your reasoning is missing key evidence." and then tell them that what points they missed.
