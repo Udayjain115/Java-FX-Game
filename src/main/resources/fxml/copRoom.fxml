@@ -59,7 +59,7 @@
                 <Font name="System Bold" size="15.0" />
             </font></Button>    
       </VBox>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="238.0" layoutY="24.0" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #333;                -fx-text-fill: white;                -fx-font-size: 18px;                -fx-font-weight: bold;                -fx-border-radius: 10;                -fx-background-radius: 10;                -fx-border-color: #555;                -fx-border-width: 2;" text="00:00" />
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
       <TextField layoutX="136.0" layoutY="317.0" prefWidth="157.0"  styleClass="text-profession-label" stylesheets="@../css/text-background.css" text="Policeman" /> 
       </children>
 </Pane>

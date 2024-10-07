@@ -66,7 +66,9 @@ public class SuspectRoomController {
 
     // font
     Font font = Font.loadFont(getClass().getResourceAsStream("/fonts/IBMPlexMono-Regular.ttf"), 14);
+    Font font2 = Font.loadFont(getClass().getResourceAsStream("/fonts/timerFont.ttf"), 14);
     System.out.println(font.getFamily());
+    System.out.println(font2.getFamily());
 
     // Initialize the pen-writing animation
     InputStream animationImageStream = getClass().getResourceAsStream("/images/pen.png");
