@@ -23,7 +23,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
@@ -44,6 +43,9 @@ public class SuspectRoomController {
   @FXML private Button goToJanitor;
   @FXML private VBox menuBox; // Root layout of the scene
   @FXML private Button btnSend;
+  @FXML private Button dropdownButton1;
+  @FXML private Button dropdownButton2;
+  @FXML private Button dropdownButton3;
   @FXML private Label timerLbl;
   @FXML private javafx.scene.image.ImageView animationImage;
 
@@ -64,11 +66,9 @@ public class SuspectRoomController {
   @FXML
   private void initialize() {
 
-    // font
-    Font font = Font.loadFont(getClass().getResourceAsStream("/fonts/IBMPlexMono-Regular.ttf"), 14);
-    Font font2 = Font.loadFont(getClass().getResourceAsStream("/fonts/timerFont.ttf"), 14);
-    System.out.println(font.getFamily());
-    System.out.println(font2.getFamily());
+    toggleMenuDropdown(dropdownButton1);
+    toggleMenuDropdown(dropdownButton2);
+    toggleMenuDropdown(dropdownButton3);
 
     // Initialize the pen-writing animation
     InputStream animationImageStream = getClass().getResourceAsStream("/images/pen.png");
@@ -121,6 +121,18 @@ public class SuspectRoomController {
     // Bind the timer label to the time layout
     timerLbl.textProperty().bind(timeLayout);
     timer.start();
+  }
+
+  @FXML
+  private void toggleMenuDropdown(Button button) {
+    button.setOnMouseEntered(
+        event -> {
+          button.setStyle("-fx-background-color: rgba(0, 0, 0, 0.7)");
+        });
+    button.setOnMouseExited(
+        event -> {
+          button.setStyle("-fx-background-color: rgba(151, 151, 151, 0.7)");
+        });
   }
 
   @FXML

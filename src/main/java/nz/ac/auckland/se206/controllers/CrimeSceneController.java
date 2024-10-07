@@ -21,6 +21,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
@@ -45,9 +46,13 @@ public class CrimeSceneController {
   @FXML private Rectangle cameraRectangle;
   @FXML private Rectangle rulebookRectangle;
   @FXML private Rectangle evidenceRectangle;
-  @FXML private VBox menuBox; // Root layout of the scene
+  @FXML private VBox menuBox;
   @FXML private Rectangle rulebookCloseButton;
   @FXML private Label timerLbl;
+
+  @FXML private Button copButton;
+  @FXML private Button janitorButton;
+  @FXML private Button managerButton;
 
   @FXML private Circle cameraHoverGlow;
   @FXML private Ellipse paperHoverGlow;
@@ -67,6 +72,16 @@ public class CrimeSceneController {
    */
   @FXML
   public void initialize() {
+
+    // font
+    Font chatFont =
+        Font.loadFont(getClass().getResourceAsStream("/fonts/IBMPlexMono-Regular.ttf"), 14);
+    Font timerFont = Font.loadFont(getClass().getResourceAsStream("/fonts/timerFont.ttf"), 14);
+    Font navigationFont = Font.loadFont(getClass().getResourceAsStream("/fonts/venite.ttf"), 14);
+    System.out.println(chatFont.getFamily());
+    System.out.println(timerFont.getFamily());
+    System.out.println(navigationFont.getFamily());
+
     btnGuess.setDisable(true);
 
     Timer timer = Timer.getTimer();
@@ -102,6 +117,22 @@ public class CrimeSceneController {
     setupHoverEffect(cameraHoverGlow);
     setupHoverEffect(paperHoverGlow);
     setupHoverEffect(laptopHoverGlow);
+
+    toggleMenuDropdown(copButton);
+    toggleMenuDropdown(janitorButton);
+    toggleMenuDropdown(managerButton);
+  }
+
+  @FXML
+  private void toggleMenuDropdown(Button button) {
+    button.setOnMouseEntered(
+        event -> {
+          button.setStyle("-fx-background-color: rgba(0, 0, 0, 0.7)");
+        });
+    button.setOnMouseExited(
+        event -> {
+          button.setStyle("-fx-background-color: rgba(151, 151, 151, 0.7)");
+        });
   }
 
   @FXML

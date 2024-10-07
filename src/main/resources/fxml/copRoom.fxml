@@ -36,28 +36,20 @@
             </ImageView>
          </children>
       </Pane>
-      
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="43.0" layoutX="14.0" layoutY="26.0" opacity="0.55" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="211.0" />
-      <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="192.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="menuButton" layoutX="12.0" layoutY="17.0" onAction="#onClickToggleMenu" prefHeight="45.0" prefWidth="258.0" styleClass="menu_button" stylesheets="@../css/navigation.css" text="Hallway" />
+      <ImageView fitHeight="30.0" fitWidth="53.0" layoutX="217.0" layoutY="29.0" onMouseClicked="#onClickToggleMenu" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../images/dropdown.png" />
+            <Image url="@../images/triangle.png" />
           </image>
       </ImageView>
-      <Button fx:id="menuButton" layoutX="12.0" layoutY="26.0" onAction="#onClickToggleMenu" prefHeight="43.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-font-size: 15pt; -fx-font-weight: bold; -fx-text-fill: black;" text="Hallway" />
       <!-- Menu Items (Initially hidden in controller logic) -->
-      <VBox fx:id="menuBox" layoutX="14.0" layoutY="69.0" prefHeight="177.0" prefWidth="211.0" spacing="0" visible="false">
-        <Button onAction="#onClickJanitorMenu" prefHeight="50.0" prefWidth="211.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Janitor Cupboard">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font></Button>
-        <Button onAction="#onClickBankManagerMenu" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Bank Office">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font></Button>
-        <Button onAction="#onClickCrimeSceneMenu" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #D3D3D3; -fx-text-fill: black; -fx-font-size: 13pt; -fx-padding: 8px 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2); -fx-font-weight: bold;" text="Crime Scene">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font></Button>    
+      <VBox fx:id="menuBox" layoutX="12.0" layoutY="63.25" prefHeight="76.0" prefWidth="258.0" visible="false">
+        <Button fx:id="dropdownButton1" onAction="#onClickJanitorMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Janitor">
+        </Button>
+        <Button fx:id="dropdownButton2" onAction="#onClickBankManagerMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Bank Office">
+        </Button>
+        <Button fx:id="dropdownButton3" onAction="#onClickCrimeSceneMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Crime Scene">
+        </Button>
       </VBox>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
       <TextField layoutX="136.0" layoutY="317.0" prefWidth="157.0"  styleClass="text-profession-label" stylesheets="@../css/text-background.css" text="Policeman" /> 
