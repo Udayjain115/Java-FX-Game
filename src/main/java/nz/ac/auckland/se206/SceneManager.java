@@ -42,8 +42,9 @@ public class SceneManager {
     }
   }
 
-  /*
+  /**
    * Returns the root node of the UI for the specified AppUi.
+   *
    * @param appUi the AppUi to get the root node for
    * @return the root node of the UI for the specified AppUi
    */

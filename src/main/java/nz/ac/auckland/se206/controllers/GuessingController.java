@@ -34,6 +34,12 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
+/**
+ * This class is the controller for the guessing view. It handles the logic for the guessing view.
+ * It allows the player to guess the thief based on the information provided. The player can also
+ * provide reasoning for their guess. The player can also reset the game if they are unable to guess
+ * the thief.
+ */
 public class GuessingController {
   @FXML private TextArea text;
   @FXML private TextField textInput;
@@ -197,8 +203,8 @@ public class GuessingController {
    * rectangle clicked is the police officer, the player is asked to provide reasoning. Otherwise,
    * the player loses.
    *
-   * @param event
-   * @throws IOException
+   * @param event the mouse event that triggered the method
+   * @throws IOException if there is an I/O error
    */
   @FXML
   private void handleRectangleClicked(MouseEvent event) throws IOException {
