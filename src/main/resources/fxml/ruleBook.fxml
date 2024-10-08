@@ -10,7 +10,7 @@
       <!-- Background image of the scene (without dust) -->
       <ImageView fx:id="backgroundImage" fitHeight="562.0" fitWidth="1008.0" opacity="0.5">
          <image>
-            <Image url="@../images/new_background.png" />
+            <Image url="@../images/background3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="51.0" layoutX="892.0" layoutY="122.0" onMouseClicked="#closeRulebook" pickOnBounds="true" preserveRatio="true">
