@@ -19,10 +19,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
@@ -82,6 +85,10 @@ public class GuessingController {
     penRotate.setToAngle(15);
     penRotate.setCycleCount(TranslateTransition.INDEFINITE);
     penRotate.setAutoReverse(true);
+
+    guessHover(police);
+    guessHover(manager);
+    guessHover(janitor);
 
     parallelPen = new ParallelTransition(movingPen, penRotate);
 
@@ -173,6 +180,26 @@ public class GuessingController {
         () -> {
           animationImage.setVisible(true); // Show the pen-writing animation
           parallelPen.play(); // Start the animation
+        });
+  }
+
+  @FXML
+  private void guessHover(Shape mouseOver) {
+    DropShadow effect = new DropShadow();
+    effect.setColor(Color.YELLOW); // Set the color of the glow
+    effect.setRadius(10); // Set the radius of the shadow
+    effect.setSpread(0.8); // Increase the spread to intensify the glow
+    effect.setOffsetX(0); // No offset, centered glow
+    effect.setOffsetY(0); // No offset, centered glow
+    mouseOver.setOnMouseEntered(
+        event -> {
+          mouseOver.setOpacity(.15);
+          mouseOver.setEffect(effect);
+        });
+    mouseOver.setOnMouseExited(
+        event -> {
+          mouseOver.setOpacity(0);
+          mouseOver.setEffect(null);
         });
   }
 
