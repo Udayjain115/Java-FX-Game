@@ -199,7 +199,7 @@ public class CrimeSceneController {
   /**
    * Handles the event when the close button (X) is clicked.
    *
-   * @throws IOException
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   public void cameraClick() throws IOException {
@@ -210,7 +210,7 @@ public class CrimeSceneController {
   /**
    * Handles the event when the rulebook is clicked.
    *
-   * @throws IOException
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   public void evidenceClick() throws IOException {
@@ -255,8 +255,8 @@ public class CrimeSceneController {
   /**
    * Handles the event when the rulebook is clicked.
    *
-   * @throws IOException
    * @param event the mouse event that triggered the method
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   public void openRuleBook(MouseEvent event) throws IOException {
@@ -271,8 +271,8 @@ public class CrimeSceneController {
   /**
    * Handles the event when the menu button is clicked.
    *
-   * @param event
-   * @throws IOException
+   * @param event the mouse event that triggered the method
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   private void onClickCopMenu(ActionEvent event) throws IOException {
@@ -283,8 +283,8 @@ public class CrimeSceneController {
   /**
    * Handles the event when the menu button is clicked.
    *
-   * @param event
-   * @throws IOException
+   * @param event the mouse event that triggered the method
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   private void onClickJanitorMenu(ActionEvent event) throws IOException {
@@ -295,8 +295,8 @@ public class CrimeSceneController {
   /**
    * Handles the event when the menu button is clicked.
    *
-   * @param event
-   * @throws IOException
+   * @param event the mouse event that triggered the method
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   private void onClickBankManagerMenu(ActionEvent event) throws IOException {
@@ -304,14 +304,8 @@ public class CrimeSceneController {
     App.openChat(null, "bankManager");
   }
 
-  /**
-   * Handles the event when the menu button is clicked.
-   *
-   * @param event
-   * @throws IOException
-   */
+  /** Handles the event when the menu button is clicked. */
   @FXML
-  // Function to toggle the visibility of the drop-down menu
   private void onClickToggleMenu() {
     isMenuVisible = !isMenuVisible;
     menuBox.setVisible(isMenuVisible);

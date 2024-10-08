@@ -187,7 +187,7 @@ public class SuspectRoomController {
   /**
    * Switches to the policeman room and opens the chat with the policeman.
    *
-   * @throws IOException
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   private void onClickCopMenu() throws IOException {
@@ -200,7 +200,7 @@ public class SuspectRoomController {
   /**
    * Switches to the janitor room and opens the chat with the janitor.
    *
-   * @throws IOException
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   private void onClickJanitorMenu() throws IOException {
@@ -213,7 +213,7 @@ public class SuspectRoomController {
   /**
    * Switches to the bank manager room and opens the chat with the bank manager.
    *
-   * @throws IOException
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   private void onClickBankManagerMenu() throws IOException {

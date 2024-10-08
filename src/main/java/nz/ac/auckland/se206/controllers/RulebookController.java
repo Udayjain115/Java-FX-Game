@@ -80,8 +80,8 @@ public class RulebookController {
   /**
    * Handles the event when the close button (X) is clicked.
    *
-   * @throws IOException
    * @param event the mouse event that triggered the method
+   * @throws IOException if the FXML file is not found
    */
   @FXML
   public void closeRulebook(MouseEvent event) throws IOException {
