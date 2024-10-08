@@ -8,8 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.SuspectRoomController">
    <children>
@@ -37,7 +35,7 @@
       <Pane layoutX="136.0" layoutY="361.0" prefHeight="177.0" prefWidth="736.0" styleClass="text-background" stylesheets="@../css/text-background.css">
          <children>
             <TextField fx:id="textInput" layoutX="19.0" layoutY="112.0" prefHeight="45.0" prefWidth="612.0" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-border-color: #e8edeb; -fx-border-radius: 20; -fx-background-radius: 20; -fx-padding: 10px 20px;" styleClass="text-field" stylesheets="@../css/text-field.css" text="" />
-            <Button fx:id="btnSend" layoutX="638.0" layoutY="110.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#policemanSetTrue" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-background-radius: 20; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2); -fx-border-color: #e8edeb; -fx-border-radius: 20;" styleClass="text-field" stylesheets="@../css/text-field.css" text="Send" />
+            <Button fx:id="btnSend" layoutX="638.0" layoutY="110.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#janitorSetTrue" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-background-radius: 20; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2); -fx-border-color: #e8edeb; -fx-border-radius: 20;" styleClass="text-field" stylesheets="@../css/text-field.css" text="Send" />
             <TextArea fx:id="text" editable="false" layoutX="16.0" layoutY="14.0" prefHeight="77.0" prefWidth="706.0" styleClass="text-area" stylesheets="@../css/text-area.css" wrapText="true" />
             <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="18.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
