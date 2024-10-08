@@ -21,6 +21,9 @@ public class SceneManager {
     COP,
     JANITOR,
     BANK_MANAGER,
+    INTRO_BANK,
+    INTRO_UNTIL,
+    INTRO_PHONE
   }
 
   private static HashMap<AppUi, Parent> sceneMap = new HashMap<>();

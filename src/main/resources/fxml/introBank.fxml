@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.IntroController">
+   <children>
+      <ImageView fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@../images/bankPhoto.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="305.0" layoutY="414.0" prefHeight="92.0" prefWidth="703.0" styleClass="light_intro" stylesheets="@../css/intro.css">
+         <children>
+            <Label layoutX="33.0" layoutY="34.0" prefHeight="20.0" prefWidth="612.0" styleClass="intro-text" stylesheets="@../css/intro.css" text="It was a normal day at the bank, clear beautiful skies" />
+         </children></Pane>
+      <ImageView fitHeight="112.0" fitWidth="99.0" layoutX="888.0" layoutY="232.0" onMouseClicked="#goToUntil" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/right_arrow2.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

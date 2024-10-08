@@ -1,0 +1,16 @@
+.light_intro {
+  -fx-background-color: rgba(0, 0, 0, 0.7);
+  -fx-background-radius: 0;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.2), 15, .8, 0, 0);
+  -fx-border-color: #e8edeb;
+  -fx-border-radius: 0;
+}
+
+/* Main background of the text area (semi-transparent or fully transparent) */
+.intro-text {
+  -fx-background-color: rgba(53, 89, 119, 0.0);
+  -fx-font-size: 14px;
+  -fx-text-fill: #FFFFFF;
+  -fx-font-family: 'Venite Adoremus Straight';
+
+}

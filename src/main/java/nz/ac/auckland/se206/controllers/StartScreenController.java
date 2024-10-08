@@ -50,7 +50,7 @@ public class StartScreenController {
             Timer timer = Timer.getTimer();
             timer.reset(300);
             timer.start();
-            App.setRoot("crimeScene");
+            App.setRoot("introBank");
           } catch (IOException e) {
             e.printStackTrace();
           }
