@@ -13,11 +13,21 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.Timer;
 
+/**
+ * This class is the controller for the evidence view. It handles the logic for the evidence view.
+ * It allows the player to view different evidence in the crime scene. The player can view the
+ * suspect's fingerprints, the vault's fingerprints, the forensics policies, and the investigation
+ * log. The player can also exit the evidence view and return to the crime scene. The player can
+ * also view the timer on the evidence view.
+ */
 public class EvidenceController {
 
   @FXML private Label timerLbl;
 
-  // Initializes the timer
+  /**
+   * Initializes the evidence view. This method is called when the evidence view is loaded. It
+   * initializes the timer and binds the timer label to the time left.
+   */
   public void initialize() {
     // Get the timer instance
     Timer timer = Timer.getTimer();
@@ -40,26 +50,63 @@ public class EvidenceController {
     timer.start();
   }
 
+  /**
+   * This method is called when the player clicks the suspect's fingerprints button. It changes the
+   * viewable scene to the suspect's fingerprints view.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   public void toSuspectFingerprints() throws IOException {
     App.setRoot("suspectFingerprint");
   }
 
+  /**
+   * This method is called when the player clicks the vault's fingerprints button. It changes the
+   * viewable scene to the vault's fingerprints view.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   public void toVaultFingerprints() throws IOException {
     App.setRoot("vaultFingerprint");
   }
 
+  /**
+   * This method is called when the player clicks the forensics policies button. It changes the
+   * viewable scene to the forensics policies view.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   public void toForensicsPolicies() throws IOException {
     App.setRoot("forensicsRules");
   }
 
+  /**
+   * This method is called when the player clicks the investigation log button. It changes the
+   * viewable scene to the investigation log view.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   public void toInvestigationLog() throws IOException {
     App.setRoot("investigationLog");
   }
 
+  /**
+   * This method is called when the player clicks the back button. It changes the viewable scene to
+   * the crime scene.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   public void backToEvidence() throws IOException {
     App.setRoot("evidence");
   }
 
+  /**
+   * This method is called when the player clicks the shut down button. It changes the viewable
+   * scene to the crime scene.
+   *
+   * @param event the action event triggered by clicking the exit button
+   * @throws IOException if the FXML file is not found
+   */
   @FXML
   private void onClickShutDown(ActionEvent event) throws IOException {
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);

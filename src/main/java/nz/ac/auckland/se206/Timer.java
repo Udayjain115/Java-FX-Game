@@ -10,9 +10,19 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
+/**
+ * This class is the timer for the game. It is a singleton class that keeps track of the time left
+ * in the game. It has a start method that starts the timer, a stop method that stops the timer, a
+ * reset method that resets the timer, and a getTimeLeft method that returns the time left.
+ */
 public class Timer {
   private static Timer timer;
 
+  /**
+   * Returns the timer instance.
+   *
+   * @return the timer instance
+   */
   public static Timer getTimer() {
     if (timer == null) {
       timer = new Timer();
@@ -26,6 +36,7 @@ public class Timer {
   private Boolean hasReset = false;
   private int number = 300;
 
+  /** Constructs a new Timer object. */
   private Timer() {
     reachedZero = false;
     time = new SimpleIntegerProperty(10000);
@@ -62,18 +73,25 @@ public class Timer {
     timeline.setCycleCount(Timeline.INDEFINITE);
   }
 
+  /** Starts the timer. */
   public void start() {
     if (timeline != null) {
       timeline.play();
     }
   }
 
+  /** Stops the timer. */
   public void stop() {
     if (timeline != null) {
       timeline.stop();
     }
   }
 
+  /**
+   * Resets the timer to the specified number.
+   *
+   * @param number the number to reset the timer to
+   */
   public void reset(int number) {
     this.number = number;
     hasReset = true;
@@ -82,6 +100,11 @@ public class Timer {
     this.number = number;
   }
 
+  /**
+   * Returns the time left.
+   *
+   * @return the time left
+   */
   public IntegerProperty getTimeLeft() {
     return time;
   }

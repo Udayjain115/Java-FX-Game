@@ -10,17 +10,31 @@ import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Timer;
 
+/**
+ * Controller class for the start screen view. Handles user interactions within the start screen
+ * where the user can start the game.
+ */
 public class StartScreenController {
 
   @FXML private Pane startPane;
   @FXML private Rectangle fadeOutRectangle;
   @FXML private ImageView startButton;
 
+  /**
+   * Initializes the start screen view. This method is called when the start screen view is loaded.
+   * It initializes the start button.
+   */
   @FXML
   private void initialize() {
     startButton.setVisible(true);
   }
 
+  /**
+   * This method is called when the player clicks the start button. It changes the viewable scene to
+   * the crime scene.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   @FXML
   private void start() throws IOException {
     startButton.setVisible(false);

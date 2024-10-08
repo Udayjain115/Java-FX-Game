@@ -14,6 +14,12 @@ import javafx.stage.Stage;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.Timer;
 
+/**
+ * This class is the controller for the camera view. It handles the logic for the camera view. It
+ * allows the player to view different camera angles of the crime scene. The player can go back and
+ * forward between the different camera angles. The player can also exit the camera view and return
+ * to the crime scene. The player can also view the timer on the camera view.
+ */
 public class CameraController {
   @FXML private Rectangle forward;
   @FXML private Rectangle back;
@@ -46,6 +52,13 @@ public class CameraController {
     timer.start();
   }
 
+  /**
+   * This method is called when the player clicks the exit button. It changes the viewable scene to
+   * the crime scene.
+   *
+   * @param event the mouse event that triggered the method
+   * @throws IOException if the FXML file is not found
+   */
   public void onExit(MouseEvent event) throws IOException {
 
     // loading crime scene when player goes to exit
@@ -55,6 +68,10 @@ public class CameraController {
     stage.getScene().setRoot(crimeSceneRoot);
   }
 
+  /**
+   * This method is called when the player clicks the back button. It changes the viewable scene to
+   * the previous camera angle.
+   */
   public void onGoBack() {
     // changing the viewable scene when going back
     if (count == 5) {
@@ -77,6 +94,10 @@ public class CameraController {
     }
   }
 
+  /**
+   * This method is called when the player clicks the forward button. It changes the viewable scene
+   * to the next camera angle.
+   */
   public void onGoForward() {
     // changing viewable scene when going forward
     if (count == 4) {
