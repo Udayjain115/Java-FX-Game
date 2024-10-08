@@ -123,6 +123,11 @@ public class CrimeSceneController {
     toggleMenuDropdown(managerButton);
   }
 
+  /**
+   * Toggles the menu dropdown when the mouse enters or exits the menu button.
+   *
+   * @param button the button to toggle the dropdown for
+   */
   @FXML
   private void toggleMenuDropdown(Button button) {
     button.setOnMouseEntered(
@@ -135,6 +140,11 @@ public class CrimeSceneController {
         });
   }
 
+  /**
+   * Sets up the hover effect for the given shape.
+   *
+   * @param hoveringOver the shape to set up the hover effect for
+   */
   @FXML
   private void setupHoverEffect(Shape hoveringOver) {
     DropShadow hoverEffect = new DropShadow();
@@ -155,6 +165,11 @@ public class CrimeSceneController {
         });
   }
 
+  /**
+   * Adds the room to the visited rooms set.
+   *
+   * @param room the room to add to the visited rooms set
+   */
   @FXML
   public void addVisitedRoom(String room) {
     System.out.println(visitedRooms);
@@ -175,17 +190,28 @@ public class CrimeSceneController {
     System.out.println("Key " + event.getCode() + " pressed");
   }
 
+  /** Allows the user to make a guess. */
   @FXML
   public void allowGuess() {
     btnGuess.setDisable(false);
   }
 
+  /**
+   * Handles the event when the close button (X) is clicked.
+   *
+   * @throws IOException
+   */
   @FXML
   public void cameraClick() throws IOException {
     addVisitedRoom("clue");
     App.setRoot("camera");
   }
 
+  /**
+   * Handles the event when the rulebook is clicked.
+   *
+   * @throws IOException
+   */
   @FXML
   public void evidenceClick() throws IOException {
     addVisitedRoom("clue");
@@ -230,6 +256,7 @@ public class CrimeSceneController {
    * Handles the event when the rulebook is clicked.
    *
    * @throws IOException
+   * @param event the mouse event that triggered the method
    */
   @FXML
   public void openRuleBook(MouseEvent event) throws IOException {
@@ -241,25 +268,48 @@ public class CrimeSceneController {
     stage.getScene().setRoot(ruleBookRoot);
   }
 
-  // Switch to Room 1
+  /**
+   * Handles the event when the menu button is clicked.
+   *
+   * @param event
+   * @throws IOException
+   */
   @FXML
   private void onClickCopMenu(ActionEvent event) throws IOException {
     App.setRoot("copRoom");
     App.openChat(null, "policeman");
   }
 
+  /**
+   * Handles the event when the menu button is clicked.
+   *
+   * @param event
+   * @throws IOException
+   */
   @FXML
   private void onClickJanitorMenu(ActionEvent event) throws IOException {
     App.setRoot("janitorRoom");
     App.openChat(null, "janitor");
   }
 
+  /**
+   * Handles the event when the menu button is clicked.
+   *
+   * @param event
+   * @throws IOException
+   */
   @FXML
   private void onClickBankManagerMenu(ActionEvent event) throws IOException {
     App.setRoot("bankManagerRoom");
     App.openChat(null, "bankManager");
   }
 
+  /**
+   * Handles the event when the menu button is clicked.
+   *
+   * @param event
+   * @throws IOException
+   */
   @FXML
   // Function to toggle the visibility of the drop-down menu
   private void onClickToggleMenu() {

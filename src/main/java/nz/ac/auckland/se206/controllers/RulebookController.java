@@ -13,6 +13,12 @@ import javafx.stage.Stage;
 import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.Timer;
 
+/**
+ * This class is the controller for the rulebook view. It handles the logic for the rulebook view.
+ * It allows the player to view the rulebook sections. The player can move the sections around the
+ * screen. The player can also exit the rulebook view and return to the crime scene. The player can
+ * also view the timer on the rulebook view.
+ */
 public class RulebookController {
   @FXML private ImageView section1;
   @FXML private ImageView section2;
@@ -24,6 +30,10 @@ public class RulebookController {
   private double horizontalOffset = 0;
   private double verticalOffset = 0;
 
+  /**
+   * Initializes the rulebook view. This method is called when the rulebook view is loaded. It
+   * initializes the timer and binds the timer label to the time left.
+   */
   @FXML
   public void initialize() {
     // Make all sections draggable
@@ -71,6 +81,7 @@ public class RulebookController {
    * Handles the event when the close button (X) is clicked.
    *
    * @throws IOException
+   * @param event the mouse event that triggered the method
    */
   @FXML
   public void closeRulebook(MouseEvent event) throws IOException {
