@@ -33,6 +33,10 @@ public class CameraController {
 
   private int count = 5;
 
+  /**
+   * Initializes the camera view. This method is called when the camera view is loaded. It
+   * initializes the timer and binds the timer label to the time left.
+   */
   public void initialize() {
     forward.setDisable(true);
 

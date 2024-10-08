@@ -96,8 +96,13 @@ public class App extends Application {
     stage.setOnCloseRequest(event -> Platform.exit());
   }
 
-  // This method is invoked when the application is stopped.
-
+  /**
+   * Restarts the application by clearing the visited rooms and deleting the scene manager. It then
+   * adds all the UIs to the scene manager again, so that they can be accessed again freshly.
+   * Finally, it sets the root of the scene to the "start" FXML file.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   public static void restartApp() throws IOException {
     CrimeSceneController.visitedRooms.clear();
     SceneManager.delete();

@@ -19,7 +19,8 @@ public class Timer {
   private static Timer timer;
 
   /**
-   * Returns the timer instance.
+   * Returns the timer instance. If the timer instance is null, a new timer instance is created.
+   * This is to ensure that there is only one timer instance.
    *
    * @return the timer instance
    */
@@ -73,14 +74,19 @@ public class Timer {
     timeline.setCycleCount(Timeline.INDEFINITE);
   }
 
-  /** Starts the timer. */
+  /**
+   * Starts the timer. So that the time decreases by 1 every second. This is as the user has started
+   * the game.
+   */
   public void start() {
     if (timeline != null) {
       timeline.play();
     }
   }
 
-  /** Stops the timer. */
+  /**
+   * Stops the timer. This is as the user has stopped the game. The time will not decrease anymore.
+   */
   public void stop() {
     if (timeline != null) {
       timeline.stop();
@@ -101,7 +107,8 @@ public class Timer {
   }
 
   /**
-   * Returns the time left.
+   * Returns the time left. This is used to display the time left in the game. It is a property so
+   * that it can be bound to a label. This is so that the label updates every second.
    *
    * @return the time left
    */
