@@ -259,15 +259,6 @@ public class SuspectRoomController {
 
             // Append the message to the text area
             if (msg.getRole().equals("assistant")) {
-              if (profession.equals("policeman")) {
-                crimeSceneController.addVisitedRoom("policeman");
-
-              } else if (profession.equals("bankManager")) {
-                crimeSceneController.addVisitedRoom("bankManager");
-
-              } else if (profession.equals("janitor")) {
-                crimeSceneController.addVisitedRoom("janitor");
-              }
               text.appendText(msg.getContent() + "\n\n");
             } else if (msg.getRole().equals("user")) {
               text.appendText("You: " + msg.getContent() + "\n\n");
@@ -332,6 +323,15 @@ public class SuspectRoomController {
     String message = textInput.getText().trim();
     if (message.isEmpty()) {
       return;
+    }
+    if (profession.equals("policeman")) {
+      crimeSceneController.addVisitedRoom("policeman");
+
+    } else if (profession.equals("bankManager")) {
+      crimeSceneController.addVisitedRoom("bankManager");
+
+    } else if (profession.equals("janitor")) {
+      crimeSceneController.addVisitedRoom("janitor");
     }
     // textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
