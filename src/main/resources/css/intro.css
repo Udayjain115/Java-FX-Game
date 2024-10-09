@@ -14,3 +14,13 @@
   -fx-font-family: 'Venite Adoremus Straight';
 
 }
+
+.right-arrow {
+  -fx-effect: dropshadow(gaussian, transparent, 0, 0, 0, 0);
+  /* No glow by default */
+}
+
+.right-arrow:hover {
+  -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.8), 20, 0.8, 0, 0);
+  /* Yellow glow on hover */
+}

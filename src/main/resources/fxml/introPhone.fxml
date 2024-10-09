@@ -7,20 +7,21 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.IntroController">
    <children>
-      <ImageView fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="false">
+      <ImageView fitHeight="562.0" fitWidth="1008.0" opacity="0.46" pickOnBounds="true" preserveRatio="false">
          <image>
-            <Image url="@../images/phoneImage.png" />
+            <Image url="@../images/phone.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="112.0" fitWidth="99.0" layoutX="898.0" layoutY="242.0" onMouseClicked="#goToCrimeScene" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="rightArrow" fitHeight="112.0" fitWidth="99.0" layoutX="898.0" layoutY="242.0" onMouseClicked="#goToCrimeScene" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/right_arrow2.png" />
          </image>
       </ImageView>
-      <Pane layoutY="281.0" prefHeight="92.0" prefWidth="621.0" styleClass="light_intro" stylesheets="@../css/intro.css">
+      <Pane layoutY="281.0" prefHeight="92.0" prefWidth="782.0" styleClass="light_intro" stylesheets="@../css/intro.css">
          <children>
-            <Label layoutX="33.0" layoutY="34.0" prefHeight="20.0" prefWidth="612.0" styleClass="intro-text" stylesheets="@../css/intro.css" text="&quot;Help!!! We have just be robbed of the crown jewel!&quot;" />
+            <Label layoutX="33.0" layoutY="34.0" prefHeight="20.0" prefWidth="737.0" styleClass="intro-text" stylesheets="@../css/intro.css" text="&quot;Help!!! We have just be robbed of the crown jewel! PI Masters... We need you!" />
          </children>
       </Pane>
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />
    </children>
 </Pane>

@@ -1,0 +1,22 @@
+.title {
+  -fx-font-size: 50px;
+  -fx-text-fill: #000000;
+  -fx-font-family: 'Venite Adoremus Straight';
+  -fx-effect: dropshadow(gaussian, rgba(183, 239, 178, 0.8), 20, 0.5, 0, 0);
+  -fx-text-alignment: center;
+}
+
+.start {
+  -fx-font-size: 45px;
+  -fx-text-fill: #000000;
+  -fx-font-family: 'Venite Adoremus Straight';
+  -fx-text-alignment: center;
+}
+
+.subtext {
+  -fx-font-size: 20px;
+  -fx-text-fill: #000000;
+  -fx-font-family: 'Venite Adoremus Straight';
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.8), 20, 0.5, 0, 0);
+  -fx-text-alignment: center;
+}
