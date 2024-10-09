@@ -130,12 +130,16 @@ public class CrimeSceneController {
    */
   @FXML
   private void toggleMenuDropdown(Button button) {
+    // Set up hover effect for the menu button when entering
     button.setOnMouseEntered(
         event -> {
+          // Set the background color to a darker shade
           button.setStyle("-fx-background-color: rgba(0, 0, 0, 0.7)");
         });
+    // Set up hover effect for the menu button when exiting
     button.setOnMouseExited(
         event -> {
+          // Set the background color to a lighter shade
           button.setStyle("-fx-background-color: rgba(151, 151, 151, 0.7)");
         });
   }
