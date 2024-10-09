@@ -19,10 +19,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
@@ -94,6 +97,10 @@ public class GuessingController {
     penRotate.setCycleCount(TranslateTransition.INDEFINITE);
     penRotate.setAutoReverse(true);
 
+    guessHover(police);
+    guessHover(manager);
+    guessHover(janitor);
+
     parallelPen = new ParallelTransition(movingPen, penRotate);
 
     text.appendText("Game: Click on who you think the thief is... \n\n");
@@ -126,6 +133,10 @@ public class GuessingController {
       timeOut.setVisible(true);
       resetButton.setDisable(false);
       resetButton.setVisible(true);
+      timerLbl.setVisible(false);
+      text.clear();
+      text.appendText(
+          "Game: You ran out of time!\n\n");
       return;
     }
 
@@ -159,6 +170,7 @@ public class GuessingController {
                     timeOut.setVisible(true);
                     resetButton.setVisible(true);
                     resetButton.setDisable(false);
+                    timerLbl.setVisible(false);
                   }
 
                   // Stop the timer and set the visibility of the timer label to false
@@ -188,6 +200,27 @@ public class GuessingController {
         });
   }
 
+  @FXML
+  private void guessHover(Shape mouseOver) {
+    DropShadow effect = new DropShadow();
+    effect.setColor(Color.YELLOW); // Set the color of the glow
+    effect.setRadius(10); // Set the radius of the shadow
+    effect.setSpread(0.8); // Increase the spread to intensify the glow
+    effect.setOffsetX(0); // No offset, centered glow
+    effect.setOffsetY(0); // No offset, centered glow
+    mouseOver.setOnMouseEntered(
+        event -> {
+          mouseOver.setOpacity(.15);
+          mouseOver.setEffect(effect);
+        });
+    mouseOver.setOnMouseExited(
+        event -> {
+          mouseOver.setOpacity(0);
+          mouseOver.setEffect(null);
+        });
+  }
+
+  // Stop the pen-writing animation once GPT responds
   /** Hides the pen-writing animation when the user has finished typing a message to GPT. */
   private void hidePenAnimation() {
     Platform.runLater(
@@ -210,6 +243,9 @@ public class GuessingController {
   private void handleRectangleClicked(MouseEvent event) throws IOException {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
     hasClicked = true;
+    police.setDisable(true);
+    manager.setDisable(true);
+    janitor.setDisable(true);
 
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
@@ -220,12 +256,14 @@ public class GuessingController {
       wrongPerson.setVisible(true);
       resetButton.setDisable(false);
       resetButton.setVisible(true);
+      timer.stop();
+      timerLbl.setVisible(false);
       return;
       // If the rectangle clicked is the police officer
     } else {
       text.clear();
       text.appendText(
-          "Game: The officer has been arrested. Please give the detectives your reasoning.\n\n");
+          "Game: The security guard has been arrested. Please give the detectives your reasoning.\n\n");
       btnSend.setDisable(false);
       textInput.setDisable(false);
       return;
@@ -247,7 +285,7 @@ public class GuessingController {
       gptCompleteRequest =
           new ChatCompletionRequest(config)
               .setN(1)
-              .setTemperature(0.2)
+              .setTemperature(0.1)
               .setTopP(0.5)
               .setMaxTokens(100);
       // Send the initial system prompt
