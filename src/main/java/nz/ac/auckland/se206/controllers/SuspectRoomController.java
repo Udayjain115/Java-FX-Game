@@ -36,6 +36,10 @@ import nz.ac.auckland.se206.SceneManager;
 import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
+/**
+ * Controller class for the suspect room view. Handles user interactions within the suspect room
+ * where the user can chat with the suspect and guess their profession.
+ */
 public class SuspectRoomController {
 
   @FXML private TextArea text;
@@ -123,18 +127,28 @@ public class SuspectRoomController {
     timer.start();
   }
 
+  /**
+   * Toggles the menu dropdown when the mouse enters or exits the menu button.
+   *
+   * @param button the button to toggle the dropdown for
+   */
   @FXML
   private void toggleMenuDropdown(Button button) {
+    // Set the initial style of the button when the mouse enters
     button.setOnMouseEntered(
         event -> {
+          // Make it darker when entered
           button.setStyle("-fx-background-color: rgba(0, 0, 0, 0.7)");
         });
+    // Set the style of the button when the mouse exits
     button.setOnMouseExited(
         event -> {
+          // Make it lighter when exited
           button.setStyle("-fx-background-color: rgba(151, 151, 151, 0.7)");
         });
   }
 
+  /** Sets the visited room to true when the user sends a message to the bank manager. */
   @FXML
   private void managerSetTrue() {
     String message = textInput.getText().trim();
@@ -144,6 +158,7 @@ public class SuspectRoomController {
     textInput.clear();
   }
 
+  /** Sets the visited room to true when the user sends a message to the janitor. */
   @FXML
   private void janitorSetTrue() {
     String message = textInput.getText().trim();
@@ -154,6 +169,7 @@ public class SuspectRoomController {
     textInput.clear();
   }
 
+  /** Sets the visited room to true when the user sends a message to the policeman. */
   @FXML
   private void policemanSetTrue() {
     String message = textInput.getText().trim();
@@ -164,6 +180,7 @@ public class SuspectRoomController {
     textInput.clear();
   }
 
+  /** Toggles the visibility of the drop-down menu. */
   @FXML
   // Function to toggle the visibility of the drop-down menu
   private void onClickToggleMenu() {
@@ -171,6 +188,11 @@ public class SuspectRoomController {
     menuBox.setVisible(isMenuVisible);
   }
 
+  /**
+   * Switches to the policeman room and opens the chat with the policeman.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   @FXML
   private void onClickCopMenu() throws IOException {
     // Now switch rooms
@@ -179,6 +201,11 @@ public class SuspectRoomController {
     App.openChat(null, "policeman");
   }
 
+  /**
+   * Switches to the janitor room and opens the chat with the janitor.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   @FXML
   private void onClickJanitorMenu() throws IOException {
     // Now switch rooms
@@ -187,6 +214,11 @@ public class SuspectRoomController {
     App.openChat(null, "janitor");
   }
 
+  /**
+   * Switches to the bank manager room and opens the chat with the bank manager.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   @FXML
   private void onClickBankManagerMenu() throws IOException {
     // Now switch rooms
@@ -195,8 +227,12 @@ public class SuspectRoomController {
     App.openChat(null, "bankManager");
   }
 
-  // Switch to Room 3
-
+  /**
+   * Switches to the crime scene room.
+   *
+   * @param event the action event triggered by the menu button
+   * @throws IOException if the FXML file is not found
+   */
   @FXML
   private void onClickCrimeSceneMenu(ActionEvent event) throws IOException {
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
@@ -259,15 +295,6 @@ public class SuspectRoomController {
 
             // Append the message to the text area
             if (msg.getRole().equals("assistant")) {
-              if (profession.equals("policeman")) {
-                crimeSceneController.addVisitedRoom("policeman");
-
-              } else if (profession.equals("bankManager")) {
-                crimeSceneController.addVisitedRoom("bankManager");
-
-              } else if (profession.equals("janitor")) {
-                crimeSceneController.addVisitedRoom("janitor");
-              }
               text.appendText(msg.getContent() + "\n\n");
             } else if (msg.getRole().equals("user")) {
               text.appendText("You: " + msg.getContent() + "\n\n");
@@ -278,7 +305,7 @@ public class SuspectRoomController {
     }
   }
 
-  // Show the pen-writing animation when GPT is "thinking"
+  /** Shows the pen-writing animation when GPT is thinking. */
   private void showThinkingMessage() {
     Platform.runLater(
         () -> {
@@ -287,7 +314,7 @@ public class SuspectRoomController {
         });
   }
 
-  // Stop the pen-writing animation once GPT responds
+  /** Clears the pen-writing animation when GPT is done thinking. */
   private void clearThinkingMessage() {
     Platform.runLater(
         () -> {
@@ -296,6 +323,11 @@ public class SuspectRoomController {
         });
   }
 
+  /**
+   * Runs the GPT model to generate a response to the user message.
+   *
+   * @param msg the user message to send to the GPT model
+   */
   private void runGpt(ChatMessage msg) {
     Thread thread =
         new Thread(
@@ -332,6 +364,15 @@ public class SuspectRoomController {
     String message = textInput.getText().trim();
     if (message.isEmpty()) {
       return;
+    }
+    if (profession.equals("policeman")) {
+      crimeSceneController.addVisitedRoom("policeman");
+
+    } else if (profession.equals("bankManager")) {
+      crimeSceneController.addVisitedRoom("bankManager");
+
+    } else if (profession.equals("janitor")) {
+      crimeSceneController.addVisitedRoom("janitor");
     }
     // textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);

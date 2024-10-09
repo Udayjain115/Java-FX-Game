@@ -83,6 +83,9 @@ public class App extends Application {
     SceneManager.addUi(SceneManager.AppUi.COP, ("copRoom"));
     SceneManager.addUi(SceneManager.AppUi.JANITOR, ("janitorRoom"));
     SceneManager.addUi(SceneManager.AppUi.BANK_MANAGER, ("bankManagerRoom"));
+    SceneManager.addUi(SceneManager.AppUi.INTRO_BANK, ("introBank"));
+    SceneManager.addUi(SceneManager.AppUi.INTRO_UNTIL, ("introUntil"));
+    SceneManager.addUi(SceneManager.AppUi.INTRO_PHONE, ("introPhone"));
 
     Parent root = SceneManager.getUiRoot(SceneManager.AppUi.START);
     scene = new Scene(root);
@@ -93,8 +96,13 @@ public class App extends Application {
     stage.setOnCloseRequest(event -> Platform.exit());
   }
 
-  // This method is invoked when the application is stopped.
-
+  /**
+   * Restarts the application by clearing the visited rooms and deleting the scene manager. It then
+   * adds all the UIs to the scene manager again, so that they can be accessed again freshly.
+   * Finally, it sets the root of the scene to the "start" FXML file.
+   *
+   * @throws IOException if the FXML file is not found
+   */
   public static void restartApp() throws IOException {
     CrimeSceneController.visitedRooms.clear();
     SceneManager.delete();

@@ -37,6 +37,12 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.Timer;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
+/**
+ * This class is the controller for the guessing view. It handles the logic for the guessing view.
+ * It allows the player to guess the thief based on the information provided. The player can also
+ * provide reasoning for their guess. The player can also reset the game if they are unable to guess
+ * the thief.
+ */
 public class GuessingController {
   @FXML private TextArea text;
   @FXML private TextField textInput;
@@ -67,6 +73,11 @@ public class GuessingController {
 
   private ChatCompletionRequest gptCompleteRequest;
 
+  /**
+   * Initializes the guessing view. This method is called when the guessing view is loaded. It
+   * initializes the pen-writing animation and the timer. It also sets the visibility of the images
+   * to false and disables the send button and text input.
+   */
   public void initialize() {
     // Initialize the pen-writing animation
     btnSend.setDisable(true);
@@ -180,6 +191,7 @@ public class GuessingController {
     timer.start();
   }
 
+  /** Shows the pen-writing animation when the user is typing a message to GPT. */
   private void showPenAnimation() {
     Platform.runLater(
         () -> {
@@ -209,6 +221,7 @@ public class GuessingController {
   }
 
   // Stop the pen-writing animation once GPT responds
+  /** Hides the pen-writing animation when the user has finished typing a message to GPT. */
   private void hidePenAnimation() {
     Platform.runLater(
         () -> {
@@ -217,8 +230,16 @@ public class GuessingController {
         });
   }
 
+  /**
+   * Handles the event when a rectangle is clicked. If the rectangle clicked is the police officer,
+   * the player loses. If the rectangle clicked is the police officer, the player wins. If the
+   * rectangle clicked is the police officer, the player is asked to provide reasoning. Otherwise,
+   * the player loses.
+   *
+   * @param event the mouse event that triggered the method
+   * @throws IOException if there is an I/O error
+   */
   @FXML
-  // Handles the event when the rectangle is clicked for guessing the thief
   private void handleRectangleClicked(MouseEvent event) throws IOException {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
     hasClicked = true;
@@ -229,8 +250,7 @@ public class GuessingController {
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
       text.clear();
-      text.appendText(
-          "Game: You did not guess correctly. You lost! The thief got away \n\n");
+      text.appendText("Game: You did not guess correctly. You lost! The thief got away \n\n");
       btnSend.setDisable(true);
       textInput.setDisable(true);
       wrongPerson.setVisible(true);
@@ -265,7 +285,7 @@ public class GuessingController {
       gptCompleteRequest =
           new ChatCompletionRequest(config)
               .setN(1)
-              .setTemperature(0.2)
+              .setTemperature(0.1)
               .setTopP(0.5)
               .setMaxTokens(100);
       // Send the initial system prompt
@@ -275,6 +295,11 @@ public class GuessingController {
     }
   }
 
+  /**
+   * Gets the system prompt based on the profession of the player.
+   *
+   * @return the system prompt based on the profession of the player
+   */
   private String getSystemPrompt() {
     Map<String, String> map = new HashMap<>();
     map.put("profession", profession);
@@ -282,6 +307,11 @@ public class GuessingController {
     return PromptEngineering.getPrompt(fileName, map);
   }
 
+  /**
+   * Runs the GPT model to generate a response to the message sent.
+   *
+   * @param gptMessageToSend the message to send to the GPT model
+   */
   private void runGpt(ChatMessage gptMessageToSend) {
     Thread gptThread =
         new Thread(
@@ -363,6 +393,12 @@ public class GuessingController {
     }
   }
 
+  /**
+   * Resets the game when the reset button is clicked.
+   *
+   * @param event the action event triggered by the reset button
+   * @throws IOException if there is an I/O error
+   */
   @FXML
   private void onResetGame(ActionEvent event) throws IOException {
     App.restartApp();

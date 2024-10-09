@@ -10,7 +10,7 @@
       <!-- Background image of the scene (without dust) -->
       <ImageView fx:id="backgroundImage" fitHeight="562.0" fitWidth="1008.0" opacity="0.5">
          <image>
-            <Image url="@../images/new_background.png" />
+            <Image url="@../images/background3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="51.0" layoutX="892.0" layoutY="122.0" onMouseClicked="#closeRulebook" pickOnBounds="true" preserveRatio="true">
@@ -18,31 +18,23 @@
             <Image url="@../images/exit.png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
-      <ImageView fx:id="section3" fitHeight="224.0" fitWidth="301.0" layoutX="83.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />
+      <ImageView fx:id="left" fitHeight="400.0" fitWidth="600.0" layoutX="-63.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/Section%203.png" />
+            <Image url="@../images/original_leftpaper.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="section2" fitHeight="209.0" fitWidth="301.0" layoutX="533.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="middle" fitHeight="400.0" fitWidth="600.0" layoutX="410.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/Section%202.png" />
+            <Image url="@../images/original_middlepaper.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="section1" fitHeight="194.0" fitWidth="312.0" layoutX="611.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="right" fitHeight="400.0" fitWidth="600.0" layoutX="55.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/Section%201.png" />
+            <Image url="@../images/original_rightpaper.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="section4" fitHeight="216.0" fitWidth="334.0" layoutX="50.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Section%204.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="95.0" fitWidth="879.0" layoutX="58.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/rulebooktext.png" />
-         </image>
-      </ImageView>
+      <Label layoutX="22.0" layoutY="40.0" styleClass="rulebook" stylesheets="@../css/rulebook.css" text="Stick the ripped pieces of paper together..." />
+      <Label fx:id="completeLabel" layoutX="705.0" layoutY="25.0" opacity="0.28" styleClass="complete" stylesheets="@../css/rulebook.css" text="Solved" />
    </children>
 </Pane>
