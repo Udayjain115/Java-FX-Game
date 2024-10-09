@@ -135,8 +135,7 @@ public class GuessingController {
       resetButton.setVisible(true);
       timerLbl.setVisible(false);
       text.clear();
-      text.appendText(
-          "Game: You ran out of time!\n\n");
+      text.appendText("Game: You ran out of time!\n\n");
       return;
     }
 
@@ -263,7 +262,8 @@ public class GuessingController {
     } else {
       text.clear();
       text.appendText(
-          "Game: The security guard has been arrested. Please give the detectives your reasoning.\n\n");
+          "Game: The security guard has been arrested. Please give the detectives your"
+              + " reasoning.\n\n");
       btnSend.setDisable(false);
       textInput.setDisable(false);
       return;

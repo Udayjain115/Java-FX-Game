@@ -20,6 +20,8 @@ import nz.ac.auckland.se206.Timer;
  * also view the timer on the rulebook view.
  */
 public class RulebookController {
+  private static final double SNAP_TOLERANCE = 30;
+
   @FXML private ImageView left;
   @FXML private ImageView right;
   @FXML private ImageView middle;
@@ -31,7 +33,6 @@ public class RulebookController {
   private double verticalOffset = 0;
 
   // Snapping tolerance (in pixels)
-  private static final double SNAP_TOLERANCE = 30;
 
   /**
    * Initializes the rulebook view. This method is called when the rulebook view is loaded. It
