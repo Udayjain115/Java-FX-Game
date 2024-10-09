@@ -217,6 +217,9 @@ public class GuessingController {
   private void handleRectangleClicked(MouseEvent event) throws IOException {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
     hasClicked = true;
+    police.setDisable(true);
+    manager.setDisable(true);
+    janitor.setDisable(true);
 
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
@@ -228,12 +231,14 @@ public class GuessingController {
       wrongPerson.setVisible(true);
       resetButton.setDisable(false);
       resetButton.setVisible(true);
+      timer.stop();
+      timerLbl.setVisible(false);
       return;
       // If the rectangle clicked is the police officer
     } else {
       text.clear();
       text.appendText(
-          "Game: The officer has been arrested. Please give the detectives your reasoning.\n\n");
+          "Game: The security guard has been arrested. Please give the detectives your reasoning.\n\n");
       btnSend.setDisable(false);
       textInput.setDisable(false);
       return;
