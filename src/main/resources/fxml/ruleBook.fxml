@@ -35,5 +35,6 @@
          </image>
       </ImageView>
       <Label layoutX="22.0" layoutY="40.0" styleClass="rulebook" stylesheets="@../css/rulebook.css" text="Stick the ripped pieces of paper together..." />
+      <Label fx:id="completeLabel" layoutX="705.0" layoutY="25.0" opacity="0.28" styleClass="complete" stylesheets="@../css/rulebook.css" text="Solved" />
    </children>
 </Pane>

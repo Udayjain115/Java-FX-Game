@@ -24,6 +24,7 @@ public class RulebookController {
   @FXML private ImageView right;
   @FXML private ImageView middle;
   @FXML private Label timerLbl;
+  @FXML private Label completeLabel; // Reference to the "Complete" label
 
   // Variables to store the initial mouse click position
   private double horizontalOffset = 0;
@@ -102,6 +103,16 @@ public class RulebookController {
     if (draggedImage != middle) {
       snapIfClose(draggedImage, middle);
     }
+
+    // Check if all images are snapped together
+    if (isPuzzleComplete()) {
+
+      // Set the opacity of the "Complete" label to 1
+      completeLabel.setOpacity(1.0);
+    } else {
+      // Set the opacity of the "Complete" label to 0
+      completeLabel.setOpacity(0.28);
+    }
   }
 
   /**
@@ -137,5 +148,18 @@ public class RulebookController {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
     stage.getScene().setRoot(crimeSceneRoot);
+  }
+
+  /**
+   * Checks if all pieces of the puzzle are snapped together.
+   *
+   * @return true if all pieces are correctly aligned
+   */
+  private boolean isPuzzleComplete() {
+    // Example condition: check if all pieces are within tolerance of one another
+    return Math.abs(left.getLayoutX() - middle.getLayoutX()) < SNAP_TOLERANCE
+        && Math.abs(right.getLayoutX() - middle.getLayoutX()) < SNAP_TOLERANCE
+        && Math.abs(left.getLayoutY() - middle.getLayoutY()) < SNAP_TOLERANCE
+        && Math.abs(right.getLayoutY() - middle.getLayoutY()) < SNAP_TOLERANCE;
   }
 }
