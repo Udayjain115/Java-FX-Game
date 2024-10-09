@@ -20,15 +20,18 @@ import nz.ac.auckland.se206.Timer;
  * also view the timer on the rulebook view.
  */
 public class RulebookController {
-  @FXML private ImageView section1;
-  @FXML private ImageView section2;
-  @FXML private ImageView section3;
-  @FXML private ImageView section4;
+  @FXML private ImageView left;
+  @FXML private ImageView right;
+  @FXML private ImageView middle;
   @FXML private Label timerLbl;
+  @FXML private Label completeLabel; // Reference to the "Complete" label
 
   // Variables to store the initial mouse click position
   private double horizontalOffset = 0;
   private double verticalOffset = 0;
+
+  // Snapping tolerance (in pixels)
+  private static final double SNAP_TOLERANCE = 30;
 
   /**
    * Initializes the rulebook view. This method is called when the rulebook view is loaded. It
@@ -37,10 +40,9 @@ public class RulebookController {
   @FXML
   public void initialize() {
     // Make all sections draggable
-    makeDraggable(section1);
-    makeDraggable(section2);
-    makeDraggable(section3);
-    makeDraggable(section4);
+    makeDraggable(left);
+    makeDraggable(right);
+    makeDraggable(middle);
     Timer timer = Timer.getTimer();
     StringBinding timeLayout =
         Bindings.createStringBinding(
@@ -57,11 +59,14 @@ public class RulebookController {
   }
 
   /**
-   * Makes the given ImageView draggable by adding mouse listeners.
+   * Makes the given ImageView draggable by adding mouse listeners and enables snapping.
    *
    * @param imageView the ImageView to make draggable.
    */
   private void makeDraggable(ImageView imageView) {
+    // Restrict dragging to the visible part of the image
+    imageView.setPickOnBounds(false);
+
     // On mouse press, record the initial position of the mouse relative to the image
     imageView.setOnMousePressed(
         (MouseEvent event) -> {
@@ -74,7 +79,61 @@ public class RulebookController {
         (MouseEvent event) -> {
           imageView.setLayoutX(event.getSceneX() - horizontalOffset);
           imageView.setLayoutY(event.getSceneY() - verticalOffset);
+
+          // Check for snapping with other images
+          checkSnap(imageView);
         });
+  }
+
+  /**
+   * Checks if the dragged image is close enough to any other image to snap them together.
+   *
+   * @param draggedImage the currently dragged ImageView
+   */
+  private void checkSnap(ImageView draggedImage) {
+    // Check snapping with left
+    if (draggedImage != left) {
+      snapIfClose(draggedImage, left);
+    }
+    // Check snapping with right
+    if (draggedImage != right) {
+      snapIfClose(draggedImage, right);
+    }
+    // Check snapping with middle
+    if (draggedImage != middle) {
+      snapIfClose(draggedImage, middle);
+    }
+
+    // Check if all images are snapped together
+    if (isPuzzleComplete()) {
+
+      // Set the opacity of the "Complete" label to 1
+      completeLabel.setOpacity(1.0);
+    } else {
+      // Set the opacity of the "Complete" label to 0
+      completeLabel.setOpacity(0.28);
+    }
+  }
+
+  /**
+   * Snaps the dragged image to the target image if they are within the SNAP_TOLERANCE distance.
+   *
+   * @param draggedImage the currently dragged ImageView
+   * @param targetImage the target ImageView to snap to
+   */
+  private void snapIfClose(ImageView draggedImage, ImageView targetImage) {
+    double draggedX = draggedImage.getLayoutX();
+    double draggedY = draggedImage.getLayoutY();
+    double targetX = targetImage.getLayoutX();
+    double targetY = targetImage.getLayoutY();
+
+    // Check if the images are within the snapping tolerance
+    if (Math.abs(draggedX - targetX) < SNAP_TOLERANCE
+        && Math.abs(draggedY - targetY) < SNAP_TOLERANCE) {
+      // Snap to the target image's position
+      draggedImage.setLayoutX(targetX);
+      draggedImage.setLayoutY(targetY);
+    }
   }
 
   /**
@@ -89,5 +148,18 @@ public class RulebookController {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
     stage.getScene().setRoot(crimeSceneRoot);
+  }
+
+  /**
+   * Checks if all pieces of the puzzle are snapped together.
+   *
+   * @return true if all pieces are correctly aligned
+   */
+  private boolean isPuzzleComplete() {
+    // Example condition: check if all pieces are within tolerance of one another
+    return Math.abs(left.getLayoutX() - middle.getLayoutX()) < SNAP_TOLERANCE
+        && Math.abs(right.getLayoutX() - middle.getLayoutX()) < SNAP_TOLERANCE
+        && Math.abs(left.getLayoutY() - middle.getLayoutY()) < SNAP_TOLERANCE
+        && Math.abs(right.getLayoutY() - middle.getLayoutY()) < SNAP_TOLERANCE;
   }
 }
