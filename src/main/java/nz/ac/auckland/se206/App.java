@@ -83,6 +83,9 @@ public class App extends Application {
     SceneManager.addUi(SceneManager.AppUi.COP, ("copRoom"));
     SceneManager.addUi(SceneManager.AppUi.JANITOR, ("janitorRoom"));
     SceneManager.addUi(SceneManager.AppUi.BANK_MANAGER, ("bankManagerRoom"));
+    SceneManager.addUi(SceneManager.AppUi.INTRO_BANK, ("introBank"));
+    SceneManager.addUi(SceneManager.AppUi.INTRO_UNTIL, ("introUntil"));
+    SceneManager.addUi(SceneManager.AppUi.INTRO_PHONE, ("introPhone"));
 
     Parent root = SceneManager.getUiRoot(SceneManager.AppUi.START);
     scene = new Scene(root);

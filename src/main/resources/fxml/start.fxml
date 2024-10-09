@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -13,30 +13,19 @@
             <Image url="@../images/beta_title_screen.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="172.0" fitWidth="808.0" layoutX="100.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff42" height="91.0" layoutX="404.0" layoutY="229.0" onMouseClicked="#start" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle fx:id="fadeOutRectangle" arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="1.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1008.0" />
+      <Label layoutX="42.0" layoutY="373.0" styleClass="subtext" stylesheets="@../css/start.css" text="You have 5 minutes to play, work out who the thief is and save the day!" />
+      <Label layoutX="142.0" layoutY="186.0" styleClass="subtext" stylesheets="@../css/start.css" text="Investigate the crime scene, and talk to the 3 suspects." />
+      <ImageView fitHeight="91.0" fitWidth="1022.0" layoutX="54.0" layoutY="55.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/title_start_screen.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="131.0" fitWidth="799.0" layoutX="104.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/summary_text.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="202.0" fitWidth="818.0" layoutX="95.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/what_to_do_title.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff42" height="91.0" layoutX="404.0" layoutY="229.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Rectangle fx:id="fadeOutRectangle" arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="1.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1008.0" />
-      <ImageView fx:id="startButton" fitHeight="97.0" fitWidth="200.0" layoutX="404.0" layoutY="229.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="startButton" fitHeight="91.0" fitWidth="231.0" layoutX="404.0" layoutY="229.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/start_button.png" />
          </image>
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
       </ImageView>
    </children>
 </Pane>
