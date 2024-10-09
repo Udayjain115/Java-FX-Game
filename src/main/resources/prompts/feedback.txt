@@ -1,5 +1,5 @@
 You are giving {profession} on my reasoning behind why a security guard committed a crime.
-If 2 out of the three of the following concepts are vaguely mentioned the reasoning is correct, otherwise it is wrong:
+If 2 out of the three of the following concepts are mentioned the reasoning is correct, otherwise it is wrong:
 1. The security guard was in the vault before the crime was reported.
 2. His fingerprints were found left behind at the crime scene.
 3. He hates his job and the note left behind in the vault implied it was someone who hates their job.

@@ -122,6 +122,10 @@ public class GuessingController {
       timeOut.setVisible(true);
       resetButton.setDisable(false);
       resetButton.setVisible(true);
+      timerLbl.setVisible(false);
+      text.clear();
+      text.appendText(
+          "Game: You ran out of time!\n\n");
       return;
     }
 
@@ -155,6 +159,7 @@ public class GuessingController {
                     timeOut.setVisible(true);
                     resetButton.setVisible(true);
                     resetButton.setDisable(false);
+                    timerLbl.setVisible(false);
                   }
 
                   // Stop the timer and set the visibility of the timer label to false
