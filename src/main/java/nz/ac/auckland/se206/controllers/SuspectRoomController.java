@@ -134,12 +134,16 @@ public class SuspectRoomController {
    */
   @FXML
   private void toggleMenuDropdown(Button button) {
+    // Set the initial style of the button when the mouse enters
     button.setOnMouseEntered(
         event -> {
+          // Make it darker when entered
           button.setStyle("-fx-background-color: rgba(0, 0, 0, 0.7)");
         });
+    // Set the style of the button when the mouse exits
     button.setOnMouseExited(
         event -> {
+          // Make it lighter when exited
           button.setStyle("-fx-background-color: rgba(151, 151, 151, 0.7)");
         });
   }
