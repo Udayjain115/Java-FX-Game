@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,6 +17,9 @@
          <image>
             <Image url="@../images/right_arrow2.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </ImageView>
       <Pane layoutY="419.0" prefHeight="92.0" prefWidth="703.0" styleClass="light_intro" stylesheets="@../css/intro.css">
          <children>
