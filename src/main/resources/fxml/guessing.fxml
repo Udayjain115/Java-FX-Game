@@ -12,7 +12,7 @@
 
 <Pane prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessingController">
    <children>
-      <ImageView fitHeight="568.0" fitWidth="1014.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="suspects" fitHeight="568.0" fitWidth="1014.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/guessingIMG.png" />
          </image>
@@ -52,19 +52,24 @@
             <Image url="@../images/WrongReason.png" />
          </image>
       </ImageView>
-      <Button fx:id="resetButton" layoutX="471.0" layoutY="284.0" mnemonicParsing="false" onAction="#onResetGame" text="Replay Game" />
-      <Pane layoutX="146.0" layoutY="327.0" prefHeight="221.0" prefWidth="736.0" styleClass="text-background" stylesheets="@../css/text-background.css">
+      <Pane fx:id="guessingPane" layoutX="146.0" layoutY="327.0" prefHeight="221.0" prefWidth="736.0" styleClass="text-background" stylesheets="@../css/text-background.css">
          <children>
             <TextField fx:id="textInput" layoutX="16.0" layoutY="157.0" prefHeight="45.0" prefWidth="612.0" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-border-color: #e8edeb; -fx-border-radius: 20; -fx-background-radius: 20; -fx-padding: 10px 20px;" styleClass="text-field" stylesheets="@../css/text-field.css" text="" />
             <TextArea fx:id="text" editable="false" layoutX="16.0" layoutY="14.0" prefHeight="133.0" prefWidth="706.0" styleClass="text-area" stylesheets="@../css/text-area.css" wrapText="true" />
-            <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="32.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="btnSend" layoutX="639.0" layoutY="156.0" mnemonicParsing="false" onAction="#onSendMessage" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-background-radius: 20; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2); -fx-border-color: #e8edeb; -fx-border-radius: 20;" styleClass="text-field" stylesheets="@../css/text-field.css" text="Send" />
+         </children>
+      </Pane>
+      <Pane fx:id="endPane" layoutX="146.0" layoutY="352.0" prefHeight="174.0" prefWidth="736.0" styleClass="text-background" stylesheets="@../css/text-background.css">
+         <children>
+            <TextArea fx:id="text1" editable="false" layoutX="16.0" layoutY="14.0" prefHeight="147.0" prefWidth="706.0" styleClass="text-area" stylesheets="@../css/text-area.css" wrapText="true" />
+            <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="23.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/pen.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnSend" layoutX="639.0" layoutY="156.0" mnemonicParsing="false" onAction="#onSendMessage" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-background-radius: 20; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2); -fx-border-color: #e8edeb; -fx-border-radius: 20;" styleClass="text-field" stylesheets="@../css/text-field.css" text="Send" />
          </children>
       </Pane>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />
+      <Button fx:id="resetButton" layoutX="435.0" layoutY="289.0" mnemonicParsing="false" onAction="#onResetGame" styleClass="replay" stylesheets="@../css/guess_button.css" text="Replay Game" />
    </children>
 </Pane>

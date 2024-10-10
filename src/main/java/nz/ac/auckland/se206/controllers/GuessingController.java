@@ -23,6 +23,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
@@ -45,17 +46,21 @@ import nz.ac.auckland.se206.prompts.PromptEngineering;
  */
 public class GuessingController {
   @FXML private TextArea text;
+  @FXML private TextArea text1;
   @FXML private TextField textInput;
   @FXML private Rectangle police;
   @FXML private Rectangle manager;
   @FXML private Rectangle janitor;
   @FXML private Button btnSend;
   @FXML private Label timerLbl;
+  @FXML private ImageView suspects;
   @FXML private ImageView wrongPerson;
   @FXML private ImageView wrongReason;
   @FXML private ImageView won;
   @FXML private ImageView timeOut;
   @FXML private Button resetButton;
+  @FXML private Pane endPane;
+  @FXML private Pane guessingPane;
   @FXML private javafx.scene.image.ImageView animationImage;
 
   // Declare the ImageView for the pen-writing animation
@@ -106,12 +111,14 @@ public class GuessingController {
     text.appendText("Game: Click on who you think the thief is... \n\n");
 
     // Set the visibility of the images to false
+    suspects.setVisible(true);
     wrongPerson.setVisible(false);
     wrongReason.setVisible(false);
     won.setVisible(false);
     timeOut.setVisible(false);
     resetButton.setDisable(true);
     resetButton.setVisible(false);
+    endPane.setVisible(false);
 
     textInput.setOnKeyPressed(
         event -> {
@@ -130,12 +137,14 @@ public class GuessingController {
         });
 
     if (CrimeSceneController.visitedRooms.size() < 4) {
+      endPane.setVisible(true);
+      guessingPane.setVisible(false);
       timeOut.setVisible(true);
       resetButton.setDisable(false);
       resetButton.setVisible(true);
       timerLbl.setVisible(false);
       text.clear();
-      text.appendText("Game: You ran out of time!\n\n");
+      text1.appendText("Game: You ran out of time!\n\n");
       return;
     }
 
@@ -167,6 +176,9 @@ public class GuessingController {
                     onSendMessage(new ActionEvent());
                   } else {
                     timeOut.setVisible(true);
+                    guessingPane.setVisible(false);
+                    endPane.setVisible(true);
+                    suspects.setVisible(false);
                     resetButton.setVisible(true);
                     resetButton.setDisable(false);
                     timerLbl.setVisible(false);
@@ -248,11 +260,15 @@ public class GuessingController {
 
     // Check if the rectangle clicked is the police officer
     if (clickedRectangle == manager || clickedRectangle == janitor) {
+      guessingPane.setVisible(false);
+      endPane.setVisible(true);
       text.clear();
-      text.appendText("Game: You did not guess correctly. You lost! The thief got away \n\n");
+      text1.appendText(
+          "Detective: That was not the thief! The real thief got away with the jewels! \n\n");
       btnSend.setDisable(true);
       textInput.setDisable(true);
       wrongPerson.setVisible(true);
+      suspects.setVisible(false);
       resetButton.setDisable(false);
       resetButton.setVisible(true);
       timer.stop();
@@ -262,8 +278,8 @@ public class GuessingController {
     } else {
       text.clear();
       text.appendText(
-          "Game: The security guard has been arrested. Please give the detectives your"
-              + " reasoning.\n\n");
+          "Detective: We arrested the security guard. Please tell us why you think it's"
+              + " him...\n\n");
       btnSend.setDisable(false);
       textInput.setDisable(false);
       return;
@@ -353,7 +369,9 @@ public class GuessingController {
     }
     timer.stop();
     timerLbl.setVisible(false);
-    text.appendText("You: " + message + "\n\n");
+    endPane.setVisible(true);
+    guessingPane.setVisible(false);
+    text1.appendText("You: " + message + "\n\n");
     textInput.clear();
     setProfession("feedback");
     runGpt(new ChatMessage("user", message));
@@ -372,15 +390,19 @@ public class GuessingController {
         chatMessages.add(msg.getContent());
         Platform.runLater(
             () -> {
+              guessingPane.setVisible(false);
+              endPane.setVisible(true);
               text.clear();
               // Append the message to the chat text area
-              text.appendText("Game: " + msg.getContent() + "\n\n");
+              text1.appendText("Game: " + msg.getContent() + "\n\n");
               // If the message contains the word "correct", show the won image
               if (msg.getContent().contains("correct")) {
                 won.setVisible(true);
+                suspects.setVisible(false);
                 // If the message contains the word "missing", show the wrong person image
               } else if (msg.getContent().contains("missing")) {
                 wrongReason.setVisible(true);
+                suspects.setVisible(false);
               }
               // Disable the send button and enable the reset button
               btnSend.setDisable(true);

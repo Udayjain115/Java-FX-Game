@@ -5,42 +5,112 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <Pane fx:id="evidencePane" prefHeight="564.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.EvidenceController">
    <children>
-      <ImageView fitHeight="562.0" fitWidth="1008.0">
+      <ImageView fitHeight="459.0" fitWidth="952.0" layoutX="28.0" layoutY="29.0" opacity="0.65">
          <image>
-            <Image url="@../images/istockphoto-479520746-612x612-removebg-preview.png" />
+            <Image url="@../images/background-anime.png" />
          </image>
       </ImageView>
-      <Button layoutX="68.0" layoutY="492.0" mnemonicParsing="false" onAction="#onClickShutDown" text="Shut Down" />
-      <ImageView fx:id="suspectFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="80.0" onMouseClicked="#toSuspectFingerprints">
-         <image>
-            <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="51.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suspect Fingerprints" />
-      <ImageView fx:id="vaultFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="197.0" onMouseClicked="#toVaultFingerprints">
+      <ImageView fx:id="suspectFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="51.0" onMouseClicked="#toSuspectFingerprints">
          <image>
             <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
          </image>
       </ImageView>
-      <Text layoutX="57.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vault Fingerprints" />
-      <ImageView fx:id="forensicRules" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="332.0" onMouseClicked="#toForensicsPolicies">
+      <Text fontSmoothingType="LCD" layoutX="51.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suspect Fingerprints">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <ImageView fx:id="vaultFingerprint" fitHeight="77.0" fitWidth="75.0" layoutX="65.0" layoutY="150.0" onMouseClicked="#toVaultFingerprints">
          <image>
             <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
          </image>
       </ImageView>
+      <Text fontSmoothingType="LCD" layoutX="52.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vault Fingerprints">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutX="50.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forensics Policies" />
-      <ImageView fx:id="investigationLog" fitHeight="77.0" fitWidth="75.0" layoutX="227.0" layoutY="80.0" onMouseClicked="#toInvestigationLog">
+      <Label fx:id="timerLbl" alignment="CENTER" layoutX="464.0" layoutY="39.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="33.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="1008.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="82.0" layoutY="485.0" stroke="BLACK" strokeType="INSIDE" width="1008.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="564.0" layoutX="-4.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="33.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="564.0" layoutX="978.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="33.0" />
+      <Button layoutX="875.0" layoutY="498.0" mnemonicParsing="false" onAction="#onClickShutDown" prefHeight="57.0" prefWidth="74.0" style="-fx-background-color: black;" />
+      <ImageView fitHeight="57.0" fitWidth="62.0" layoutX="881.0" layoutY="498.0">
          <image>
-            <Image url="@../images/OneDrive_Folder_Icon.svg.png" />
+            <Image url="@../images/power_symbol-1-p0.png" />
          </image>
       </ImageView>
-      <Text layoutX="217.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Investigation Log" />
-      <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
+      <Pane fx:id="suspectFingerprintPane" layoutX="635.0" layoutY="125.0">
+         <children>
+            <ImageView fitHeight="307.0" fitWidth="355.0" layoutX="-33.0" layoutY="-98.0">
+               <image>
+                  <Image url="@../images/folderpaper.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="112.0" fitWidth="75.0" layoutX="-1.0" layoutY="6.0">
+               <image>
+                  <Image url="@../images/Fingerprint3-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="64.0" layoutY="-50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suspect Fingerprints" wrappingWidth="168.4366455078125">
+               <font>
+                  <Font name="Agency FB Bold" size="20.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="112.0" fitWidth="100.0" layoutX="83.0">
+               <image>
+                  <Image url="@../images/Fingerprint2-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="123.0" fitWidth="131.0" layoutX="167.0" layoutY="-5.0">
+               <image>
+                  <Image url="@../images/FingerPrint4-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="1.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Police Officer" />
+            <Text layoutX="112.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Janitor" />
+            <Text layoutX="194.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Manager" />
+            <ImageView fx:id="closeSuspectFingerprint" fitHeight="24.0" fitWidth="22.0" layoutX="259.0" layoutY="-69.0" onMouseClicked="#closeSuspectFingerprint" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/exit.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="vaultFingerprintPane" layoutX="364.0" layoutY="259.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="224.0" fitWidth="399.0">
+               <image>
+                  <Image url="@../images/folderpaper.png" />
+               </image>
+            </ImageView>
+            <Text fontSmoothingType="LCD" layoutX="-39.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fingerprints found on the vault " textAlignment="CENTER" wrappingWidth="454.146484375">
+               <font>
+                  <Font name="Agency FB Bold" size="20.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="112.0" fitWidth="75.0" layoutX="63.0" layoutY="62.0">
+               <image>
+                  <Image url="@../images/Fingerprint3-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="123.0" fitWidth="131.0" layoutX="179.0" layoutY="51.0">
+               <image>
+                  <Image url="@../images/FingerPrint4-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="closeVaultFingerprint" fitHeight="24.0" fitWidth="22.0" layoutX="330.0" layoutY="19.0" onMouseClicked="#closeVaultFingerprint" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/exit.png" />
+               </image>
+            </ImageView>
+         </children></Pane>            
    </children>
 </Pane>

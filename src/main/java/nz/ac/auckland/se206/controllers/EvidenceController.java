@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager;
@@ -21,6 +22,8 @@ import nz.ac.auckland.se206.Timer;
  * also view the timer on the evidence view.
  */
 public class EvidenceController {
+  @FXML private Pane suspectFingerprintPane;
+  @FXML private Pane vaultFingerprintPane;
 
   @FXML private Label timerLbl;
 
@@ -29,6 +32,9 @@ public class EvidenceController {
    * initializes the timer and binds the timer label to the time left.
    */
   public void initialize() {
+    suspectFingerprintPane.setVisible(false);
+    vaultFingerprintPane.setVisible(false);
+
     // Get the timer instance
     Timer timer = Timer.getTimer();
     StringBinding timeLayout =
@@ -57,7 +63,7 @@ public class EvidenceController {
    * @throws IOException if the FXML file is not found
    */
   public void toSuspectFingerprints() throws IOException {
-    App.setRoot("suspectFingerprint");
+    suspectFingerprintPane.setVisible(true);
   }
 
   /**
@@ -67,7 +73,15 @@ public class EvidenceController {
    * @throws IOException if the FXML file is not found
    */
   public void toVaultFingerprints() throws IOException {
-    App.setRoot("vaultFingerprint");
+    vaultFingerprintPane.setVisible(true);
+  }
+
+  public void closeSuspectFingerprint() {
+    suspectFingerprintPane.setVisible(false);
+  }
+
+  public void closeVaultFingerprint() {
+    vaultFingerprintPane.setVisible(false);
   }
 
   /**
@@ -109,6 +123,9 @@ public class EvidenceController {
    */
   @FXML
   private void onClickShutDown(ActionEvent event) throws IOException {
+    suspectFingerprintPane.setVisible(false);
+    vaultFingerprintPane.setVisible(false);
+
     Parent crimeSceneRoot = SceneManager.getUiRoot(SceneManager.AppUi.CRIME_SCENE);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
