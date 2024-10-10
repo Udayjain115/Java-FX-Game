@@ -52,7 +52,6 @@
             <Image url="@../images/WrongReason.png" />
          </image>
       </ImageView>
-      <Button fx:id="resetButton" layoutX="471.0" layoutY="284.0" mnemonicParsing="false" onAction="#onResetGame" text="Replay Game" />
       <Pane fx:id="guessingPane" layoutX="146.0" layoutY="327.0" prefHeight="221.0" prefWidth="736.0" styleClass="text-background" stylesheets="@../css/text-background.css">
          <children>
             <TextField fx:id="textInput" layoutX="16.0" layoutY="157.0" prefHeight="45.0" prefWidth="612.0" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-border-color: #e8edeb; -fx-border-radius: 20; -fx-background-radius: 20; -fx-padding: 10px 20px;" styleClass="text-field" stylesheets="@../css/text-field.css" text="" />
@@ -71,5 +70,6 @@
          </children>
       </Pane>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />
+      <Button fx:id="resetButton" layoutX="435.0" layoutY="289.0" mnemonicParsing="false" onAction="#onResetGame" styleClass="replay" stylesheets="@../css/guess_button.css" text="Replay Game" />
    </children>
 </Pane>
