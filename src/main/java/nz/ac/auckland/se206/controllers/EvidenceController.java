@@ -67,6 +67,16 @@ public class EvidenceController {
   }
 
   /**
+   * This method is called when the player clicks the return to crime scene button. It changes the
+   * viewable scene to the crime scene.
+   *
+   * @throws IOException if the FXML file is not found
+   */
+  public void returnToCrimeScene() throws IOException {
+    App.setRoot("crimeScene");
+  }
+
+  /**
    * This method is called when the player clicks the vault's fingerprints button. It changes the
    * viewable scene to the vault's fingerprints view.
    *
