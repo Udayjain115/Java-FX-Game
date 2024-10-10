@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,22 +18,34 @@
          <image>
             <Image url="@../images/exit.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </ImageView>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />
       <ImageView fx:id="left" fitHeight="400.0" fitWidth="600.0" layoutX="-63.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/original_leftpaper.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </ImageView>
       <ImageView fx:id="middle" fitHeight="400.0" fitWidth="600.0" layoutX="410.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/original_middlepaper.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </ImageView>
       <ImageView fx:id="right" fitHeight="400.0" fitWidth="600.0" layoutX="55.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/original_rightpaper.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </ImageView>
       <Label layoutX="22.0" layoutY="40.0" styleClass="rulebook" stylesheets="@../css/rulebook.css" text="Stick the ripped pieces of paper together..." />
       <Label fx:id="completeLabel" layoutX="705.0" layoutY="25.0" opacity="0.28" styleClass="complete" stylesheets="@../css/rulebook.css" text="Solved" />

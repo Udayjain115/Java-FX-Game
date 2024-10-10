@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -16,26 +17,41 @@
             <Image url="@../images/anime_janitor2.png" />
          </image>
       </ImageView>
-      <Button fx:id="menuButton" layoutX="12.0" layoutY="17.0" onAction="#onClickToggleMenu" prefHeight="45.0" prefWidth="258.0" styleClass="menu_button" stylesheets="@../css/navigation.css" text="Janitor" />
+      <Button fx:id="menuButton" layoutX="12.0" layoutY="17.0" onAction="#onClickToggleMenu" prefHeight="45.0" prefWidth="258.0" styleClass="menu_button" stylesheets="@../css/navigation.css" text="Janitor">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Button>
       <ImageView fitHeight="30.0" fitWidth="53.0" layoutX="217.0" layoutY="29.0" onMouseClicked="#onClickToggleMenu" pickOnBounds="true" preserveRatio="true">
           <image>
             <Image url="@../images/triangle.png" />
           </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </ImageView>
       <!-- Menu Items (Initially hidden in controller logic) -->
       <VBox fx:id="menuBox" layoutX="12.0" layoutY="63.25" prefHeight="76.0" prefWidth="258.0" visible="false">
         <Button fx:id="dropdownButton1" onAction="#onClickCopMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Hallway">
-        </Button>
+            <cursor>
+               <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
         <Button fx:id="dropdownButton2" onAction="#onClickBankManagerMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Bank Office">
-        </Button>
+            <cursor>
+               <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
         <Button fx:id="dropdownButton3" onAction="#onClickCrimeSceneMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Crime Scene">
-        </Button>
+            <cursor>
+               <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
       </VBox>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
       <Pane layoutX="136.0" layoutY="361.0" prefHeight="177.0" prefWidth="736.0" styleClass="text-background" stylesheets="@../css/text-background.css">
          <children>
             <TextField fx:id="textInput" layoutX="19.0" layoutY="112.0" prefHeight="45.0" prefWidth="612.0" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-border-color: #e8edeb; -fx-border-radius: 20; -fx-background-radius: 20; -fx-padding: 10px 20px;" styleClass="text-field" stylesheets="@../css/text-field.css" text="" />
-            <Button fx:id="btnSend" layoutX="638.0" layoutY="110.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#janitorSetTrue" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-background-radius: 20; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2); -fx-border-color: #e8edeb; -fx-border-radius: 20;" styleClass="text-field" stylesheets="@../css/text-field.css" text="Send" />
+            <Button fx:id="btnSend" layoutX="638.0" layoutY="110.0" mnemonicParsing="false" onAction="#onSendMessage" onMouseClicked="#janitorSetTrue" style="-fx-background-color: rgba(0, 0, 0, 0.4); -fx-background-radius: 20; -fx-padding: 12px 24px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 2, 2); -fx-border-color: #e8edeb; -fx-border-radius: 20;" styleClass="text-field" stylesheets="@../css/text-field.css" text="Send">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Button>
             <TextArea fx:id="text" editable="false" layoutX="16.0" layoutY="14.0" prefHeight="77.0" prefWidth="706.0" styleClass="text-area" stylesheets="@../css/text-area.css" wrapText="true" />
             <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="18.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                <image>

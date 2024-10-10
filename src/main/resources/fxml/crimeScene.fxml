@@ -21,20 +21,32 @@
                </image>
             </ImageView>
             <Button fx:id="btnGuess" layoutX="432.0" layoutY="20.0" mnemonicParsing="false" onAction="#onGuessClick" styleClass="guess" stylesheets="@../css/guess_button.css" text="Make a Guess" />          
-            <Button fx:id="menuButton" layoutX="12.0" layoutY="17.0" onAction="#onClickToggleMenu" prefHeight="45.0" prefWidth="258.0" styleClass="menu_button" stylesheets="@../css/navigation.css" text="Crime Scene" />
+            <Button fx:id="menuButton" layoutX="12.0" layoutY="17.0" onAction="#onClickToggleMenu" prefHeight="45.0" prefWidth="258.0" styleClass="menu_button" stylesheets="@../css/navigation.css" text="Crime Scene">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Button>
             <ImageView fitHeight="30.0" fitWidth="53.0" layoutX="217.0" layoutY="29.0" onMouseClicked="#onClickToggleMenu" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/triangle.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
             </ImageView>
             <!-- Menu Items (Initially hidden in controller logic) -->
             <VBox fx:id="menuBox" layoutX="12.0" layoutY="63.25" prefHeight="76.0" prefWidth="258.0" visible="false">
               <Button fx:id="copButton" onAction="#onClickCopMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Hallway">
-              </Button>
+                  <cursor>
+                     <Cursor fx:constant="OPEN_HAND" />
+                  </cursor></Button>
               <Button fx:id="janitorButton" onAction="#onClickJanitorMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Janitor">
-              </Button>
+                  <cursor>
+                     <Cursor fx:constant="OPEN_HAND" />
+                  </cursor></Button>
               <Button fx:id="managerButton" onAction="#onClickBankManagerMenu" prefHeight="45.0" prefWidth="258.0" styleClass="dropdown" stylesheets="@../css/navigation.css" text="Bank Office">
-              </Button>
+                  <cursor>
+                     <Cursor fx:constant="OPEN_HAND" />
+                  </cursor></Button>
             </VBox>
             <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
             <Circle fx:id="cameraHoverGlow" fill="YELLOW" layoutX="323.0" layoutY="81.0" onMouseClicked="#cameraClick" opacity="0.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
