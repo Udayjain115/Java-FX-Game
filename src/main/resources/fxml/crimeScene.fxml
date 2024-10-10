@@ -41,7 +41,12 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor></Circle>
-            <Ellipse fx:id="paperHoverGlow" fill="YELLOW" layoutX="625.0" layoutY="502.0" onMouseClicked="#openRuleBook" opacity="0.0" radiusX="79.0" radiusY="39.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+            <ImageView fitHeight="78.0" fitWidth="169.0" layoutX="489.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/newpaper.png" />
+               </image>
+            </ImageView>
+            <Ellipse fx:id="paperHoverGlow" fill="YELLOW" layoutX="528.0" layoutY="497.0" onMouseClicked="#openRuleBook" opacity="0.0" radiusX="50.0" radiusY="39.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor></Ellipse>

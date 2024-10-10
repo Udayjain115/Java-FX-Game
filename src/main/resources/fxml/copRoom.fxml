@@ -52,6 +52,6 @@
         </Button>
       </VBox>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />            
-      <TextField layoutX="136.0" layoutY="317.0" prefWidth="157.0"  styleClass="text-profession-label" stylesheets="@../css/text-background.css" text="Policeman" /> 
+      <TextField layoutX="136.0" layoutY="317.0" prefHeight="44.0" prefWidth="185.0" styleClass="text-profession-label" stylesheets="@../css/text-background.css" text="Security Guard" /> 
       </children>
 </Pane>
