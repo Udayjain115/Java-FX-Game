@@ -12,12 +12,12 @@
 
 <Pane prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessingController">
    <children>
-      <ImageView fitHeight="568.0" fitWidth="1014.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="suspects" fitHeight="567.0" fitWidth="1022.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/guessingIMG.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="manager" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="576.0" layoutX="673.0" layoutY="-7.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="341.0">
+      <Rectangle fx:id="janitor" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="562.0" layoutX="337.0" layoutY="1.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -27,19 +27,14 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Rectangle>
-      <Rectangle fx:id="janitor" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="562.0" layoutX="337.0" layoutY="1.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0">
+      <Rectangle fx:id="manager" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="576.0" layoutX="673.0" layoutY="-7.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="341.0">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Rectangle>
-      <ImageView fx:id="wrongPerson" fitHeight="568.0" fitWidth="1008.0" layoutX="3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wrongReason" fitHeight="568.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/WrongPerson.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="timeOut" fitHeight="567.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/TimeOut.png" />
+            <Image url="@../images/WrongReason.png" />
          </image>
       </ImageView>
       <ImageView fx:id="won" fitHeight="567.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
@@ -47,9 +42,14 @@
             <Image url="@../images/Won.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wrongReason" fitHeight="568.0" fitWidth="1010.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="timeOut" fitHeight="567.0" fitWidth="1014.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/WrongReason.png" />
+            <Image url="@../images/TimeOut.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wrongPerson" fitHeight="567.0" fitWidth="1018.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/WrongPerson.png" />
          </image>
       </ImageView>
       <Button fx:id="resetButton" layoutX="471.0" layoutY="284.0" mnemonicParsing="false" onAction="#onResetGame" text="Replay Game" />

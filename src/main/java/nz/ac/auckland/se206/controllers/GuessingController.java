@@ -51,6 +51,7 @@ public class GuessingController {
   @FXML private Rectangle janitor;
   @FXML private Button btnSend;
   @FXML private Label timerLbl;
+  @FXML private ImageView suspects;
   @FXML private ImageView wrongPerson;
   @FXML private ImageView wrongReason;
   @FXML private ImageView won;
@@ -106,6 +107,7 @@ public class GuessingController {
     text.appendText("Game: Click on who you think the thief is... \n\n");
 
     // Set the visibility of the images to false
+    suspects.setVisible(true);
     wrongPerson.setVisible(false);
     wrongReason.setVisible(false);
     won.setVisible(false);
@@ -167,6 +169,7 @@ public class GuessingController {
                     onSendMessage(new ActionEvent());
                   } else {
                     timeOut.setVisible(true);
+                    suspects.setVisible(false);
                     resetButton.setVisible(true);
                     resetButton.setDisable(false);
                     timerLbl.setVisible(false);
@@ -253,6 +256,7 @@ public class GuessingController {
       btnSend.setDisable(true);
       textInput.setDisable(true);
       wrongPerson.setVisible(true);
+      suspects.setVisible(false);
       resetButton.setDisable(false);
       resetButton.setVisible(true);
       timer.stop();
@@ -378,9 +382,11 @@ public class GuessingController {
               // If the message contains the word "correct", show the won image
               if (msg.getContent().contains("correct")) {
                 won.setVisible(true);
+                suspects.setVisible(false);
                 // If the message contains the word "missing", show the wrong person image
               } else if (msg.getContent().contains("missing")) {
                 wrongReason.setVisible(true);
+                suspects.setVisible(false);
               }
               // Disable the send button and enable the reset button
               btnSend.setDisable(true);
