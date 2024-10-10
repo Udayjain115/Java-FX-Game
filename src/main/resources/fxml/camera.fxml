@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -28,12 +29,15 @@
             <Image url="@../images/13_camera.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="twocam" fitHeight="577.0" fitWidth="1016.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="twocam" fitHeight="578.0" fitWidth="1016.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/14_camera.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="exit" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="56.0" layoutX="34.0" layoutY="35.0" onMouseClicked="#onExit" stroke="TRANSPARENT" strokeType="INSIDE" width="59.0" />
+      <Rectangle fx:id="exit" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="56.0" layoutX="34.0" layoutY="35.0" onMouseClicked="#onExit" stroke="TRANSPARENT" strokeType="INSIDE" width="59.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Rectangle>
       <Rectangle fx:id="back" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="103.0" layoutX="22.0" layoutY="230.0" onMouseClicked="#onGoBack" stroke="TRANSPARENT" strokeType="INSIDE" width="71.0" />
       <Rectangle fx:id="forward" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="103.0" layoutX="910.0" layoutY="233.0" onMouseClicked="#onGoForward" stroke="TRANSPARENT" strokeType="INSIDE" width="71.0" />
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="708.0" layoutY="18.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />
