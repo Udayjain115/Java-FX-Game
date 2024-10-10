@@ -14,6 +14,26 @@
   -fx-transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.replay {
+  -fx-background-color: rgb(44, 41, 41);
+  -fx-text-fill: white;
+  -fx-font-family: "Venite Adoremus Straight";
+  -fx-font-size: 16px;
+  -fx-font-weight: bold;
+  -fx-padding: 10px 20px;
+  -fx-background-radius: 10px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 2, 2);
+  -fx-cursor: hand;
+  -fx-border-color: rgb(30, 28, 28);;
+  -fx-border-width: 2px;
+  -fx-border-radius: 10px;
+  -fx-transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.replay:hover {
+  -fx-background-color: black;
+}
+
 .guess:hover {
   -fx-background-color: #45A049;
 }
