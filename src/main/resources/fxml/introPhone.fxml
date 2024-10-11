@@ -21,11 +21,16 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </ImageView>
-      <Pane layoutY="281.0" prefHeight="92.0" prefWidth="782.0" styleClass="light_intro" stylesheets="@../css/intro.css">
+      <Pane layoutX="226.0" layoutY="409.0" prefHeight="92.0" prefWidth="782.0" styleClass="light_intro" stylesheets="@../css/intro.css">
          <children>
             <Label layoutX="33.0" layoutY="34.0" prefHeight="20.0" prefWidth="737.0" styleClass="intro-text" stylesheets="@../css/intro.css" text="&quot;Help!!! We have just be robbed of the crown jewel! PI Masters... We need you!" />
          </children>
       </Pane>
       <Label fx:id="timerLbl" alignment="CENTER" layoutX="874.0" layoutY="17.0" prefHeight="45.0" prefWidth="120.0" styleClass="timer" stylesheets="@../css/timer.css" text="00:00" />
+      <Pane layoutY="252.0" prefHeight="92.0" prefWidth="782.0" styleClass="light_intro" stylesheets="@../css/intro.css">
+         <children>
+            <Label layoutX="33.0" layoutY="34.0" prefHeight="20.0" prefWidth="737.0" styleClass="intro-text" stylesheets="@../css/intro.css" text="Time: 12:00pm" />
+         </children>
+      </Pane>
    </children>
 </Pane>
