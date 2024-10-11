@@ -1,13 +1,10 @@
 package nz.ac.auckland.se206;
 
-import java.io.File;
 import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 /**
@@ -48,14 +45,7 @@ public class Timer {
                 e -> {
                   if (time.get() > 0) {
                     time.set(time.get() - 1);
-                    if (time.get() == 120) {
-                      String soundFile =
-                          "src/main/resources/sounds/ttsmaker-file-2024-10-7-17-10-55.mp3";
 
-                      Media sound = new Media(new File(soundFile).toURI().toString());
-                      MediaPlayer mediaPlayer = new MediaPlayer(sound);
-                      mediaPlayer.play();
-                    }
                   } else {
                     if (!reachedZero && hasReset) {
                       timeline.stop();
