@@ -7,3 +7,4 @@ If the reasoning is correct say:
 "Your reasoning is correct!" and then very briefly say why it is correct and if they missed one of the points say what it was.
 If the message seems incomplete, confusing or is wrong, respond by saying:
 "Your reasoning is missing key evidence." and then list and explain all the points they missed.
+It MUST fall under one of these options.

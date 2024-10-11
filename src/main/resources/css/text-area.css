@@ -9,8 +9,6 @@
 
 .text-area .scroll-pane {
   -fx-background-color: transparent;
-  -fx-hbar-policy: never;
-  -fx-vbar-policy: never;
 }
 
 .text-area .scroll-pane .viewport {
@@ -18,5 +16,41 @@
 }
 
 .text-area .scroll-pane .content {
+  -fx-background-color: transparent;
+}
+
+/* Style for the vertical scrollbar in the TextArea */
+.text-area .scroll-bar:vertical .track {
+  -fx-background-color: #9b9a9a;
+  /* Track background color */
+}
+
+.text-area .scroll-bar:vertical .thumb {
+  -fx-background-color: #000000;
+  /* Thumb color */
+  -fx-background-radius: 10px;
+  /* Round corners */
+}
+
+.text-area .scroll-bar:vertical .thumb:hover {
+  -fx-background-color: #000000;
+  /* Darker color when hovered */
+}
+
+/* Style the increment and decrement arrows */
+.text-area .scroll-bar .increment-arrow,
+.text-area .scroll-bar .decrement-arrow {
+  -fx-background-color: transparent;
+  /* Transparent arrows */
+  -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+  /* Custom arrow shape */
+}
+
+/* Hide the increment and decrement buttons for vertical scroll bar */
+.text-area .scroll-bar:vertical .increment-button,
+.text-area .scroll-bar:vertical .decrement-button {
+  -fx-pref-width: 0;
+  -fx-pref-height: 0;
+  -fx-opacity: 0;
   -fx-background-color: transparent;
 }
