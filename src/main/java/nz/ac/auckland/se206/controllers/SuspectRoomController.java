@@ -69,6 +69,8 @@ public class SuspectRoomController {
 
   @FXML
   private void initialize() {
+    textInput.setDisable(true);
+    btnSend.setDisable(true);
 
     toggleMenuDropdown(dropdownButton1);
     toggleMenuDropdown(dropdownButton2);
@@ -334,6 +336,7 @@ public class SuspectRoomController {
             () -> {
               try {
                 System.out.println(profession);
+
                 showThinkingMessage();
                 chatCompletionRequest.addMessage(msg);
                 ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
@@ -341,6 +344,8 @@ public class SuspectRoomController {
                 chatCompletionRequest.addMessage(result.getChatMessage());
                 clearThinkingMessage();
                 onAppendChatMessage(result.getChatMessage());
+                textInput.setDisable(false);
+                btnSend.setDisable(false);
                 // this way the people will not speak out loud
                 // TextToSpeech.speak(result.getChatMessage().getContent());
               } catch (ApiProxyException e) {
@@ -361,8 +366,13 @@ public class SuspectRoomController {
    */
   @FXML
   private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
+    textInput.setDisable(true);
+    btnSend.setDisable(true);
+
     String message = textInput.getText().trim();
     if (message.isEmpty()) {
+      textInput.setDisable(false);
+      btnSend.setDisable(false);
       return;
     }
     if (profession.equals("policeman")) {
