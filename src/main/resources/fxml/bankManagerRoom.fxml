@@ -60,6 +60,6 @@
             </ImageView>
          </children>
       </Pane>
-      <TextField layoutX="136.0" layoutY="317.0" prefWidth="157.0" styleClass="text-profession-label" stylesheets="@../css/text-background.css" text="Bank Manager" /> 
+      <Label alignment="CENTER" layoutX="136.0" layoutY="317.0" prefHeight="43.0" prefWidth="190.0" styleClass="text-profession-label" stylesheets="@../css/text-background.css" text="Bank Manager" /> 
    </children>
 </Pane>
