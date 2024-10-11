@@ -41,8 +41,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="82.0" layoutY="485.0" stroke="BLACK" strokeType="INSIDE" width="1008.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="564.0" layoutX="-4.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="33.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="564.0" layoutX="978.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="33.0" />
-      <Button layoutX="875.0" layoutY="498.0" mnemonicParsing="false" onAction="#onClickShutDown" prefHeight="57.0" prefWidth="74.0" style="-fx-background-color: black;" />
-      <ImageView fitHeight="57.0" fitWidth="62.0" layoutX="881.0" layoutY="498.0" onMouseClicked="#returnToCrimeScene">
+      <ImageView fitHeight="57.0" fitWidth="62.0" layoutX="881.0" layoutY="498.0">
          <image>
             <Image url="@../images/power_symbol-1-p0.png" />
          </image>
@@ -114,6 +113,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </ImageView>
-         </children></Pane>            
+         </children></Pane>
+      <Button layoutX="875.0" layoutY="498.0" mnemonicParsing="false" onAction="#onClickShutDown" opacity="0.0" prefHeight="57.0" prefWidth="74.0" style="-fx-background-color: black;" />            
    </children>
 </Pane>
