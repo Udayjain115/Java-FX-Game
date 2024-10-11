@@ -12,42 +12,42 @@
 
 <Pane prefHeight="562.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessingController">
    <children>
-      <ImageView fx:id="suspects" fitHeight="568.0" fitWidth="1014.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="suspects" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../images/guessingIMG.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="manager" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="576.0" layoutX="673.0" layoutY="-7.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="341.0">
+      <Rectangle fx:id="manager" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="576.0" layoutX="673.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="341.0">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Rectangle>
-      <Rectangle fx:id="police" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="576.0" layoutY="-3.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0">
+      <Rectangle fx:id="police" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="576.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Rectangle>
-      <Rectangle fx:id="janitor" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="562.0" layoutX="337.0" layoutY="1.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0">
+      <Rectangle fx:id="janitor" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="562.0" layoutX="337.0" onMouseClicked="#handleRectangleClicked" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Rectangle>
-      <ImageView fx:id="wrongPerson" fitHeight="568.0" fitWidth="1008.0" layoutX="3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wrongPerson" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../images/WrongPerson.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="timeOut" fitHeight="567.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="timeOut" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../images/TimeOut.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="won" fitHeight="567.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="won" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../images/Won.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wrongReason" fitHeight="568.0" fitWidth="1010.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wrongReason" fitHeight="562.0" fitWidth="1008.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../images/WrongReason.png" />
          </image>
@@ -62,7 +62,7 @@
       <Pane fx:id="endPane" layoutX="146.0" layoutY="352.0" prefHeight="174.0" prefWidth="736.0" styleClass="text-background" stylesheets="@../css/text-background.css">
          <children>
             <TextArea fx:id="text1" editable="false" layoutX="16.0" layoutY="14.0" prefHeight="147.0" prefWidth="706.0" styleClass="text-area" stylesheets="@../css/text-area.css" wrapText="true" />
-            <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="23.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="animationImage" fitHeight="43.0" fitWidth="57.0" layoutX="23.0" layoutY="44.0" pickOnBounds="true" preserveRatio="false">
                <image>
                   <Image url="@../images/pen.png" />
                </image>
