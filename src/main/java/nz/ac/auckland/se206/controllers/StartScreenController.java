@@ -1,10 +1,13 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
@@ -19,6 +22,7 @@ public class StartScreenController {
   @FXML private Pane startPane;
   @FXML private Rectangle fadeOutRectangle;
   @FXML private ImageView startButton;
+  private MediaPlayer mediaPlayer;
 
   /**
    * Initializes the start screen view. This method is called when the start screen view is loaded.
@@ -27,6 +31,7 @@ public class StartScreenController {
   @FXML
   private void initialize() {
     startButton.setVisible(true);
+    playWelcomeAudio();
   }
 
   /**
@@ -58,5 +63,12 @@ public class StartScreenController {
 
     // Start the fade to black transition
     fadeToBlack.play();
+  }
+
+  private void playWelcomeAudio() {
+    String audioFilePath = "src/main/resources/sounds/welcome.mp3"; // Update with the correct path
+    Media sound = new Media(new File(audioFilePath).toURI().toString());
+    mediaPlayer = new MediaPlayer(sound);
+    mediaPlayer.play();
   }
 }
